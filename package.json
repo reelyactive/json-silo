@@ -1,0 +1,33 @@
+{
+  "name": "json-silo",
+  "homepage": "https://github.com/reelyactive/json-silo/",
+  "author": "reelyActive <webdev@reelyactive.com>",
+  "description": "Datastore for JSON compatible with Smart Spaces.  We believe in an open Internet of Things.",
+  "keywords": [
+    "reelyActive",
+    "Smart Spaces",
+    "IoT"
+  ],
+  "version": "0.0.0",
+  "engines": {
+    "node": "^0.10.0"
+  },
+  "main": "./lib/server.js",
+  "bin": {
+    "json-silo": "./bin/json-silo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reelyactive/json-silo.git"
+  },
+  "dependencies": {
+    "barnowl": ">=0.4.0",
+    "nedb": ">=0.11.0",
+    "express": ">=4.0.0"
+  },
+  "devDependencies": {},
+  "bugs": {
+    "url": "https://github.com/reelyactive/json-silo/issues"
+  },
+  "license": "MIT"
+}

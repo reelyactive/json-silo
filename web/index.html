@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title> reelyActive: JSON Silo </title>
+    <link rel="stylesheet" href="style/main.css">
+  </head>
+  <body>
+    <div id="content">
+      <img src="images/logo.png">
+      <div class="split">
+        Enter your info:
+        <form action="add" method="post" enctype='application/json'>
+          <input type="text" name="firstName" placeholder="First Name"><br>
+          <input type="text" name="lastName" placeholder="Last Name"><br>
+          <input type="text" name="portraitImageUrl" placeholder="Portrait Image URL"><br>
+          <input type="text" name="companyName" placeholder="Company Name"><br>
+          <input type="text" name="companyUrl" placeholder="Company Webpage URL"><br>
+          <input type="text" name="linkedInPublicUrl" placeholder="LinkedIn Public URL"><br>
+          <input type="text" name="twitterPersonalScreenName" placeholder="Twitter Handle (without @)"><br>
+          Place (optional):<br>
+          <input type="text" name="place" placeholder="thebarn"><br>
+          Self-destruct after:<br>
+          <select name="duration">
+            <option name="15min" selected> 15 minutes </option>
+            <option name="1hour"> 1 hour </option>
+            <option name="4hours"> 4 hours </option>
+            <option name="12hours"> 12 hours </option>
+            <option name="24hours"> 24 hours </option>
+          </select><br>
+          And the final step:<br>
+          <input type="submit" name="action" value="Store your JSON in the silo">
+        </form>
+      </div>
+      <div class="split">
+        This is how it will be shared:
+        <pre id="json"></pre>
+      </div>
+      <br style="clear:both">
+    </div>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+  </body>
+</html>

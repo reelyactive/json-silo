@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title> JSON added to the silo </title>
+    <link rel="stylesheet" href="style/main.css">
+    <script type="text/javascript">
+      function getId() {
+        var url = window.location.search.substring(5);
+        $('#jsonUrl').html(url);
+        $("a[href='']").prop("href", url)
+      }
+    </script>
+  </head>
+  <body onload="getId()">
+    <div id="content">
+      <img src="images/logo.png">
+      <p> Your JSON was successfully added </p>
+      <p> It can be retrieved at the following URL until it self-destructs: </p>
+      <p><a id="jsonUrl" href=""></a><p>
+      <hr>
+      <p><a href="index.html"> Return to the JSON Silo </a></p>
+    </div>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+  </body>
+</html>
