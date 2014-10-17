@@ -7,9 +7,9 @@
   <body>
     <div id="content">
       <img src="images/logo.png">
-      <div class="split">
-        Enter your info:
-        <form action="add" method="post" enctype='application/json'>
+      <form action="add" method="post" enctype='application/json'>
+        <div class="split">
+          Enter your info:<br>
           <input type="text" name="firstName" placeholder="First Name"><br>
           <input type="text" name="lastName" placeholder="Last Name"><br>
           <input type="text" name="portraitImageUrl" placeholder="Portrait Image URL"><br>
@@ -26,16 +26,18 @@
             <option name="4hours"> 4 hours </option>
             <option name="12hours"> 12 hours </option>
             <option name="24hours"> 24 hours </option>
-          </select><br>
-          And the final step:<br>
+          </select>
+        </div>
+        <div class="split">
+          This is how it will be shared:<br>
+          <pre id="json"></pre>
+        </div>
+        <br style="clear:both">
+        <div class="calltoaction">
+          And the final step: &nbsp;
           <input type="submit" name="action" value="Store your JSON in the silo">
-        </form>
-      </div>
-      <div class="split">
-        This is how it will be shared:
-        <pre id="json"></pre>
-      </div>
-      <br style="clear:both">
+        </div>
+      </form>
     </div>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>

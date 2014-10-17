@@ -63,3 +63,12 @@ pre {
   text-align: left;
 }
 
+.calltoaction {
+  clear: both;
+  margin: 2em 0em;
+  text-align: center;
+  color: #ffffff;
+  font-weight: bold;
+  background-color: #ff6900;
+}
+
