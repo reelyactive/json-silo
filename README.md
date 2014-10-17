@@ -19,7 +19,7 @@ Hello JSON Silo
 
 ```javascript
 var server = require('json-silo');
-var app = new server({ httpPort: 3002 });
+var app = new server({ httpPort: 3002, useCors: false });
 ```
 
 Then browse to [http://localhost:3002](http://localhost:3002) to see the landing page.
