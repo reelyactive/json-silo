@@ -19,7 +19,7 @@ Hello JSON Silo
 
 ```javascript
 var server = require('json-silo');
-var app = new server({ httpPort: 3002, useCors: false });
+var app = new server();
 ```
 
 Then browse to [http://localhost:3002](http://localhost:3002) to see the landing page.
@@ -45,6 +45,19 @@ To query the JSON stored under the identifier 1a2b3c4d5e6f make the following re
 To query the real-time context of a place named _thebarn_ make the following request (see [hlc-server](https://www.npmjs.org/package/hlc-server) for the output format):
 
 - [http://localhost:3002/at/thebarn](http://localhost:3002/at/thebarn)
+
+
+Options
+-------
+
+The following options are supported when instantiating json-silo (those shown are the defaults):
+
+    {
+      httpPort: 3002,
+      useCors: false,
+      hlcServerUrl: "http://localhost:3001",
+      smartspacesUrl: "http://localhost:3000"
+    }
 
 
 What's next?
