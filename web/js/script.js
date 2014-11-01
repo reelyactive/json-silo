@@ -8,7 +8,24 @@ var DEFAULT_JSON = { person: { } };
 
 
 $(document).ready( function(){
-  $("input").on("keyup", onInput)
+  $("input").on("keyup", onInput);
+
+  $.get("/durations", function(data) {
+    $(data).each(function() {
+      var option = $('<option>' + this.title + '</option>');
+      option.attr('value', this.value);
+      $('#duration').append(option);
+    });
+  }, 'json');
+
+  $.get("/places", function(data) {
+    $(data).each(function() {
+      var option = $('<option>' + this.title + '</option>');
+      option.attr('value', this.value);
+      $('#places').append(option);
+    });
+  }, 'json');
+
 });
 
 

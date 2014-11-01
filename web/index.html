@@ -17,15 +17,13 @@
           <input type="text" name="companyUrl" placeholder="Company Webpage URL"><br>
           <input type="text" name="linkedInPublicUrl" placeholder="LinkedIn Public URL"><br>
           <input type="text" name="twitterPersonalScreenName" placeholder="Twitter Handle (without @)"><br>
-          <!--Place (optional):<br>
-          <input type="text" name="place" placeholder="test"><br>-->
+          Check-in at:<br>
+          <select name="place" id="places">
+            <option value="" selected>-</option>
+          </select><br>
           Self-destruct after:<br>
-          <select name="duration">
-            <option name="15min" selected> 15 minutes </option>
-            <option name="1hour"> 1 hour </option>
-            <option name="4hours"> 4 hours </option>
-            <option name="12hours"> 12 hours </option>
-            <option name="24hours"> 24 hours </option>
+          <select name="duration" id="duration">
+            <option value="15m" selected> 15 minutes </option>
           </select>
         </div>
         <div class="split">
