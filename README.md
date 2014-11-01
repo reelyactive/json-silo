@@ -5,7 +5,7 @@ json-silo
 A data silo for JSON compatible with Smart Spaces
 -------------------------------------------------
 
-json-silo is a datastore for JSON objects that are compatible with [smartspaces](https://www.npmjs.org/package/smartspaces).
+json-silo is a datastore for JSON objects, and is the base piece in the json-silo - [hlc-server](https://www.npmjs.org/package/hlc-server) - [smartspaces](https://www.npmjs.org/package/smartspaces) stack.  The easiest way to learn how these all fit together is our [Make a Smart Space tutorial](http://reelyactive.github.io/make-a-smartspace.html).
 
 
 Installation
@@ -30,7 +30,14 @@ Browse to [http://localhost:3002/id/test](http://localhost:3002/id/test)) to see
       person: {
         firstName: "Barn",
         lastName: "Owl",
-        companyName: "reelyActive"
+        companyName: "reelyActive",
+        portraitImageUrl: "http://reelyactive.com/images/barnowl.jpg",
+        twitterPersonalScreenName: "reelyActive"
+      },
+      device: {
+        manufacturer: "reelyActive",
+        model: "RA-T411",
+        portraitImageUrl: "http://reelyactive.com/images/tag400x400.jpg"
       }
     }
 
@@ -56,8 +63,16 @@ The following options are supported when instantiating json-silo (those shown ar
       httpPort: 3002,
       useCors: false,
       hlcServerUrl: "http://localhost:3001",
-      smartspacesUrl: "http://localhost:3000"
+      smartspacesUrl: "http://localhost:3000",
+      places: [ { title: "The Barn", value: "test" },
+                { title: "-", value: "" } ],
+      durations: [ { title: "1 hour", value: "1h" },
+                   { title: "4 hours", value: "4h" },
+                   { title: "12 hours", value: "12h" },
+                   { title: "24 hours", value: "24h" } ]
     }
+
+Note that durations require the value to be a number followed by m, h or d (minutes, hours and days, respectively).
 
 
 What's next?
