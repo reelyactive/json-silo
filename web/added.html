@@ -4,39 +4,37 @@
     <title> JSON added to the silo </title>
     <link rel="stylesheet" href="style/main.css">
     <script type="text/javascript">
-      function getId() {
-        var url = window.location.search.substring(5);
-        var id = url.split("id/");
+      function loadParameters() {
+        var url = window.location.search.split("url=").pop().split('&').shift();
+        var hasPlace = window.location.search.indexOf("placeUrl=") != -1;
+        var placeUrl = window.location.search.split("placeUrl=").pop().split('&').shift();
         $('#jsonUrl').html(url);
-        $("a[href='']").prop("href", url);
-        $('#associationUrl').val(url);
-        $('#checkInId').val(id[1]);
+        $('a#jsonUrl').prop("href", url);
+        $('a#placeUrl').prop("href", placeUrl);
+        $.get("/hlcurl", function(data) {
+          $('a#hlcUrl').prop("href", data.url + '/?url=' + url);
+        }, 'json');
+        if(hasPlace) {
+          $('#hlcUrl').hide();
+        } else {
+          $('#placeUrl').hide();
+        }
       }
     </script>
   </head>
-  <body onload="getId()">
+  <body onload="loadParameters()">
     <div id="content">
       <img src="images/logo.png">
-      <p> Your JSON was successfully added </p>
-      <p> It can be retrieved at the following URL until it self-destructs: </p>
-      <p><a id="jsonUrl" href=""></a><p>
-      <div class="calltoaction">
-        You may also select either of the following:
-      </div>
-      <form action="associate" method="post" enctype='application/json'>
-        Associate your JSON with a hardware device identifier: <br>
-        <input type="text" id="associationUrl" style="text-align: right" name="url" value="" readonly> &rarr;
-        <input type="text" name="identifier" placeholder="00112233445566">
-        <input type="submit" name="action" value="Add ID">
-      </form>
-      <p> - or - </p>
-      <form action="checkin" method="post" enctype='application/json'>
-        Check in to a place without a hardware device: <br>
-        <input type="hidden" id="checkInId" name="id" value="" readonly>
-        <input type="text" name="place" placeholder="place name">
-        <input type="submit" name="action" value="Check-in">
-      </form>
-      <br>
+      <p> Your JSON can be retrieved at the following URL until it self-destructs: </p>
+      <p><a id="jsonUrl" href="" target="_blank"></a><p>
+      <p>
+        <a id="placeUrl" class="orangebutton" href="" target="_blank">
+          Visit your Smart Space
+        </a>
+        <a id="hlcUrl" class="orangebutton" href="" target="_blank">
+          Associate a wireless device
+        </a>
+      </p>
       <p><a href="index.html"> Return to the JSON Silo </a></p>
     </div>
     <script type="text/javascript" src="js/jquery.min.js"></script>
