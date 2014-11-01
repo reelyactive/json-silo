@@ -12,7 +12,7 @@
         $('a#jsonUrl').prop("href", url);
         $('a#placeUrl').prop("href", placeUrl);
         $.get("/hlcurl", function(data) {
-          $('a#hlcUrl').prop("href", data.url + '/?url=' + url);
+          $('a#hlcUrl').prop("href", data.url + '/associate.html?url=' + url);
         }, 'json');
         if(hasPlace) {
           $('#hlcUrl').hide();
