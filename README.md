@@ -71,10 +71,13 @@ The following options are supported when instantiating json-silo (those shown ar
       durations: [ { title: "1 hour", value: "1h" },
                    { title: "4 hours", value: "4h" },
                    { title: "12 hours", value: "12h" },
-                   { title: "24 hours", value: "24h" } ]
+                   { title: "24 hours", value: "24h" } ],
+      password: null
     }
 
-Note that durations require the value to be a number followed by m, h or d (minutes, hours and days, respectively).
+Notes:
+- durations require the value to be a number followed by m, h or d (minutes, hours and days, respectively)
+- setting a (non-null) password will prompt a login when users attempt to add data to the JSON silo
 
 
 What's next?

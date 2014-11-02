@@ -26,6 +26,18 @@ $(document).ready( function(){
     });
   }, 'json');
 
+  $.get("/authentication", function(data) {
+    if(data.useAuthentication == false) {
+      $('#authentication').hide();
+    }
+    else if(data.authenticated == true) {
+      $('#login').hide();
+    }
+    else {
+      $('#logout').hide();
+    }
+  }, 'json');
+
 });
 
 
