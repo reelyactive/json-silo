@@ -7,6 +7,8 @@ A data silo for JSON compatible with Smart Spaces
 
 json-silo is a datastore for JSON objects, and is the base piece in the json-silo - [hlc-server](https://www.npmjs.org/package/hlc-server) - [smartspaces](https://www.npmjs.org/package/smartspaces) stack.  The easiest way to learn how these all fit together is our [Make a Smart Space tutorial](http://reelyactive.github.io/make-a-smartspace.html).
 
+Visit [myjson.info](http://myjson.info) for a live demo.
+
 
 Installation
 ------------
