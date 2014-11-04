@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title> reelyActive: JSON Silo </title>
+    <link rel="stylesheet" href="style/main.css">
+  </head>
+  <body>
+    <div id="content">
+      <img src="images/logo.png">
+      <form action="add" method="post" enctype='application/json'>
+        <div class="split">
+          Enter your info:<br>
+          <input type="text" name="firstName" placeholder="First Name"><br>
+          <input type="text" name="lastName" placeholder="Last Name"><br>
+          <input type="text" name="portraitImageUrl" placeholder="Portrait Image URL"><br>
+          <input type="text" name="companyName" placeholder="Company Name"><br>
+          <input type="text" name="companyUrl" placeholder="Company Webpage URL"><br>
+          <input type="text" name="linkedInPublicUrl" placeholder="LinkedIn Public URL"><br>
+          <input type="text" name="twitterPersonalScreenName" placeholder="Twitter Handle (without @)"><br>
+          Check-in at:<br>
+          <select name="place" id="places">
+          </select><br>
+          Self-destruct after:<br>
+          <select name="duration" id="duration">
+          </select>
+        </div>
+        <div class="split">
+          This is how it will be shared:<br>
+          <pre id="json"></pre>
+        </div>
+        <br style="clear:both">
+        <div class="calltoaction">
+          And the final step: &nbsp;
+          <input type="submit" name="action" value="Store your JSON in the silo">
+        </div>
+      </form>
+      <p id="authentication">
+        <a id="login" href="login.html"> Log in </a>
+        <a id="logout" href="logout"> Log out </a>
+      </p>
+    </div>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+  </body>
+</html>
