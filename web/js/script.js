@@ -35,9 +35,10 @@ $(document).ready( function(){
     }
     else {
       $('#logout').hide();
+      $('#adminPanel').hide();
+      $('.separator').hide();
     }
   }, 'json');
-
 });
 
 
