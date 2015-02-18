@@ -55,6 +55,8 @@ To query the real-time context of a place named _thebarn_ make the following req
 
 - [http://localhost:3002/at/thebarn](http://localhost:3002/at/thebarn)
 
+If a valid place is queried, but no one is there, the API will provide an "ok" response and include a lonely device as a placeholder.
+
 
 Options
 -------
