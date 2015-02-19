@@ -5,7 +5,7 @@ json-silo
 A data silo for JSON compatible with Smart Spaces
 -------------------------------------------------
 
-json-silo is a datastore for JSON objects, and is the base piece in the json-silo - [hlc-server](https://www.npmjs.org/package/hlc-server) - [smartspaces](https://www.npmjs.org/package/smartspaces) stack.  The easiest way to learn how these all fit together is our [Make a Smart Space tutorial](http://reelyactive.github.io/make-a-smartspace.html).
+json-silo is a datastore for JSON stories, and is the base piece in the json-silo - [hlc-server](https://www.npmjs.org/package/hlc-server) - [smartspaces](https://www.npmjs.org/package/smartspaces) stack.  The easiest way to learn how these all fit together is our [Make a Smart Space tutorial](http://reelyactive.github.io/make-a-smartspace.html).
 
 Visit [myjson.info](http://myjson.info) for a live demo.
 
@@ -26,7 +26,7 @@ var app = new server();
 
 Then browse to [http://localhost:3002](http://localhost:3002) to see the landing page.
 
-Browse to [http://localhost:3002/id/test](http://localhost:3002/id/test)) to see the following test output:
+Browse to [http://localhost:3002/story/test](http://localhost:3002/story/test)) to see the following test output:
 
     {
       person: {
@@ -47,9 +47,9 @@ Browse to [http://localhost:3002/id/test](http://localhost:3002/id/test)) to see
 Querying the JSON Silo
 ----------------------
 
-To query the JSON stored under the identifier 1a2b3c4d5e6f make the following request:
+To query the JSON story with identifier 1a2b3c4d5e6f make the following request:
 
-- [http://localhost:3002/id/1a2b3c4d5e6f](http://localhost:3002/id/1a2b3c4d5e6f)
+- [http://localhost:3002/story/1a2b3c4d5e6f](http://localhost:3002/story/1a2b3c4d5e6f)
 
 To query the real-time context of a place named _thebarn_ make the following request (see [hlc-server](https://www.npmjs.org/package/hlc-server) for the output format):
 
@@ -93,7 +93,7 @@ License
 
 MIT License
 
-Copyright (c) 2014 reelyActive
+Copyright (c) 2014-2015 reelyActive
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
