@@ -4,7 +4,7 @@ $(document).ready( function(){
       var profileData = user.json.person;
 
       var portraitImageUrl = formatData(profileData.portraitImageUrl, 'img');
-      var userID = formatData('/id/' + user._id, 'a', user._id);
+      var userID = formatData('/story/' + user._id, 'a', user._id);
       var firstName = formatData(profileData.firstName, 'text');
       var lastName = formatData(profileData.lastName, 'text');
       var companyName = formatData(profileData.companyUrl, 'a', profileData.companyName);
@@ -20,7 +20,7 @@ $(document).ready( function(){
       var userID = $(this).attr('id');
 
       if(confirm("Are you sure you want to delete this user?")) {
-        $.delete('/id/' + userID, function() {
+        $.delete('/story/' + userID, function() {
           $('#user' + userID).hide();
         });
       }
