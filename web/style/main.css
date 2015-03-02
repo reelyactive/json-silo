@@ -51,6 +51,24 @@ a {
     transition: all 0.2s;
   }
 
+table {
+  width: 100%;
+  border: 1px solid #5a5a5a;
+  border-collapse: collapse;
+}
+
+th {
+  padding: 4px;
+}
+
+td {
+  padding: 2px;
+}
+
+td img {
+  margin: 0px;
+}
+
 pre {
   font-size: 10pt;
   line-height: 1.4em;

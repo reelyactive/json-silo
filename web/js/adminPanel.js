@@ -8,11 +8,11 @@ $(document).ready( function(){
       var firstName = formatData(profileData.firstName, 'text');
       var lastName = formatData(profileData.lastName, 'text');
       var companyName = formatData(profileData.companyUrl, 'a', profileData.companyName);
-      var linkedInPublicUrl = formatData(profileData.linkedInPublicUrl, 'a', 'LinkedIn');
-      var twitterPersonalScreenName = formatData('https://twitter.com/' + profileData.twitterPersonalScreenName, 'a', profileData.twitterPersonalScreenName);
+      //var linkedInPublicUrl = formatData(profileData.linkedInPublicUrl, 'a', 'LinkedIn');
+      //var twitterPersonalScreenName = formatData('https://twitter.com/' + profileData.twitterPersonalScreenName, 'a', profileData.twitterPersonalScreenName);
       var deleteBtn = '<td><button class="deleteBtn" value="DELETE" id="' + user._id + '">DELETE</button>';
 
-      $('#userTable').append('<tr id="user' + user._id + '">' + portraitImageUrl + userID + firstName + lastName + companyName + linkedInPublicUrl + twitterPersonalScreenName + deleteBtn + '</tr>');
+      $('#userTable').append('<tr id="user' + user._id + '">' + portraitImageUrl + userID + firstName + lastName + companyName + deleteBtn + '</tr>');
     });
 
     $('.deleteBtn').click(function() {
