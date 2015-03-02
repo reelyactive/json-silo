@@ -74,7 +74,8 @@ The following options are supported when instantiating json-silo (those shown ar
                    { title: "4 hours", value: "4h" },
                    { title: "12 hours", value: "12h" },
                    { title: "24 hours", value: "24h" } ],
-      password: null
+      password: null,
+      secret: "YoureProbablyGonnaWantToChangeIt"
     }
 
 Notes:
