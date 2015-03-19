@@ -1,10 +1,14 @@
 var STATUS_OK = "ok";
 var STATUS_NOTFOUND = "notFound";
 var STATUS_BADREQUEST = "badRequest";
+var STATUS_UNAUTHORIZED = "unauthorized";
+var STATUS_FORBIDDEN = "forbidden";
+var STATUS_INTERNALSERVERERROR = "internalServerError";
 var CODE_OK = 200;
 var CODE_NOTFOUND = 404;
 var CODE_BADREQUEST = 400;
-var LONELY_DEVICE = { lonely: {} };
+var CODE_UNAUTHORIZED = 401;
+var CODE_INTERNALSERVERERROR = "500";
 
 
 /**
@@ -15,19 +19,7 @@ var LONELY_DEVICE = { lonely: {} };
 function prepareResponse(devices, params) {
   var response = {};
   prepareMeta(response, STATUS_OK);
-  prepareLinks(response, params);
-  prepareDevices(response, devices, params);
   return response;
-};
-
-
-/**
- * Prepares the JSON for an API query response which is successful,
- * but where no devices are present.
- * @param {Object} params The parameters of the query
- */
-function prepareLonelyResponse(params) {
-  return prepareResponse(LONELY_DEVICE, params);
 };
 
 
@@ -56,6 +48,14 @@ function prepareMeta(response, status) {
     case STATUS_NOTFOUND:
       response._meta = { "message": STATUS_NOTFOUND,
                          "statusCode": CODE_NOTFOUND };
+      break;  
+    case STATUS_UNAUTHORIZED:
+      response._meta = { "message": STATUS_UNAUTHORIZED,
+                         "statusCode": CODE_UNAUTHORIZED };
+      break;
+    case STATUS_INTERNALSERVERERROR:
+      response._meta = { "message": STATUS_INTERNALSERVERERROR,
+                         "statusCode": CODE_INTERNALSERVERERROR };
       break;   
     default:
       response._meta = { "message": STATUS_BADREQUEST,
@@ -64,32 +64,5 @@ function prepareMeta(response, status) {
 };
 
 
-/**
- * Prepares and adds the _links to the given API query response
- * @param {Object} response JSON representation of the response
- * @param {Object} params The query parameters
- */
-function prepareLinks(response, params) {
-  var selfLink = { "href": params.rootUrl + params.queryPath };
-  response._links = {};
-  response._links["self"] = selfLink;
-}
-
-
-/**
- * Prepares and adds the devices to the given API query response
- * @param {Object} response JSON representation of the response
- * @param {Object} devices The list of devices
- * @param {Object} params The query parameters
- */
-function prepareDevices(response, devices, params) {
-  for(device in devices) {
-    devices[device].url = params.rootUrl + "/id/" + device;
-  }
-  response.devices = devices;
-}
-
-
-module.exports.prepareResponse = prepareResponse;
-module.exports.prepareLonelyResponse = prepareLonelyResponse;
+module.exports.prepareResponse = prepareResponse;#
 module.exports.prepareFailureResponse = prepareFailureResponse;
