@@ -3,6 +3,20 @@ var silomanager = new SiloManager();
 var fs          = require('fs');
 var async       = require('async');
 
+var userData = {
+  "@id": "index.html",
+  "@type": "schema:Person",
+  "schema:name": "Joseph Stalin",
+  "schema:image": "http://communits/stalin.jpg",
+  "schema:owns": [
+    {
+      "@id": "productdb:iphone5.html",
+      "@type": "schema:Product",
+      "schema:productID": "mac:01:23:45:67:89:ab"
+    }
+  ]
+};
+
 
 describe("SiloManager", function() {
 
@@ -107,7 +121,7 @@ describe("SiloManager", function() {
     var passOK = "pass";
     var passNOK = "wrongPass";
 
-    it("it should not log in the user because of invalid password", function(done){
+    it("should not log in the user because of invalid password", function(done){
 
       silomanager.login(email, passNOK, function(err, token) {
         expect(token).to.equal(null);
@@ -117,7 +131,7 @@ describe("SiloManager", function() {
 
     });
 
-     it("it should log in the user", function(done){
+     it("should log in the user", function(done){
 
       silomanager.login(email, passOK, function(err, token) {
         expect(token).not.equal(null);
@@ -216,30 +230,51 @@ describe("SiloManager", function() {
   describe("save", function() {
 
     it("should save a set of User data", function(done) {
-
-      var data = {
-        "@id": "index.html",
-        "@type": "schema:Person",
-        "schema:name": "Joseph Stalin",
-        "schema:image": "http://communits/stalin.jpg",
-        "schema:owns": [
-          {
-            "@id": "productdb:iphone5.html",
-            "@type": "schema:Product",
-            "schema:productID": "mac:01:23:45:67:89:ab"
-          }
-        ]
-      };
       
-      silomanager.save(data, function(err, jsonld) {
+      silomanager.save(userData, function(err, jsonld) {
 
-        expect(jsonld["@type"]).to.equal(data["@type"]);
-        expect(jsonld["@id"]).to.equal(data["@id"]);
-        expect(jsonld["schema:name"]).to.equal(data["schema:name"]);
-        expect(jsonld["schema:image"]).to.equal(data["schema:image"]);
-        expect(jsonld["schema:owns"]["@id"]).to.equal(data["schema:owns"][0]["@id"]);
-        expect(jsonld["schema:owns"]["@type"]).to.equal(data["schema:owns"][0]["@type"]);
-        expect(jsonld["schema:owns"]["schema:productID"]).to.equal(data["schema:owns"][0]["schema:productID"]);
+        expect(jsonld["@type"]).to.equal(userData["@type"]);
+        expect(jsonld["@id"]).to.equal(userData["@id"]);
+        expect(jsonld["schema:name"]).to.equal(userData["schema:name"]);
+        expect(jsonld["schema:image"]).to.equal(userData["schema:image"]);
+        expect(jsonld["schema:owns"]["@id"]).to.equal(userData["schema:owns"][0]["@id"]);
+        expect(jsonld["schema:owns"]["@type"]).to.equal(userData["schema:owns"][0]["@type"]);
+        expect(jsonld["schema:owns"]["schema:productID"]).to.equal(userData["schema:owns"][0]["schema:productID"]);
+        done();
+      });
+    });
+  });
+
+  describe("findAll", function() {
+
+    it("should return all user data", function(done) {
+      
+      silomanager.findAll(function(err, jsonld) {
+
+        expect(jsonld["@type"]).to.equal(userData["@type"]);
+        expect(jsonld["@id"]).to.equal(userData["@id"]);
+        expect(jsonld["schema:name"]).to.equal(userData["schema:name"]);
+        expect(jsonld["schema:image"]).to.equal(userData["schema:image"]);
+        expect(jsonld["schema:owns"]["@id"]).to.equal(userData["schema:owns"][0]["@id"]);
+        expect(jsonld["schema:owns"]["@type"]).to.equal(userData["schema:owns"][0]["@type"]);
+        expect(jsonld["schema:owns"]["schema:productID"]).to.equal(userData["schema:owns"][0]["schema:productID"]);
+        done();
+      });
+    });
+  });
+
+  describe("find", function() {
+
+    it("should return part of the user data", function(done) {
+
+      var fields = ["schema:name", "schema:owns"];
+      
+      silomanager.find(fields, function(err, jsonld) {
+
+        expect(jsonld["schema:name"]).to.equal(userData["schema:name"]);
+        expect(jsonld["schema:owns"]["@id"]).to.equal(userData["schema:owns"][0]["@id"]);
+        expect(jsonld["schema:owns"]["@type"]).to.equal(userData["schema:owns"][0]["@type"]);
+        expect(jsonld["schema:owns"]["schema:productID"]).to.equal(userData["schema:owns"][0]["schema:productID"]);
         done();
       });
     });
