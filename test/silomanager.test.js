@@ -1,7 +1,9 @@
 var SiloManager = require('../lib/silomanager');
-var silomanager = new SiloManager(); 
+var response    = require("../lib/responsehandler");
 var fs          = require('fs');
 var async       = require('async');
+
+var silomanager = new SiloManager(); 
 
 var userData = {
   "@id": "index.html",
@@ -16,6 +18,8 @@ var userData = {
     }
   ]
 };
+
+var userToken;
 
 
 describe("SiloManager", function() {
@@ -98,7 +102,7 @@ describe("SiloManager", function() {
 
       silomanager.login(emailNOK, pass, function(err, result) {
         expect(result).to.equal(null);
-        expect(err._meta.statusCode).to.equal(400);
+        expect(err.http_code).to.equal(response.STATUS.BADREQUEST);
         done();
       });
 
@@ -109,6 +113,9 @@ describe("SiloManager", function() {
       silomanager.login(emailOK, pass, function(err, token) {
         expect(token).not.equal(null);
          expect(err).to.equal(null);
+
+         // Save the user token for use with other tests
+         userToken = token;
          done();
       });
 
@@ -125,7 +132,7 @@ describe("SiloManager", function() {
 
       silomanager.login(email, passNOK, function(err, token) {
         expect(token).to.equal(null);
-        expect(err._meta.statusCode).to.equal(401);
+        expect(err.http_code).to.equal(response.STATUS.UNAUTHORIZED);
         done();
       });
 
@@ -157,7 +164,7 @@ describe("SiloManager", function() {
     });
   });
 
-  describe("encrypt", function() {
+  describe("encrypt / descrypt", function() {
 
     var data = {
       "@context": {
@@ -220,7 +227,7 @@ describe("SiloManager", function() {
 
       silomanager.decryptData(passNOK, encodedData, function(err, decryptedData) {
         
-          expect(err._meta.statusCode).to.equal(401);
+          expect(err.name).to.equal('Illegal Argument');
           expect(decryptedData).to.equal(null);
           done();
       });
@@ -314,6 +321,31 @@ describe("SiloManager", function() {
 
         expect(fieldInfo.public).to.include("schema:owns");
         expect(fieldInfo.private).to.include("schema:name");
+        done();
+      });
+    });
+  });
+
+  describe("authenticate", function() {
+
+    it("should not authenticate the User because of invalid token", function(done) {
+      
+      var tokenNOK = 'randomToken';
+
+      silomanager.authenticate(tokenNOK, function(err, user) {
+        expect(err).not.equal(null);
+        expect(user).to.equal(null);
+        done();
+      });
+    });
+
+    it("should authenticate the User", function(done) {
+
+      var bearerHeader = 'Bearer ' + userToken;
+
+      silomanager.authenticate(bearerHeader, function(err, user) {
+        expect(err).to.equal(null);
+        expect(user.type).to.equal('user');
         done();
       });
     });
