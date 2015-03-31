@@ -280,6 +280,45 @@ describe("SiloManager", function() {
     });
   });
 
+  describe("setPublic", function() {
+
+    it("should return an illegal argument error", function(done) {
+
+      var fields = ["random"];
+      
+      silomanager.setPublic(fields, function(err, publicData) {
+
+        expect(err.name).to.equal("Illegal Argument");
+        done();
+      });
+    });
+
+    it("should make the schema:owns field public", function(done) {
+
+      var fields = ["schema:owns", "random"];
+      
+      silomanager.setPublic(fields, function(err, publicData) {
+
+        expect(publicData.public).to.include("schema:owns");
+        expect(publicData.public).not.include(userData["random"]);
+        done();
+      });
+    });
+  });
+
+  describe("getFields", function() {
+
+    it("should return the fields that are public & private", function(done) {
+      
+      silomanager.getFields(function(err, fieldInfo) {
+
+        expect(fieldInfo.public).to.include("schema:owns");
+        expect(fieldInfo.private).to.include("schema:name");
+        done();
+      });
+    });
+  });
+
   describe("reset", function() {
 
     it("should remove the files created", function(){
