@@ -16,7 +16,7 @@ describe("LOGIN", function() {
           throw err;
         }
 
-        expect(res.status).to.equal(response.STATUS.BADREQUEST);
+        expect(res.status).to.equal(response.STATUS.UNAUTHORIZED);
         done();
       });
 
