@@ -313,13 +313,15 @@ describe("SiloManager", function() {
     });
   });
 
-  describe("getFields", function() {
+  describe("getPublic", function() {
 
     it("should return the fields that are public & private", function(done) {
       
-      silomanager.getFields(function(err, fieldInfo) {
+      silomanager.getPublic(function(err, fieldInfo) {
 
-        expect(fieldInfo.public).to.include("schema:owns");
+        expect(fieldInfo.public["schema:owns"]["@id"]).to.equal(userData["schema:owns"][0]["@id"]);
+        expect(fieldInfo.public["schema:owns"]["@type"]).to.equal(userData["schema:owns"][0]["@type"]);
+        expect(fieldInfo.public["schema:owns"]["schema:productID"]).to.equal(userData["schema:owns"][0]["schema:productID"]);
         expect(fieldInfo.private).to.include("schema:name");
         done();
       });

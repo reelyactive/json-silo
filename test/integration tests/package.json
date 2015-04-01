@@ -1,0 +1,32 @@
+{
+  "name": "json-silo_integration_test",
+  "homepage": "https://github.com/reelyactive/json-silo/",
+  "author": "reelyActive <webdev@reelyactive.com>",
+  "description": "Datastore for JSON compatible with Smart Spaces.  We believe in an open Internet of Things.",
+  "keywords": [
+    "reelyActive",
+    "Smart Spaces",
+    "IoT"
+  ],
+  "version": "0.1.4",
+  "engines": {
+    "node": "^0.12.0"
+  },
+  "main": "jsonSiloInstance.js",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "morgan":">=1.5.2",
+    "mocha": ">=2.2.1",
+    "chai": ">=2.1.2",
+    "supertest": ">=0.15.0",
+    "should":">=5.2.0"
+  },
+  "bugs": {
+    "url": "https://github.com/reelyactive/json-silo/issues"
+  },
+  "contributors": [
+    { "name": "George Koulouris" }
+  ],
+  "license": "MIT"
+}
