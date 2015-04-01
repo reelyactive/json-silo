@@ -194,7 +194,7 @@ describe("SiloManager", function() {
 
     it("should encrypt the data", function(){
 
-      fs.readFile('security/public_key.asc', 'ascii', function (err, pubkey) {
+      fs.readFile('public_key.asc', 'ascii', function (err, pubkey) {
         if (err)
           console.log(err);
         else {
@@ -295,7 +295,7 @@ describe("SiloManager", function() {
       
       silomanager.setPublic(fields, function(err, publicData) {
 
-        expect(err.name).to.equal("Illegal Argument");
+        expect(publicData.public).to.include("@context");
         done();
       });
     });
@@ -358,8 +358,8 @@ describe("SiloManager", function() {
     it("should remove the files created", function(){
 
       fs.unlinkSync('silo.db');
-      fs.unlinkSync('security/private_key.asc');
-      fs.unlinkSync('security/public_key.asc');
+      fs.unlinkSync('private_key.asc');
+      fs.unlinkSync('public_key.asc');
 
     });
   });
