@@ -195,6 +195,7 @@ describe("ENCRYPT & DECRYPT DATA", function() {
             throw err;
           }
           
+          console.log(res.body.data);
           expect(res.status).to.equal(response.STATUS.OK);
           expect(res.body.data).not.equal(null);
           expect(res.body.data).not.equal(undefined);
@@ -208,6 +209,7 @@ describe("ENCRYPT & DECRYPT DATA", function() {
               expect(decryptedData["@type"]).to.equal(testData.jsonLD["@type"]);
               expect(decryptedData["@id"]).to.equal(testData.jsonLD["@id"]);
               expect(decryptedData["schema:image"]).to.equal(undefined);
+              console.log(decryptedData);
               done();
             }
           });
