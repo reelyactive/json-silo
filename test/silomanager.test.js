@@ -24,49 +24,6 @@ var userToken;
 
 describe("SiloManager", function() {
 
-  describe("encryptPass", function() {
-
-    var password = 'pass';
-    var encrypted = '';
-
-    it("should encrypt the password", function(done){
-
-    	silomanager.encryptPass(password, function(err, hash) {
-
-    		if (err)
-    			return console.log(err);
-
-        encrypted = hash;
-    		expect(hash).not.equal(null);
-        done();
-    	});
-    });
-
-    it("should compare an encrypted to an unencrypted password & make sure they are the same", function(done){
-
-      silomanager.validPass(password, encrypted, function(err, isMatch) {
-
-        if (err)
-          return console.log(err);
-
-        expect(isMatch).to.equal(true);
-        done();
-      });
-    });
-
-    it("should compare an encrypted to an unencrypted password & make sure they are NOT the same", function(done){
-
-      silomanager.validPass('reandom pass', encrypted, function(err, isMatch) {
-
-        if (err)
-          return console.log(err);
-
-        expect(isMatch).to.equal(false);
-        done();
-      });
-    });
-  });
-
   describe("validEmail", function() {
 
     it("should fail because the emails provided are not valid", function(){
