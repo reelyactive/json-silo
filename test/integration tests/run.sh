@@ -1,4 +1,6 @@
 rm -rf silo.db
+rm -rf public_key.asc
+rm -rf private_key.asc
 rm -rf node_modules/json-silo
 cp -R ../../../json-silo/bin node_modules/json-silo
 cp -R ../../../json-silo/lib node_modules/json-silo
