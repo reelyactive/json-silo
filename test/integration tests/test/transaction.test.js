@@ -9,7 +9,7 @@ var encryptionManager = new EncryptionManager();
 var pubKey;
 var reelyActiveToken;
 
-describe("DATA DECRYPTION", function() {
+describe("DATA TRANSACTION", function() {
 
   before(function(done) {
 
@@ -105,7 +105,7 @@ describe("DATA DECRYPTION", function() {
       };
 
       request(url)
-        .post('data/encrypted')
+        .post('transaction')
         .set('Authorization', 'Bearer ' + reelyActiveToken)
         .send(requestData)
 
@@ -126,7 +126,7 @@ describe("DATA DECRYPTION", function() {
       };
 
       request(url)
-        .post('data/encrypted')
+        .post('transaction')
         .set('Authorization', 'Bearer ' + reelyActiveToken)
         .send(requestData)
 
@@ -147,7 +147,7 @@ describe("DATA DECRYPTION", function() {
       };
 
       request(url)
-        .post('data/encrypted')
+        .post('transaction')
         .set('Authorization', 'Bearer ' + reelyActiveToken)
         .send(requestData)
 
@@ -165,11 +165,13 @@ describe("DATA DECRYPTION", function() {
 
       var requestData = {
         "pubkey" : pubKey,
-        "fields" : ['@type', '@id']
+        "fields" : ['@type', '@id'],
+        "transactionId" : "someId",
+        "requestorURI" : "http://stalker.com"
       };
 
       request(url)
-        .post('data/encrypted')
+        .post('transaction')
         .set('Authorization', 'Bearer ' + reelyActiveToken)
         .send(requestData)
 
@@ -195,6 +197,24 @@ describe("DATA DECRYPTION", function() {
               done();
             }
           });
+        });
+    });
+
+    it("should retreave the transaction log", function(done) {
+
+      request(url)
+        .get('transaction')
+        .set('Authorization', 'Bearer ' + testUser.token)
+        .send()
+
+        .end(function(err, res) {
+          if (err) {
+            throw err;
+          }
+          
+          expect(res.status).to.equal(response.STATUS.OK);
+          expect(res.body.data[0]["transactionId"]).to.equal("someId");
+          done();
         });
     });
   });
