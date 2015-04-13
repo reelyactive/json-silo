@@ -1,9 +1,9 @@
-{"email":"email@test.com","type":"user","password":"$2a$10$D3E0.InnG3rjD62Bw52dG.gtRm0KmpNaeh8JdGqEiEjK8H0WjE7/y","_id":"KWoh5PCfmnHKm96L"}
-{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"@id":"index.html","@type":"schema:Person","schema:image":"http://communits/stalin.jpg","schema:name":"Joseph Stalin","schema:owns":{"@id":"productdb:iphone5.html","@type":"schema:Product","schema:productID":"mac:01:23:45:67:89:ab"},"_id":"z6adJ8n1mgj3uRpV"}
-{"type":"reelyActive","_id":"EA9eUW8eGQyVHY8d"}
-{"$$deleted":true,"_id":"z6adJ8n1mgj3uRpV"}
-{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"@id":"index.html","@type":"schema:Person","schema:image":"http://communits/stalin.jpg","schema:name":"Joseph Stalin","schema:owns":{"@id":"productdb:iphone5.html","@type":"schema:Product","schema:productID":"mac:01:23:45:67:89:ab"},"_id":"oWzDHAN8usarSg4y"}
-{"$$deleted":true,"_id":"oWzDHAN8usarSg4y"}
-{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"@id":"index.html","@type":"schema:Person","schema:image":"http://communits/stalin.jpg","schema:name":"Joseph Stalin","schema:owns":{"@id":"productdb:iphone5.html","@type":"schema:Product","schema:productID":"mac:01:23:45:67:89:ab"},"_id":"aNuRdIhDHHZyLd10"}
-{"public":["@type","schema:image","@context"],"_id":"LlxafFrgOfm5xmyH"}
-{"$$deleted":true,"_id":"EA9eUW8eGQyVHY8d"}
+{"email":"email@test.com","type":"user","password":"$2a$10$LIASzU.OMH/6bESZ7czuZuvo2SkSEhwSiPi7R8CMzLmsvgUb/kzR6","_id":"S1CmFdbcud91YVuw"}
+{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"@id":"index.html","@type":"schema:Person","schema:image":"http://communits/stalin.jpg","schema:name":"Joseph Stalin","schema:owns":{"@id":"productdb:iphone5.html","@type":"schema:Product","schema:productID":"mac:01:23:45:67:89:ab"},"_id":"ggoZpW26Of3e4Yef"}
+{"type":"reelyActive","_id":"Tz6WRW5ifZzJ0FiJ"}
+{"$$deleted":true,"_id":"ggoZpW26Of3e4Yef"}
+{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"@id":"index.html","@type":"schema:Person","schema:image":"http://communits/stalin.jpg","schema:name":"Joseph Stalin","schema:owns":{"@id":"productdb:iphone5.html","@type":"schema:Product","schema:productID":"mac:01:23:45:67:89:ab"},"_id":"admcymvxG1EaShRB"}
+{"$$deleted":true,"_id":"admcymvxG1EaShRB"}
+{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"@id":"index.html","@type":"schema:Person","schema:image":"http://communits/stalin.jpg","schema:name":"Joseph Stalin","schema:owns":{"@id":"productdb:iphone5.html","@type":"schema:Product","schema:productID":"mac:01:23:45:67:89:ab"},"_id":"sDo43x9IpEFeqBuz"}
+{"public":["@type","schema:image","@context"],"_id":"ugEOmKlpSLQnYdGG"}
+{"$$deleted":true,"_id":"Tz6WRW5ifZzJ0FiJ"}

@@ -42,7 +42,7 @@ describe("PUBLIC FIELDS", function() {
   it("should not set public fields because no data was sent", function(done) {
 
     request(url)
-      .put('public')
+      .put('')
       .set('Authorization', 'Bearer ' + testUser.token)
       .send()
 
@@ -59,7 +59,7 @@ describe("PUBLIC FIELDS", function() {
   it("should not set public fields because the data wasn't sent as an array", function(done) {
 
     request(url)
-      .put('public')
+      .put('')
       .set('Authorization', 'Bearer ' + testUser.token)
       .send({ "public" : "notAnArray"})
 
@@ -76,7 +76,7 @@ describe("PUBLIC FIELDS", function() {
   it("should set the public fields", function(done) {
 
     request(url)
-      .put('public')
+      .put('')
       .set('Authorization', 'Bearer ' + testUser.token)
       .send(publicFields)
 
@@ -96,7 +96,7 @@ describe("PUBLIC FIELDS", function() {
   it("should get the public fields", function(done) {
 
     request(url)
-      .get('public')
+      .get('')
       .set('Authorization', 'Bearer ' + testUser.token)
       .send()
 
