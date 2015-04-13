@@ -1,3 +1,8 @@
+/**
+ * Copyright reelyActive 2015
+ * We believe in an open Internet of Things
+ */
+ 
 describe("PUBLIC FIELDS", function() {
 
   before(function(done) {

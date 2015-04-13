@@ -1,3 +1,8 @@
+/**
+ * Copyright reelyActive 2015
+ * We believe in an open Internet of Things
+ */
+ 
 var EncryptionManager = require('../lib/encryptionmanager');
 var response    		  = require("../lib/responsehandler");
 var fs                = require('fs');

@@ -1,3 +1,8 @@
+/**
+ * Copyright reelyActive 2015
+ * We believe in an open Internet of Things
+ */
+ 
 describe("LOGIN", function() {
 
   it("shouldn't create a user because of invalid email", function(done) {
