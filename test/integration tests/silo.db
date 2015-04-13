@@ -1,1 +1,2 @@
-{"email":"email@test.com","type":"user","password":"$2a$10$ql.huWG.p2zOv7e7dX3BnO7Pj7kcikDbUHbRzuPRrJTkRuwsISXAe","_id":"aBloFLmDvHFviI35"}
+{"email":"email@test.com","type":"user","password":"$2a$10$wupdmAjVLWBX.klJGcD8JuKgE.AFFYszvCpuP8zaHosqP2Hc82COa","_id":"yCLsWMfoYrGvvRAc"}
+{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"@id":"index.html","@type":"schema:Person","schema:image":"http://communits/stalin.jpg","schema:name":"Joseph Stalin","schema:owns":{"@id":"productdb:iphone5.html","@type":"schema:Product","schema:productID":"mac:01:23:45:67:89:ab"},"_id":"aoMwGwJCJsU2qtNg"}
