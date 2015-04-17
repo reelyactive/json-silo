@@ -5,6 +5,27 @@
  
 describe("LOGIN", function() {
 
+  it("shouldn't create a user because of no password", function(done) {
+
+    var wrongUser = {
+      "email" : "randomEmail",
+    }
+
+    request(url)
+      .put('login')
+      .send(wrongUser)
+
+      .end(function(err, res) {
+        if (err) {
+          throw err;
+        }
+
+        expect(res.status).to.equal(responseHandler.BADREQUEST);
+        done();
+      });
+
+  });
+
   it("shouldn't create a user because of invalid email", function(done) {
 
     var wrongUser = {
@@ -12,7 +33,7 @@ describe("LOGIN", function() {
       "password"  : "pass"
     }
 
-  	request(url)
+    request(url)
       .put('login')
       .send(wrongUser)
 
@@ -39,7 +60,7 @@ describe("LOGIN", function() {
         }
 
         expect(res.status).to.equal(responseHandler.OK);
-        expect(res.body.data.token).not.equal(null);
+        expect(res.body.data).not.equal(null);
         done();
       });
   });

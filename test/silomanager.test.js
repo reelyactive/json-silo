@@ -3,10 +3,10 @@
  * We believe in an open Internet of Things
  */
 
-var SiloManager = require('../lib/silomanager');
-var response    = require("../lib/responsehandler");
-var fs          = require('fs');
-var async       = require('async');
+var SiloManager     = require('../lib/silomanager');
+var responseHandler = require("../lib/responsehandler");
+var fs              = require('fs');
+var async           = require('async');
 
 var silomanager = new SiloManager(); 
 
@@ -64,7 +64,7 @@ describe("SiloManager", function() {
 
       silomanager.login(emailNOK, pass, function(err, result) {
         expect(result).to.equal(null);
-        expect(err.http_code).to.equal(response.STATUS.BADREQUEST);
+        expect(err.status).to.equal(responseHandler.BADREQUEST);
         done();
       });
 
@@ -94,7 +94,7 @@ describe("SiloManager", function() {
 
       silomanager.login(email, passNOK, function(err, token) {
         expect(token).to.equal(null);
-        expect(err.http_code).to.equal(response.STATUS.UNAUTHORIZED);
+        expect(err.status).to.equal(responseHandler.UNAUTHORIZED);
         done();
       });
 
@@ -219,9 +219,7 @@ describe("SiloManager", function() {
 
     it("should authenticate the User", function(done) {
 
-      var bearerHeader = 'Bearer ' + userToken;
-
-      silomanager.authenticate(bearerHeader, function(err, user) {
+      silomanager.authenticate(userToken, function(err, user) {
         expect(err).to.equal(null);
         expect(user.type).to.equal('user');
         done();

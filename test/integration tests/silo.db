@@ -1,0 +1,12 @@
+{"email":"g@g.com","type":"user","password":"$2a$10$2zafrY82rLIyK/AIx5WlW.ucSk8ic9RSZwcncpx7QH8lwIEWj8yA6","_id":"ToydVBptQFLRzZXw"}
+{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"_id":"OZCC9LjVTck8T1Oa"}
+{"$$deleted":true,"_id":"OZCC9LjVTck8T1Oa"}
+{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"_id":"5YfaHIFtOEokIM0j"}
+{"$$deleted":true,"_id":"5YfaHIFtOEokIM0j"}
+{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"_id":"9SL92o2nT9w8tV2c"}
+{"$$deleted":true,"_id":"9SL92o2nT9w8tV2c"}
+{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"_id":"aQK7yl5arX8TFhXz"}
+{"$$deleted":true,"_id":"aQK7yl5arX8TFhXz"}
+{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"@id":"index.html","@type":"schema:Person","_id":"AO77fqvB5TWLTo81"}
+{"public":["@id","@context"],"_id":"gkKfyEqUi6Eitw22"}
+{"type":"reelyActive","_id":"cBxAPQyM1djvI70K"}
