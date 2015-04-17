@@ -21,7 +21,7 @@ describe("LOGIN", function() {
           throw err;
         }
 
-        expect(res.status).to.equal(response.STATUS.BADREQUEST);
+        expect(res.status).to.equal(responseHandler.BADREQUEST);
         done();
       });
 
@@ -38,7 +38,7 @@ describe("LOGIN", function() {
           throw err;
         }
 
-        expect(res.status).to.equal(response.STATUS.OK);
+        expect(res.status).to.equal(responseHandler.OK);
         expect(res.body.data.token).not.equal(null);
         done();
       });
@@ -60,7 +60,7 @@ describe("LOGIN", function() {
           throw err;
         }
 
-        expect(res.status).to.equal(response.STATUS.UNAUTHORIZED);
+        expect(res.status).to.equal(responseHandler.UNAUTHORIZED);
         done();
       });
   });
@@ -81,7 +81,7 @@ describe("LOGIN", function() {
           throw err;
         }
 
-        expect(res.status).to.equal(response.STATUS.UNAUTHORIZED);
+        expect(res.status).to.equal(responseHandler.UNAUTHORIZED);
         done();
       });
   });

@@ -8,7 +8,7 @@ global.request = require('supertest');
 global.async = require('async'); 
 global.expect = require("chai").expect;
 global.url = 'http://localhost:3002/';
-global.response = require('json-silo/lib/responsehandler');
+global.responseHandler = require('json-silo/lib/responsehandler');
 global.fs = require('fs');
 global.testUser = {
 	"email" : "email@test.com",
