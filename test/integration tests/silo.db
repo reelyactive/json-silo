@@ -1,44 +1,11 @@
-{"email":"email@test.com","type":"user","password":"$2a$10$iBWoQgta/KorE73BLU/akOCG7iHBeQfnenYF.OCS/G4tu8bdJlxoa","_id":"4xK7Rew7SwcLBX2J"}
-{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"@id":"index.html","@type":"schema:Person","schema:image":"http://communits/stalin.jpg","schema:name":"Joseph Stalin","schema:owns":{"@id":"productdb:iphone5.html","@type":"schema:Product","schema:productID":"mac:01:23:45:67:89:ab"},"_id":"8KNjgedmMZGOOW5A"}
-{"$$deleted":true,"_id":"8KNjgedmMZGOOW5A"}
-{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"@id":"index.html","@type":"schema:Person","schema:image":"http://communits/stalin.jpg","schema:name":"Joseph Stalin","schema:owns":{"@id":"productdb:iphone5.html","@type":"schema:Product","schema:productID":"mac:01:23:45:67:89:ab"},"_id":"Y2zkciAvLX2nm8Qg"}
-{"public":["@type","schema:image","@context"],"_id":"dTudYlBIDp5z9gic"}
-{"type":"reelyActive","_id":"wrLtfmdx2vROb5rC"}
-{"$$deleted":true,"_id":"wrLtfmdx2vROb5rC"}
-{"type":"reelyActive","_id":"Bx5bBZz6ig9AI7Z8"}
-{"$$deleted":true,"_id":"Y2zkciAvLX2nm8Qg"}
-{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"@id":"index.html","@type":"schema:Person","schema:image":"http://communits/stalin.jpg","schema:name":"Joseph Stalin","schema:owns":{"@id":"productdb:iphone5.html","@type":"schema:Product","schema:productID":"mac:01:23:45:67:89:ab"},"_id":"d1O067n4wBFGy4FD"}
-{"transactionId":"someId","requestorURI":"http://stalker.com","fields":["@type","@id"],"created":{"$$date":1428960908686},"_id":"cYQa89p2XS0WaxmZ"}
-{"$$deleted":true,"_id":"d1O067n4wBFGy4FD"}
-{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"@id":"index.html","@type":"schema:Person","schema:image":"http://communits/stalin.jpg","schema:name":"Joseph Stalin","schema:owns":{"@id":"productdb:iphone5.html","@type":"schema:Product","schema:productID":"mac:01:23:45:67:89:ab"},"_id":"sBlFnKFk0o7wHyKx"}
-{"$$deleted":true,"_id":"sBlFnKFk0o7wHyKx"}
-{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"@id":"index.html","@type":"schema:Person","schema:image":"http://communits/stalin.jpg","schema:name":"Joseph Stalin","schema:owns":{"@id":"productdb:iphone5.html","@type":"schema:Product","schema:productID":"mac:01:23:45:67:89:ab"},"_id":"mJUvgOasbGASJuKa"}
-{"$$deleted":true,"_id":"dTudYlBIDp5z9gic"}
-{"public":["@type","schema:image","@context"],"_id":"SM5mAyOLKFHMpUgA"}
-{"$$deleted":true,"_id":"Bx5bBZz6ig9AI7Z8"}
-{"type":"reelyActive","_id":"nzEKrIE0wymIglmq"}
-{"$$deleted":true,"_id":"mJUvgOasbGASJuKa"}
-{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"@id":"index.html","@type":"schema:Person","schema:image":"http://communits/stalin.jpg","schema:name":"Joseph Stalin","schema:owns":{"@id":"productdb:iphone5.html","@type":"schema:Product","schema:productID":"mac:01:23:45:67:89:ab"},"_id":"BmsPWqZQMaCNxqSF"}
-{"transactionId":"someId","requestorURI":"http://stalker.com","fields":["@type","@id"],"created":{"$$date":1428960996936},"_id":"IgkXnzC48RtvF10W"}
-{"$$deleted":true,"_id":"BmsPWqZQMaCNxqSF"}
-{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"@id":"index.html","@type":"schema:Person","schema:image":"http://communits/stalin.jpg","schema:name":"Joseph Stalin","schema:owns":{"@id":"productdb:iphone5.html","@type":"schema:Product","schema:productID":"mac:01:23:45:67:89:ab"},"_id":"m74cwPtoOrmuKAMv"}
-{"$$deleted":true,"_id":"m74cwPtoOrmuKAMv"}
-{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"@id":"index.html","@type":"schema:Person","schema:image":"http://communits/stalin.jpg","schema:name":"Joseph Stalin","schema:owns":{"@id":"productdb:iphone5.html","@type":"schema:Product","schema:productID":"mac:01:23:45:67:89:ab"},"_id":"JHQ6D80zQ6jaqDI7"}
-{"$$deleted":true,"_id":"SM5mAyOLKFHMpUgA"}
-{"public":["@type","schema:image","@context"],"_id":"k7yL7OINH9qH8f4Q"}
-{"$$deleted":true,"_id":"nzEKrIE0wymIglmq"}
-{"type":"reelyActive","_id":"x5HeX9u8v0AWbMOM"}
-{"$$deleted":true,"_id":"JHQ6D80zQ6jaqDI7"}
-{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"@id":"index.html","@type":"schema:Person","schema:image":"http://communits/stalin.jpg","schema:name":"Joseph Stalin","schema:owns":{"@id":"productdb:iphone5.html","@type":"schema:Product","schema:productID":"mac:01:23:45:67:89:ab"},"_id":"Oe72qzNZRiNf3Jk6"}
-{"transactionId":"someId","requestorURI":"http://stalker.com","fields":["@type","@id"],"created":{"$$date":1428961039505},"_id":"P66QvoxM3Ix9w0xx"}
-{"$$deleted":true,"_id":"Oe72qzNZRiNf3Jk6"}
-{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"@id":"index.html","@type":"schema:Person","schema:image":"http://communits/stalin.jpg","schema:name":"Joseph Stalin","schema:owns":{"@id":"productdb:iphone5.html","@type":"schema:Product","schema:productID":"mac:01:23:45:67:89:ab"},"_id":"2AeSbVVNQBeul7sZ"}
-{"$$deleted":true,"_id":"2AeSbVVNQBeul7sZ"}
-{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"@id":"index.html","@type":"schema:Person","schema:image":"http://communits/stalin.jpg","schema:name":"Joseph Stalin","schema:owns":{"@id":"productdb:iphone5.html","@type":"schema:Product","schema:productID":"mac:01:23:45:67:89:ab"},"_id":"k05BFWTnmQKgoa1V"}
-{"$$deleted":true,"_id":"k7yL7OINH9qH8f4Q"}
-{"public":["@type","schema:image","@context"],"_id":"D6SYRkzdjd47X7St"}
-{"$$deleted":true,"_id":"x5HeX9u8v0AWbMOM"}
-{"type":"reelyActive","_id":"l28OIZ7B3jUXDYu8"}
-{"$$deleted":true,"_id":"k05BFWTnmQKgoa1V"}
-{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"@id":"index.html","@type":"schema:Person","schema:image":"http://communits/stalin.jpg","schema:name":"Joseph Stalin","schema:owns":{"@id":"productdb:iphone5.html","@type":"schema:Product","schema:productID":"mac:01:23:45:67:89:ab"},"_id":"XUEoIjNve5aecAeR"}
-{"transactionId":"someId","requestorURI":"http://stalker.com","fields":["@type","@id"],"created":{"$$date":1428961063358},"_id":"TkfGwjjcWdnCERo8"}
+{"email":"email@test.com","type":"user","password":"$2a$10$4k5cHh.KLYxdi4S38LjpC.kUZgoixRmAuWMIP.qKHK95ChGmKU0Zy","_id":"gK0xzKP51nysseag"}
+{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"@id":"index.html","@type":"schema:Person","schema:image":"http://communits/stalin.jpg","schema:name":"Joseph Stalin","schema:owns":{"@id":"productdb:iphone5.html","@type":"schema:Product","schema:productID":"mac:01:23:45:67:89:ab"},"_id":"opsHLkYQPfQplQe7"}
+{"$$deleted":true,"_id":"opsHLkYQPfQplQe7"}
+{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"@id":"index.html","@type":"schema:Person","schema:image":"http://communits/stalin.jpg","schema:name":"Joseph Stalin","schema:owns":{"@id":"productdb:iphone5.html","@type":"schema:Product","schema:productID":"mac:01:23:45:67:89:ab"},"_id":"m6oCMcO77HztApuw"}
+{"public":["@type","schema:image","@context"],"_id":"1y86CZ5VPWtAgIhr"}
+{"type":"reelyActive","_id":"HnVxW9f6e7WrDsuF"}
+{"$$deleted":true,"_id":"HnVxW9f6e7WrDsuF"}
+{"type":"reelyActive","_id":"ILf74hy75FfFO7Ra"}
+{"$$deleted":true,"_id":"m6oCMcO77HztApuw"}
+{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"@id":"index.html","@type":"schema:Person","schema:image":"http://communits/stalin.jpg","schema:name":"Joseph Stalin","schema:owns":{"@id":"productdb:iphone5.html","@type":"schema:Product","schema:productID":"mac:01:23:45:67:89:ab"},"_id":"pIPA4znds5X5vlCA"}
+{"transactionId":"someId","requestorURI":"http://stalker.com","fields":["@type","@id"],"created":{"$$date":1429230201625},"_id":"R7LD6eYYcHWW6zXt"}

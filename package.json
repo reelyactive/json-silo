@@ -28,7 +28,9 @@
     "jsonwebtoken": ">=4.2.1",
     "bcrypt-nodejs" : ">=0.0.3",
     "openpgp": ">=1.0.0",
-    "jsonld": ">=0.3.22"
+    "jsonld": ">=0.3.22",
+    "passport":">=0.2.1",
+    "passport-http-bearer": ">=1.0.1"
   },
   "devDependencies": {
     "mocha": ">=2.2.1",
