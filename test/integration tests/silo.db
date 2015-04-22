@@ -1,3 +1,11 @@
-{"email":"g@g.com","type":"user","password":"$2a$10$yU/ZTNofAhunIfwf331.kOcbg/QLZANL6ousronWs3oatFjvxle/6","_id":"5SvI5Fu43yH0hpx8"}
-{"type":"reelyActive","_id":"NTQawOcQKavjAL8K"}
-{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"@type":"cool","_id":"CGMBOWCAFEV5xRHy"}
+{"email":"email@test.com","type":"user","password":"$2a$10$81B.ACJVXSL5rqfA7rec8eXe7gpZ84vocXnBD12TFs/yMa.o0Yd6W","_id":"MLfHFHK2E7p9Ux52"}
+{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"@id":"index.html","@type":"schema:Person","schema:image":"http://communits/stalin.jpg","schema:name":"Joseph Stalin","schema:owns":{"@id":"productdb:iphone5.html","@type":"schema:Product","schema:productID":"mac:01:23:45:67:89:ab"},"_id":"DwSlYyybm0BQxbPE"}
+{"$$deleted":true,"_id":"DwSlYyybm0BQxbPE"}
+{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"@id":"index.html","@type":"schema:Person","schema:image":"http://communits/stalin.jpg","schema:name":"Joseph Stalin","schema:owns":{"@id":"productdb:iphone5.html","@type":"schema:Product","schema:productID":"mac:01:23:45:67:89:ab"},"_id":"ioTkfhFYRtBgnyag"}
+{"public":["@type","schema:image","@context"],"_id":"ToQsf8NAAbSqiTCT"}
+{"type":"reelyActive","_id":"3rpDeTh7i0dW6LW2"}
+{"$$deleted":true,"_id":"3rpDeTh7i0dW6LW2"}
+{"type":"reelyActive","_id":"hCWOiZSXHXMP5zQH"}
+{"$$deleted":true,"_id":"ioTkfhFYRtBgnyag"}
+{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"@id":"index.html","@type":"schema:Person","schema:image":"http://communits/stalin.jpg","schema:name":"Joseph Stalin","schema:owns":{"@id":"productdb:iphone5.html","@type":"schema:Product","schema:productID":"mac:01:23:45:67:89:ab"},"_id":"OTEBAfp0OJhCY9Mg"}
+{"transactionId":"someId","requestorURI":"http://stalker.com","fields":["@type","@id"],"created":{"$$date":1429713657037},"_id":"01xLw4FEVwqiySI4"}

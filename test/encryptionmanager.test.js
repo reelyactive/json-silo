@@ -21,8 +21,9 @@ describe("EncryptionManager", function() {
 
       encryptionmanager.encryptPass(password, function(err, hash) {
 
-        if (err)
+        if (err) {
           return console.log(err);
+        }
 
         encrypted = hash;
         expect(hash).not.equal(null);
@@ -34,8 +35,9 @@ describe("EncryptionManager", function() {
 
       encryptionmanager.validPass(password, encrypted, function(err, isMatch) {
 
-        if (err)
+        if (err) {
           return console.log(err);
+        }
 
         expect(isMatch).to.equal(true);
         done();
@@ -46,8 +48,9 @@ describe("EncryptionManager", function() {
 
       encryptionmanager.validPass('reandom pass', encrypted, function(err, isMatch) {
 
-        if (err)
+        if (err) {
           return console.log(err);
+        }
 
         expect(isMatch).to.equal(false);
         done();
@@ -102,8 +105,9 @@ describe("EncryptionManager", function() {
     it("should encrypt the data", function(){
 
       fs.readFile('public_key.asc', 'ascii', function (err, pubkey) {
-        if (err)
+        if (err) {
           console.log(err);
+        }
         else {
           
           encryptionmanager.encryptData(pubkey, data, function(err, encodedMsg) {
@@ -118,8 +122,9 @@ describe("EncryptionManager", function() {
 
     it("should decrypt the data", function(done){
       encryptionmanager.decryptData(pass, encodedData, function(err, decryptedData) {
-        if (err)
+        if (err) {
           console.log(err);
+        }
         else {
           var unencrypted = JSON.stringify(data);
           var decrypted = JSON.stringify(decryptedData);

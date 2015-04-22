@@ -188,8 +188,9 @@ describe("DATA TRANSACTION", function() {
 
           // Decrypt the data
           encryptionManager.decryptData(testUser.password, encryptedData, function(err, decryptedData) {
-            if (err)
+            if (err) {
               console.log(err);
+            }
             else {
               expect(decryptedData["@type"]).to.equal(testData.jsonLD["@type"]);
               expect(decryptedData["@id"]).to.equal(testData.jsonLD["@id"]);
