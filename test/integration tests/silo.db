@@ -1,11 +1,4 @@
-{"email":"email@test.com","type":"user","password":"$2a$10$0cBn80NvnrHCRLtxU9V7NuRZUIs0.aeTkjQoM205j2Ru/cRW5F57S","_id":"ydjzQwbFbPzsENON"}
-{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"@id":"index.html","@type":"schema:Person","schema:image":"http://communits/stalin.jpg","schema:name":"Joseph Stalin","schema:owns":{"@id":"productdb:iphone5.html","@type":"schema:Product","schema:productID":"mac:01:23:45:67:89:ab"},"_id":"4Kz5esIdqwN5JuFp"}
-{"$$deleted":true,"_id":"4Kz5esIdqwN5JuFp"}
-{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"@id":"index.html","@type":"schema:Person","schema:image":"http://communits/stalin.jpg","schema:name":"Joseph Stalin","schema:owns":{"@id":"productdb:iphone5.html","@type":"schema:Product","schema:productID":"mac:01:23:45:67:89:ab"},"_id":"c39s7Nws8TU6Phm7"}
-{"public":["@type","schema:image","@context"],"_id":"eyxZt3ze8dCkLxs6"}
-{"type":"reelyActive","_id":"zUasfvJp6roX6iSK"}
-{"$$deleted":true,"_id":"zUasfvJp6roX6iSK"}
-{"type":"reelyActive","_id":"m7gWzxss88fo3lQw"}
-{"$$deleted":true,"_id":"c39s7Nws8TU6Phm7"}
-{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"@id":"index.html","@type":"schema:Person","schema:image":"http://communits/stalin.jpg","schema:name":"Joseph Stalin","schema:owns":{"@id":"productdb:iphone5.html","@type":"schema:Product","schema:productID":"mac:01:23:45:67:89:ab"},"_id":"a516KYpN0jFGUlIL"}
-{"transactionId":"someId","requestorURI":"http://stalker.com","fields":["@type","@id"],"created":{"$$date":1429716314495},"_id":"ZDUzrrUqXf8whbeG"}
+{"email":"g@g.com","type":"user","password":"$2a$10$zdpMQMYm8BzIGe0a5kuOjeoN/ja9VJ4nnRWVq/sv/LW81x8wTKEXy","_id":"kVP6iD98pv5hyW7B"}
+{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"_id":"OTUgzjlfpQziwT2D"}
+{"$$deleted":true,"_id":"OTUgzjlfpQziwT2D"}
+{"@context":{"schema":"http://schema.org/","dbpedia":"http://dbpedia.org/page/","productdb":"http://productdb.org/"},"_id":"o2eHYMQASlVIhXV1"}
