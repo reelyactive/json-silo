@@ -11,8 +11,8 @@ global.url = 'http://localhost:3002/';
 global.responseHandler = require('json-silo/lib/responsehandler');
 global.fs = require('fs');
 global.testUser = {
-	"email" : "email@test.com",
-	"password": "pass"
+  "email" : "email@test.com",
+  "password": "pass"
 };
 global.testData = {
   "jsonLD" : {

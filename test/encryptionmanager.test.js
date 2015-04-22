@@ -4,7 +4,7 @@
  */
  
 var EncryptionManager = require('../lib/encryptionmanager');
-var response    		  = require("../lib/responsehandler");
+var response          = require("../lib/responsehandler");
 var fs                = require('fs');
 var async             = require('async');
 
