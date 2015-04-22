@@ -70,7 +70,7 @@ describe("DATA TRANSACTION", function() {
       // Generate a private / public pair
       function(callback) {
         request(url)
-          .put('keygen')
+          .put('keys')
           .set('Authorization', 'Bearer ' + testUser.token)
           .send( { "password" : testUser.password } )
 
@@ -105,7 +105,7 @@ describe("DATA TRANSACTION", function() {
       };
 
       request(url)
-        .post('transaction')
+        .post('transactions')
         .set('Authorization', 'Bearer ' + reelyActiveToken)
         .send(requestData)
 
@@ -126,7 +126,7 @@ describe("DATA TRANSACTION", function() {
       };
 
       request(url)
-        .post('transaction')
+        .post('transactions')
         .set('Authorization', 'Bearer ' + reelyActiveToken)
         .send(requestData)
 
@@ -147,7 +147,7 @@ describe("DATA TRANSACTION", function() {
       };
 
       request(url)
-        .post('transaction')
+        .post('transactions')
         .set('Authorization', 'Bearer ' + reelyActiveToken)
         .send(requestData)
 
@@ -171,7 +171,7 @@ describe("DATA TRANSACTION", function() {
       };
 
       request(url)
-        .post('transaction')
+        .post('transactions')
         .set('Authorization', 'Bearer ' + reelyActiveToken)
         .send(requestData)
 
@@ -204,7 +204,7 @@ describe("DATA TRANSACTION", function() {
     it("should retreve the transaction log", function(done) {
 
       request(url)
-        .get('transaction')
+        .get('transactions')
         .set('Authorization', 'Bearer ' + testUser.token)
         .send()
 

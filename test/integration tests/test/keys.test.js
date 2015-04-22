@@ -3,7 +3,7 @@
  * We believe in an open Internet of Things
  */
  
-describe("KEYGEN", function() {
+describe("KEY GENERATION", function() {
 
   before(function(done) {
 
@@ -25,7 +25,7 @@ describe("KEYGEN", function() {
   it("should not create the keys because of an invalid token", function(done) {
 
     request(url)
-      .put('keygen')
+      .put('keys')
       .set('Authorization', 'Bearer invalid')
       .send( { "password" : testUser.password } )
 
@@ -42,7 +42,7 @@ describe("KEYGEN", function() {
   it("should not create the keys because of an invalid password", function(done) {
 
     request(url)
-      .put('keygen')
+      .put('keys')
       .set('Authorization', 'Bearer ' + testUser.token)
       .send( { "password" : "invalid" } )
 
@@ -61,7 +61,7 @@ describe("KEYGEN", function() {
     this.timeout(20000);
 
     request(url)
-      .put('keygen')
+      .put('keys')
       .set('Authorization', 'Bearer ' + testUser.token)
       .send( { "password" : testUser.password } )
 
