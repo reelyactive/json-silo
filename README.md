@@ -13,7 +13,7 @@ All data is stored in [JSON-LD](http://json-ld.org/) format. This allows differe
 {
   "@context": {
     "schema": "http://schema.org/",
-    "productdb": "http://productdb.org/"
+    "dbpedia": "http://dbpedia.org/page/"
   },
   "@graph": [
     {
@@ -22,7 +22,7 @@ All data is stored in [JSON-LD](http://json-ld.org/) format. This allows differe
       "schema:name": "Joseph Stalin",
       "schema:owns":
         {
-          "@id": "productdb:iphone5.html",
+          "@id": "http://example.com/iphone5.html",
           "@type": "schema:Product",
           "schema:productID": "mac:01:23:45:67:89:ab"
         }
@@ -31,7 +31,7 @@ All data is stored in [JSON-LD](http://json-ld.org/) format. This allows differe
 }
 ```
 
-By describing Joseph Stalin, I know that he is a Person who owns an iPhone5. I can then visit the url for the iPhone5 (_productdb:iphone5.html == http://productdb.org/iphone5.html_) to find out more about it. This url may in turn contain other links which allow me to know where it was manufactured, designed, etc.
+By describing Joseph Stalin, I know that he is a Person who owns an iPhone5. I can then visit the url for the iPhone5 (_http://example.com/iphone5.html_) to find out more about it. This url may in turn contain other links which allow me to know where it was manufactured, designed, etc.
 
 
 Installation

@@ -22,7 +22,7 @@ global.testData = {
     "schema:image": "http://communits/stalin.jpg",
     "schema:owns": [
       {
-        "@id": "productdb:iphone5.html",
+        "@id": "http://example.com/iphone5.html",
         "@type": "schema:Product",
         "schema:productID": "mac:01:23:45:67:89:ab"
       }
