@@ -7,9 +7,11 @@ A contextual data silo for the IoT and Smart Spaces
 
 json-silo is a datastore for JSON stories.  You can think of it as a personal data locker.  A json-silo allows a user to enter contextual information about themselves, which it then converts and stores as machine-readable JSON.  This information is available to anyone with the URL (hyperlink).  Why would anyone want to share this info via an API?  So that their information is shared via any Smart Space of course!  Learn more about storytelling through reelyActive Smart Spaces via [our website](http://context.reelyactive.com/start.html).
 
+__In the scheme of Things (pun intended)__
+
 json-silo is the base piece in the json-silo - [hlc-server](https://www.npmjs.org/package/hlc-server) - [smartspaces](https://www.npmjs.org/package/smartspaces) stack.  The easiest way to learn how these all fit together is our [Make a Smart Space tutorial](http://reelyactive.github.io/make-a-smartspace.html) on our [developer page](http://reelyactive.github.io).
 
-Visit [myjson.info](http://myjson.info) for a live demo.
+Visit [myjson.info](http://myjson.info) for a live demo and read [Host a JSON Silo](http://reelyactive.github.io/host-a-json-silo.html) to learn how easy it is to host your own silo!
 
 
 ![json-silo logo](http://reelyactive.com/images/json-silo.jpg)
@@ -18,7 +20,11 @@ Visit [myjson.info](http://myjson.info) for a live demo.
 What's in a name?
 -----------------
 
-The json-silo is exactly that: a data silo for JSON!
+The json-silo is exactly that: a data silo for [JSON](http://en.wikipedia.org/wiki/JSON)!  Simple enough, right?  So why does it have a grain silo with a hockey mask for a mascot?
+
+At reelyActive we've always been outspoken about the need for an open Internet of Things as opposed to a bunch of siloed applications.  In 2013, on social media we recycled the ["More cowbell" meme](http://en.wikipedia.org/wiki/More_cowbell) with an image of Will Ferrell banging on a grain silo with the caption ["The Internet of Things does not need More Silo"](http://reelyactive.github.io/images/moreSilo.jpg).  When it came time to create a mascot for the json-silo, we decided to start with that grain silo.
+
+Now, how do you visually represent JSON in association with a grain silo?  Sure, we could have slapped the official JSON logo on that silo, but where's the fun in that?  Instead, for those of us who grew up in the eighties, hearing "JSON" out of context (pun intended) evokes the image of [Jason Voorhees](http://en.wikipedia.org/wiki/Jason_Voorhees) from the Friday the 13th series of films, specifically the iconic hockey goaltender mask he wore.  Not only does that "Jason" mask make for a silly visual pun, it also gives a nod to our hometown heritage, where [Jacques Plante](http://en.wikipedia.org/wiki/Jacques_Plante) of the Montreal Canadiens was the first goaltender to wear such a mask full-time, which would later become standard practice.  We'd be pleased to see the use of personal data lockers become standard practice too.
 
 
 Installation
