@@ -7,7 +7,7 @@ A contextual data silo for the IoT and Smart Spaces
 
 json-silo is a datastore for JSON stories.  You can think of it as a personal data locker.  A json-silo allows a user to enter contextual information about themselves, which it then converts and stores as machine-readable JSON.  This information is available to anyone with the URL (hyperlink).  Why would anyone want to share this info via an API?  So that their information is shared via any Smart Space of course!  Learn more about storytelling through reelyActive Smart Spaces via [our website](http://context.reelyactive.com/start.html).
 
-__In the scheme of Things (pun intended)__
+### In the scheme of Things (pun intended)
 
 json-silo is the base piece in the json-silo - [hlc-server](https://www.npmjs.org/package/hlc-server) - [smartspaces](https://www.npmjs.org/package/smartspaces) stack.  The easiest way to learn how these all fit together is our [Make a Smart Space tutorial](http://reelyactive.github.io/make-a-smartspace.html) on our [developer page](http://reelyactive.github.io).
 
@@ -38,7 +38,7 @@ Hello JSON Silo
 
 ```javascript
 var server = require('json-silo');
-var app = new server();
+var app = new server( { password: null } );
 ```
 
 Then browse to [http://localhost:3002](http://localhost:3002) to see the landing page.
@@ -103,7 +103,10 @@ Notes:
 What's next?
 ------------
 
-This is an active work in progress.  Expect regular changes and updates, as well as improved documentation!
+This is an active work in progress.  Expect regular changes and updates, as well as improved documentation!  If you're developing with json-silo check out:
+* [diyActive](http://reelyactive.github.io/) our developer page
+* our [node-style-guide](https://github.com/reelyactive/node-style-guide) for development
+* our [contact information](http://context.reelyactive.com/contact.html) to get in touch if you'd like to contribute
 
 
 License
