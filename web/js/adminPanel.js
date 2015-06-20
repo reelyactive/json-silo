@@ -31,15 +31,16 @@ $(document).ready( function(){
   var formatData = function(data, type, title) { 
     var html = '<td>';
 
-    if (!data)
+    if (!data) {
       html += '-';
+    }
     else {
 
       switch(type) {
         case 'a':
-          if (!title)
+          if (!title) {
             break;
-
+          }
           html += '<a href="' + data + '" target="_blank">' + title + '<a>';
           break;
         case 'img':
@@ -61,5 +62,5 @@ $(document).ready( function(){
       type: 'DELETE',
       success: callback
     });
-  }
+  };
 });

@@ -27,10 +27,10 @@ $(document).ready( function(){
   }, 'json');
 
   $.get("/authentication", function(data) {
-    if(data.useAuthentication == false) {
+    if(data.useAuthentication === false) {
       $('#authentication').hide();
     }
-    else if(data.authenticated == true) {
+    else if(data.authenticated === true) {
       $('#login').hide();
     }
     else {
