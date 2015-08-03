@@ -55,5 +55,32 @@ var onInput = function() {
   });
 
   var userJson = { person: personInputs };
+  var userCormorant = $.extend({}, personInputs);
+  var mappingJSONld = {
+    'firstName': 'givenName',
+    'lastName': 'familyName',
+    'portraitImageUrl': 'image',
+    'companyName': 'worksFor',
+    'linkedInPublicUrl': 'url'
+  }
+  userCormorant['@type'] = 'Person';
+  userCormorant['@context'] = "http://schema.org/";
+  for( var index in Object.keys(personInputs) ){
+    var key = Object.keys(personInputs)[index]
+    if(('companyName' === key || 'companyUrl' === key)
+        && !userCormorant.worksFor ){
+      userCormorant.worksFor = {};
+      userCormorant.worksFor['@type'] = 'Organization';
+      userCormorant.worksFor['@context'] = "http://schema.org/";
+    }
+    userCormorant[mappingJSONld[key]] = personInputs[key];
+  }
+  React.render(
+    React.createElement(
+      cormorant.getComponent(userCormorant),
+      {props: userCormorant}
+    ),
+    document.getElementById('cormorant')
+  );
   $("#json").html(JSON.stringify(userJson, undefined, 2));
 };
