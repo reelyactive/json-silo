@@ -9,7 +9,7 @@
     "IoT",
     "Personal Data Locker"
   ],
-  "version": "0.2.2",
+  "version": "0.3.0",
   "engines": {
     "node": "^0.10.0"
   },
