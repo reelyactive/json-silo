@@ -1,47 +1,212 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title> reelyActive: JSON Silo </title>
+    <title> reelyActive JSON Silo </title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.1/ui-bootstrap-tpls.min.js"></script>
+    <script type="text/javascript" src="js/silo.js"></script>
   </head>
-  <body>
-    <div id="content">
-      <img src="images/logo.png">
-      <form action="add" method="post" enctype='application/json'>
-        <div class="split">
-          Enter your info:<br>
-          <input type="text" name="firstName" placeholder="First Name"><br>
-          <input type="text" name="lastName" placeholder="Last Name"><br>
-          <input type="text" name="portraitImageUrl" placeholder="Portrait Image URL"><br>
-          <input type="text" name="companyName" placeholder="Company Name"><br>
-          <input type="text" name="companyUrl" placeholder="Company Webpage URL"><br>
-          <input type="text" name="linkedInPublicUrl" placeholder="LinkedIn Public URL"><br>
-          <input type="text" name="twitterPersonalScreenName" placeholder="Twitter Handle (without @)"><br>
-          Check-in at:<br>
-          <select name="place" id="places">
-          </select><br>
-          Self-destruct after:<br>
-          <select name="duration" id="duration">
-          </select>
+  <body ng-app="jsonSilo">
+    <div ng-controller="InteractionCtrl">
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle"
+                  ng-init="navCollapsed = true"
+                  ng-click="navCollapsed = !navCollapsed">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="http://context.reelyactive.com">
+            <strong>reely</strong>Active
+          </a>
         </div>
-        <div class="split">
-          This is how it will be shared:<br>
-          <pre id="json"></pre>
+        <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'"
+             ng-click="navCollapsed = true">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active" ng-show="authentication.useAuthentication">
+              <a href="login.html" ng-show="!authentication.authenticated">
+                Log in
+              </a>
+              <a href="logout" ng-show="authentication.authenticated">
+                Log out
+              </a>
+            </li>
+            <li class="dropdown" dropdown on-toggle="toggled(open)">
+              <a href class="dropdown-toggle" dropdown-toggle role="button"
+                 data-toggle="dropdown" aria-haspopup="true"
+                 aria-expanded="false">
+                More <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="admin.html">Admin interface</a></li>
+              </ul>
+            </li>
+          </ul>
         </div>
-        <br style="clear:both">
-        <div class="calltoaction">
-          And the final step: &nbsp;
-          <input type="submit" name="action" value="Store your JSON in the silo">
+      </nav>
+      <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2">
+          <img src="images/json-silo.png" class="img-responsive center-block">
         </div>
-      </form>
-      <p id="authentication">
-        <a id="login" href="login.html"> Log in </a>
-        <a id="logout" href="logout"> Log out </a>
-        <span class="separator">||</span>
-        <a id="adminPanel" href="adminPanel.html">Admin Panel</a>
-      </p>
+        <div class="col-xs-12 col-sm-9 col-md-5 col-lg-5">
+          <h1> Enter the story: </h1>
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label for="firstName" class="col-sm-4 control-label">
+                First name:
+              </label>
+              <div class="col-sm-8">
+                <input type="text" placeholder="Barn" class="form-control"
+                       ng-model="person.firstName" id="firstName" ng-change='change()'>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="lastName" class="col-sm-4 control-label">
+                Last name:
+              </label>
+              <div class="col-sm-8">
+                <input type="text" placeholder="Owl" class="form-control"
+                       ng-model="person.lastName" id="lastName" ng-change='change()'>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="imageUrl" class="col-sm-4 control-label">
+                Portrait image URL:
+              </label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control"
+                       placeholder="http://reelyactive.com/images/barnowl.jpg" 
+                       ng-model="person.portraitImageUrl" id="imageUrl"
+                       ng-change='change()'>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="companyName" class="col-sm-4 control-label">
+                Company name:
+              </label>
+              <div class="col-sm-8">
+                <input type="text" placeholder="reelyActive" class="form-control"
+                       ng-model="person.companyName" id="companyName"
+                       ng-change='change()'>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="companyUrl" class="col-sm-4 control-label">
+                Company URL:
+              </label>
+              <div class="col-sm-8">
+                <input type="text" placeholder="http://reelyActive.com"
+                       class="form-control" ng-model="person.companyUrl"
+                       id="companyUrl" ng-change='change()'>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="linkedInPublicUrl" class="col-sm-4 control-label">
+                LinkedIn Public URL:
+              </label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="linkedInPublicUrl"
+                       placeholder="http://www.linkedin.com/company/reelyactive"
+                       ng-model="person.linkedInPublicUrl" ng-change='change()'>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="twitterPersonalScreenName" class="col-sm-4 control-label">
+                Twitter Handle (without @):
+              </label>
+              <div class="col-sm-8">
+                <input type="text" placeholder="reelyActive" class="form-control"
+                       ng-model="person.twitterPersonalScreenName"
+                       id="twitterPersonalScreenName" ng-change='change()'>
+              </div>
+            </div>
+            <hr>
+            <div class="form-group">
+              <label for="place" class="col-sm-4 control-label">
+                Check-in at:
+              </label>
+              <div class="col-sm-8">
+                <select ng-model="place" id="place" class="form-control"
+                        ng-options="place.value as place.title for place in places">
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="duration" class="col-sm-4 control-label">
+                Self-destruct after:
+              </label>
+              <div class="col-sm-8">
+                <select ng-model="duration" id="duration" class="form-control"
+                        ng-options="duration.value as duration.title for duration in durations">
+                </select>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+          <h1> This is how it will be shared: </h1>
+          <pre id="json">{{json | json}}</pre>
+        </div>
+      </div>
+      <div class="row">
+        <p class="text-center">
+          <button class="btn btn-success" ng-click="submit()">
+            Store the JSON in the silo
+          </button>
+        </p>
+      </div>
+      <footer class="footer">
+        <a href="https://github.com/reelyactive/json-silo"> json-silo </a>
+        &nbsp; | &nbsp;
+        <a href="http://context.reelyactive.com"
+           tooltip="We believe in an open Internet of Things"
+           tooltip-placement="right">
+          &copy; reelyActive 2014-2015
+        </a>
+      </footer>
     </div>
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
+
+    <!----- Start Modal ----->
+    <script type="text/ng-template" id="modal.html">
+      <div class="modal-header">
+        <h3 class="modal-title" ng-show="success">
+          Stored!
+        </h3>
+        <h3 class="modal-title" ng-show="!success">
+          Failed!
+        </h3>
+      </div>
+      <div class="modal-body">
+        <div ng-show="success">
+          <p> The story is publicly accessible at
+              <a ng-href="{{url}}" target="_blank"> {{url}} </a>
+              until it self-destructs.
+          </p>
+          <p class="text-center" ng-show="visit.show">
+            <a ng-href="{{visit.url}}" class="btn btn-success"
+               target="_blank"> Visit the check-in location </a>
+          </p>
+          <p class="text-center" ng-show="associate.show">
+            <a ng-href="{{associate.url}}" class="btn btn-success"
+               target="_blank"> Associate a wireless device </a>
+          </p>
+        </div>
+        <div ng-show="!success">
+          <p> Here's what the API returned: </p>
+          <pre> {{data}} </pre>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="dismiss()">
+          Dismiss
+        </button>
+      </div>
+    </script>
+    <!----- End Modal ----->
+
   </body>
 </html>
