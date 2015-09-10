@@ -3,6 +3,7 @@
   <head>
     <title> reelyActive: JSON Silo </title>
     <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="cormorant/main.css">
   </head>
   <body>
     <div id="content">
@@ -29,6 +30,10 @@
           <pre id="json"></pre>
         </div>
         <br style="clear:both">
+        <div>
+          This is how it will be represented:<br>
+          <div id="cormorant"></div>
+        </div>
         <div class="calltoaction">
           And the final step: &nbsp;
           <input type="submit" name="action" value="Store your JSON in the silo">
@@ -41,6 +46,7 @@
         <a id="adminPanel" href="adminPanel.html">Admin Panel</a>
       </p>
     </div>
+    <script type="text/javascript" src="cormorant/dist/cormorant.min.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
   </body>

@@ -1,0 +1,3 @@
+[submodule "web/cormorant"]
+	path = web/cormorant
+	url = git@github.com:adrienthiery/cormorant.git

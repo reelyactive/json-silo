@@ -54,6 +54,15 @@ var onInput = function() {
     }
   });
 
-  var userJson = { person: personInputs };
-  $("#json").html(JSON.stringify(userJson, undefined, 2));
+  userCormorant = window.cormorantTools.translateToJSONLD(
+    personInputs, 'Person'
+  )
+  React.render(
+    React.createElement(
+      cormorant.getComponent(userCormorant),
+      {props: userCormorant}
+    ),
+    document.getElementById('cormorant')
+  );
+  $("#json").html(JSON.stringify(personInputs, undefined, 2));
 };
