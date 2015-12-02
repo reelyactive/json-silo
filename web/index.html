@@ -106,25 +106,39 @@
       </div>
 
       <!-- Onboarding -->
-      <div class="row" ng-show="showOnboarding">
-        <div class="well col-xs-12">
-          <h1> Place your device near the reelceiver </h1>
-        </div>
-        <div class="col-xs-12" ng-hide="onboardingCandidate">
-          Animation goes here
-        </div>
-        <div class="col-xs-12 col-sm-6" ng-show="onboardingCandidate">
-          <pre> {{onboardingCandidate}} </pre>
-        </div>
-        <div class="col-xs-12 col-sm-6" ng-show="onboardingCandidate">
-          <p> Some text about your device goes here. </p>
-          <p class="text-center">
-            <button class="btn btn-success" ng-click="proceed('story');
-                                                      stopScanning();
-                                                      type = 'onboarding'">
-              This is my device
-            </button>
-          </p>
+      <div class="container-fluid">
+        <div class="row" ng-show="showOnboarding">
+          <div class="row" ng-hide="onboardingCandidate">
+            <div class="col-xs-0 col-sm-2"></div>
+            <div class="well col-xs-12 col-sm-8">
+              <h1 class="text-center">
+                Place your device near the reelceiver
+              </h1>
+            </div>
+            <div class="col-xs-0 col-sm-2"></div>
+            <div class="col-xs-12" ng-hide="onboardingCandidate">
+              <img src="http://reelyactive.github.io/images/mobileToReel.png"
+                   class="img-responsive center-block">
+            </div>
+          </div>
+          <div class="row" ng-show="onboardingCandidate">
+            <div class="col-xs-0 col-sm-1 col-md-2"></div>
+            <div class="col-xs-12 col-sm-4 col-md-4">
+              <h1> Device detected </h1>
+              <p> See that geeky code?  That's what the device nearest to this onboarding station is emitting.  Fascinating, isn't it?  Feel confident that it is in fact <i>your</i> device? </p>
+              <p class="text-center">
+                <button class="btn btn-success" ng-click="proceed('story');
+                                                          stopScanning();
+                                                          type = 'onboarding'">
+                  Yes, this is my device
+                </button>
+              </p>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-5">
+              <pre> {{onboardingCandidate}} </pre>
+            </div>
+            <div class="col-xs-0 col-sm-1 col-md-1"></div>
+          </div>
         </div>
       </div>
 
@@ -230,6 +244,7 @@
           </button>
         </p>
       </div>
+
       <!-- STOP EDITING BEYOND HERE -->
       <footer class="footer">
         <a href="https://github.com/reelyactive/json-silo"> json-silo </a>

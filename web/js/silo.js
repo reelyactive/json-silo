@@ -220,7 +220,7 @@ angular.module('jsonSilo', [ 'ui.bootstrap' ])
       if(device) {
         // TODO: create a function to show only the pertinent details
         $scope.onboardingCandidate = JSON.stringify(device.identifier,
-                                                    null, " ");
+                                                    null, "  ");
         $scope.onboardingId = device.identifier.value;
       }
       else {
