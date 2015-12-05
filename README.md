@@ -71,11 +71,29 @@ To query the JSON story with identifier 1a2b3c4d5e6f make the following request:
 
 - [http://localhost:3002/stories/1a2b3c4d5e6f](http://localhost:3002/stories/1a2b3c4d5e6f)
 
-To query the real-time context of a place named _thebarn_ make the following request (see [hlc-server](https://www.npmjs.org/package/hlc-server) for the output format):
+To query the real-time context of a directory named _name_ make the following request (see [hlc-server](https://www.npmjs.org/package/hlc-server) for the output format):
 
-- [http://localhost:3002/contextat/directory/thebarn](http://localhost:3002/contextat/directory/thebarn)
+- [http://localhost:3002/contextat/directory/name](http://localhost:3002/contextat/directory/name)
 
-If a valid place is queried, but no one is there, the API will provide an "ok" response and include a lonely device as a placeholder.
+If a valid directory is queried, but no devices are present, the API will provide an "ok" response and include a lonely device as a placeholder.
+
+
+Onboarding Stations and Directories
+-----------------------------------
+
+To add onboarding stations, include the following in the options upon instantiation:
+
+    stations: [ { title: "Onboarding station name",
+                  id: "001bc50940810000",
+                  rssiThreshold: 185 } ]
+
+The default rssiThreshold is 185 and the onboarding process will consider the device with the strongest RSSI, which normally should be the device closest to the reelceiver with then given id.
+
+To add directories, include the following in the options upon instantiation:
+
+    directories: [ { title: "Directory name", value: "name" } ]
+
+This allows stories to be checked-in at the given directories until the stories themselves self-destruct.
 
 
 Options
@@ -88,8 +106,8 @@ The following options are supported when instantiating json-silo (those shown ar
       useCors: false,
       hlcServerUrl: "http://localhost:3001",
       smartspacesUrl: "http://localhost:3000",
-      directories: [ { title: "The Barn", value: "test" },
-                     { title: "-", value: "" } ],
+      stations: [],
+      directories: [ { title: "The Barn", value: "test" } ],
       durations: [ { title: "1 hour", value: "1h" },
                    { title: "4 hours", value: "4h" },
                    { title: "12 hours", value: "12h" },
