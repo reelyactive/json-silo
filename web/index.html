@@ -142,7 +142,424 @@
       </div>
 
       <!-- Story entry -->
-      <div class="row" ng-show="showStory">
+      <tabset ng-show="showStory">
+        <tab heading="Person">
+          <div ng-controller="PersonCtrl" class="row">
+            <div class="col-xs-12 col-md-6">
+              <h1>Enter the fields below...</h1>
+              <form role="form" class="form-horizontal">
+                <div class="form-group">
+                  <label class="col-sm-3 control-label"
+                         for="personGivenName"> Given name: </label>
+                  <div class="col-sm-9">
+                    <input type="text" placeholder="Barn" class="form-control"
+                           ng-model="person.givenName" ng-change='change()'
+                           tooltip="Ex:Barn" tooltip-placement="right"
+                           id="personGivenName"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label"
+                         for="personFamilyName"> Family name: </label>
+                  <div class="col-sm-9">
+                    <input type="text" placeholder="Owl" class="form-control"
+                           ng-model="person.familyName" ng-change='change()'
+                           tooltip="Ex:Owl" tooltip-placement="right"
+                           id="personFamilyName"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Gender:</label>
+                  <div class="col-sm-9 btn-group">
+                    <label ng-model="person.gender" ng-change='change()'
+                           btn-radio="'Male'" class="btn btn-default"
+                           uncheckable> Male </label>
+                    <label ng-model="person.gender" ng-change='change()'
+                           btn-radio="'Female'" class="btn btn-default"
+                           uncheckable> Female </label>
+                  </div>
+                </div> 
+                <div class="form-group">
+                  <label class="col-sm-3 control-label"
+                         for="personNationality"> Nationality: </label>
+                  <div class="col-sm-9">
+                    <select ng-model="person.nationality" class="form-control"
+                            ng-options="country.code as country.nationality for country in countries"
+                            ng-change='change()' id="personNationality"/>
+                      <option value=""> -- Select a Country -- </option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label"
+                         for="personCompanyName"> Company name: </label>
+                  <div class="col-sm-9">
+                    <input type="text" placeholder="reelyActive"
+                           class="form-control" ng-model="person.worksFor"
+                           ng-change='change()' tooltip="Ex:reelyActive"
+                           tooltip-placement="right" id="personCompanyName"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label"
+                         for="personJobTitle"> Job title: </label>
+                  <div class="col-sm-9">
+                    <input type="text" placeholder="Mascot" class="form-control"
+                           ng-model="person.jobTitle" ng-change='change()'
+                           tooltip="Ex:Mascot" tooltip-placement="right"
+                           id="personJobTitle"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label"
+                         for="personUrl"> Personal URL: </label>
+                  <div class="col-sm-9">
+                    <input type="url" class="form-control"
+                           placeholder="https://www.npmjs.com/package/barnowl"
+                           ng-model="person.url" ng-change='change()'
+                           id="personUrl"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label"
+                         for="personSocialUrls"> Social media URLs: </label>
+                  <div class="col-sm-9">
+                    <div ng-repeat="(key, value) in person.sameAs track by $index">
+                      <input type="url" class="form-control"
+                             placeholder="http://twitter.com/reelyActive"
+                             ng-model="person.sameAs[key]" ng-change='change()'
+                             id="personSocialUrls"/>
+                    </div>
+                    <p class="text-center">
+                      <button type="button" class="btn btn-default"
+                              ng-click="addSocial()"> Add another URL </button>
+                    </p>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label"
+                         for="personImageUrl"> Image URL: </label>
+                  <div class="col-sm-9">
+                    <carousel>
+                      <slide ng-repeat="person in slides" active="person.active">
+                        <img ng-src="{{person.image}}">
+                      </slide>
+                    </carousel>
+                    <input type="url" placeholder="Paste the image URL here,or..."
+                           class="form-control" ng-model="person.image"
+                           ng-change='change()' id="personImageUrl"/>
+                    <p class="text-center">
+                      <button type="button" class="btn btn-primary"
+                              ng-click="getActiveSlide();change()">
+                        Use image above
+                      </button>
+                    </p>
+                  </div>
+                </div>
+              </form>
+              <p> &nbsp; </p>
+            </div>
+            <div class="col-xs-12 col-md-6" >
+              <h1>...and the person's JSON shall appear</h1>
+              <pre>{{json | json}}</pre>
+              <p class="text-center">
+                <button class="btn btn-primary" ng-click="webify()">
+                  Export to web
+                </button>
+                <button class="btn btn-success" ng-click="submit(json)">
+                  Store the JSON in the silo
+                </button>
+              </p>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Product">
+          <div ng-controller="ProductCtrl" class="row">
+            <div class="col-xs-12 col-md-6">
+              <h1>Enter the fields below...</h1>
+              <form role="form" class="form-horizontal">
+                <div class="form-group">
+                  <label class="col-sm-3 control-label"
+                         for="productPreset"> Presets: </label>
+                  <div class="col-sm-9">
+                    <select ng-model="preset" class="form-control"
+                            ng-options="key as key for (key, value) in devices"
+                            ng-change='selectPreset()' id="productPreset">
+                      <option value=""> -- Select a preset device, or enter the fields below -- </option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label"
+                         for="productName"> Name: </label>
+                  <div class="col-sm-9">
+                    <input type="text" placeholder="Bluetooth Smart Reelceiver"
+                           class="form-control" ng-model="product.name"
+                           ng-change='change()'
+                           tooltip="Ex:Bluetooth Smart Reelceiver"
+                           tooltip-placement="right" id="productName"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label"
+                         for="productManufacturer"> Manufacturer: </label>
+                  <div class="col-sm-9">
+                    <input type="text" placeholder="reelyActive"
+                           class="form-control" ng-model="product.manufacturer.name"
+                           ng-change='change()' tooltip="Ex:reelyActive"
+                           tooltip-placement="right" id="productManufacturer"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label"
+                         for="productModel"> Model: </label>
+                  <div class="col-sm-9">
+                    <input type="text" placeholder="RA-R436"
+                           class="form-control" ng-model="product.model"
+                           ng-change='change()' tooltip="Ex:RA-R436"
+                           tooltip-placement="right" id="productModel"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label"
+                         for="productUrl"> Product URL: </label>
+                  <div class="col-sm-9">
+                    <input type="url" placeholder="http://shop.reelyactive.com/products/ra-r436"
+                           class="form-control" ng-model="product.url"
+                           ng-change='change()' id="productUrl"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label"
+                         for="productLogoUrl"> Logo URL: </label>
+                  <div class="col-sm-9">
+                    <input type="url" placeholder="http://reelyactive.com/images/reelyActiveLogo.png"
+                           class="form-control" ng-model="product.logo"
+                           ng-change='change()' id="productLogoUrl"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label"
+                         for="productSocialUrls"> Social media URLs: </label>
+                  <div class="col-sm-9">
+                    <div ng-repeat="(key, value) in product.sameAs track by $index">
+                      <input type="url" class="form-control"
+                             placeholder="http://twitter.com/reelyActive"
+                             ng-model="product.sameAs[key]" ng-change='change()'
+                             id="productSocialUrls"/>
+                    </div>
+                    <p class="text-center">
+                      <button type="button" class="btn btn-default"
+                              ng-click="addSocial()"> Add another URL </button>
+                    </p>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label"
+                         for="productImageUrl"> Image URL: </label>
+                  <div class="col-sm-9">
+                    <carousel>
+                      <slide ng-repeat="product in slides" active="product.active">
+                        <img ng-src="{{product.image}}">
+                      </slide>
+                    </carousel>
+                    <input type="url" placeholder="Paste the image URL here,or..."
+                           class="form-control" ng-model="product.image"
+                           ng-change='change()'/>
+                    <p class="text-center">
+                      <button type="button" class="btn btn-primary" 
+                              ng-click="getActiveSlide();change()">
+                        Use image above
+                      </button>
+                    </p>
+                  </div>
+                </div>
+              </form>
+              <p> &nbsp; </p>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <h1>...and the product's JSON shall appear</h1>
+              <pre>{{json | json}}</pre>
+              <p class="text-center">
+                <button class="btn btn-primary" ng-click="webify()">
+                  Export to web
+                </button>
+                <button class="btn btn-success" ng-click="submit(json)">
+                  Store the JSON in the silo
+                </button>
+              </p>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Place">
+          <div ng-controller="PlaceCtrl" class="row">
+            <div class="col-xs-12 col-md-6">
+              <h1>Enter the fields below...</h1>
+              <form role="form" class="form-horizontal">
+                <div class="form-group">
+                  <label class="col-sm-3 control-label"
+                         for="placeName"> Name: </label>
+                  <div class="col-sm-9">
+                    <input type="text" placeholder="Notman House"
+                           class="form-control" ng-model="place.name"
+                           ng-change='change()' tooltip="Ex:Notman House"
+                           tooltip-placement="right" id="placeName"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label"
+                         for="placeStreetAddress"> Street address: </label>
+                  <div class="col-sm-9">
+                    <input type="text" placeholder="51 rue Sherbrooke Ouest"
+                           class="form-control" ng-model="place.address.streetAddress"
+                           ng-change='change()' tooltip="Ex:51 rue Sherbrooke Ouest"
+                           tooltip-placement="right" id="placeStreetAddress"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label"
+                         for="placeLocality"> Locality (City): </label>
+                  <div class="col-sm-9">
+                    <input type="text" placeholder="Montr&eacute;al"
+                           class="form-control" ng-model="place.address.addressLocality"
+                           ng-change='change()' tooltip="Ex:Montreal"
+                           tooltip-placement="right" id="placeLocality"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label"
+                         for="placeRegion"> Region (State/Province): </label>
+                  <div class="col-sm-9">
+                    <input type="text" placeholder="Qu&eacute;bec"
+                           class="form-control" ng-model="place.address.addressRegion"
+                           ng-change='change()' tooltip="Ex:Quebec"
+                           tooltip-placement="right" id="placeRegion"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label"
+                         for="placePostalCode"> Postal code: </label>
+                  <div class="col-sm-9">
+                    <input type="text" placeholder="H2X 1X2" class="form-control"
+                           ng-model="place.address.postalCode" ng-change='change()'
+                           tooltip="Ex:H2X 1X2" tooltip-placement="right"
+                           id="placePostalCode"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label"
+                         for="placeCountry"> Country: </label>
+                  <div class="col-sm-9">
+                    <select ng-model="place.address.addressCountry" class="form-control"
+                            ng-options="country.code as country.nationality for country in countries"
+                            ng-change='change()' id="placeCountry">
+                      <option value=""> -- Select a Country -- </option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label"
+                         for="placeUrl"> Place URL: </label>
+                  <div class="col-sm-9">
+                    <input type="url" placeholder="http://notman.org"
+                           class="form-control" ng-model="place.url"
+                           ng-change='change()' id="placeUrl"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label"
+                         for="placeLogoUrl"> Logo URL: </label>
+                  <div class="col-sm-9">
+                    <input type="url" class="form-control" 
+                           placeholder="http://reelyactive.com/images/notman-logo.png"
+                           ng-model="place.logo" ng-change='change()'
+                           id="placeLogoUrl"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label"
+                         for="placeSocialUrls"> Social media URLs: </label>
+                  <div class="col-sm-9">
+                    <div ng-repeat="(key, value) in place.sameAs track by $index">
+                      <input type="url" class="form-control"
+                             placeholder="http://twitter.com/notman"
+                             ng-model="place.sameAs[key]" ng-change='change()'
+                             id="placeSocialUrls"/>
+                    </div>
+                    <p class="text-center">
+                      <button type="button" class="btn btn-default"
+                              ng-click="addSocial()"> Add another URL </button>
+                    </p>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label"
+                         for="placeImageUrl"> Image URL: </label>
+                  <div class="col-sm-9">
+                    <carousel>
+                      <slide ng-repeat="place in slides" active="place.active">
+                        <img ng-src="{{place.image}}">
+                      </slide>
+                    </carousel>
+                    <input type="url" placeholder="Paste the URL here,or..."
+                           class="form-control" ng-model="place.image"
+                           ng-change='change()'/>
+                    <p class="text-center">
+                      <button type="button" class="btn btn-primary"
+                              ng-click="getActiveSlide();change()">
+                        Use image above
+                      </button>
+                    </p>
+                  </div>
+                </div>
+              </form>
+              <p> &nbsp; </p>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <h1>...and the place's JSON shall appear</h1>
+              <pre>{{json | json}}</pre>
+              <p class="text-center">
+                <button class="btn btn-primary" ng-click="webify()">
+                  Export to web
+                </button>
+                <button class="btn btn-success" ng-click="submit(json)">
+                  Store the JSON in the silo
+                </button>
+              </p>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Combined">
+          <div ng-controller="CombinedCtrl" class="row">
+            <div class="col-xs-12 col-md-6">
+              <h1>Enter the fields in the other tabs...</h1>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <h1>...and the combined JSON shall appear</h1>
+              <pre>{{json | json}}</pre>
+              <p class="text-center">
+                <button class="btn btn-primary" ng-click="webify()">
+                  Export to web
+                </button>
+                <button class="btn btn-success" ng-click="submit(json)">
+                  Store the JSON in the silo
+                </button>
+              </p>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+
+
+
+
+
+
+
+
+
+
+<!--      <div class="row" ng-show="showStory">
         <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2">
           <img src="images/json-silo.png" class="img-responsive center-block">
         </div>
@@ -242,7 +659,7 @@
             Store the JSON in the silo
           </button>
         </p>
-      </div>
+      </div>-->
 
       <footer class="footer">
         <a href="https://github.com/reelyactive/json-silo"> json-silo </a>
@@ -256,7 +673,7 @@
     </div>
 
     <!----- Start Modal ----->
-    <script type="text/ng-template" id="modal.html">
+    <script type="text/ng-template" id="result.html">
       <div class="modal-header">
         <h3 class="modal-title">
           {{title}}
@@ -285,6 +702,25 @@
         <button class="btn btn-primary" type="button" ng-click="dismiss()">
           Dismiss
         </button>
+      </div>
+    </script>
+    <!----- End Modal ----->
+
+    <!----- Start Modal ----->
+    <script type="text/ng-template" id="export.html">
+      <div class="modal-header">
+        <h3 class="modal-title">
+          Structured data for the web
+        </h3>
+      </div>
+      <div class="modal-body">
+        <p> Copy the following markup into either the head or body of its corresponding webpage: </p>
+        <pre>{{markup}}</pre>
+        <p> Validate the webpage and/or the raw markup via <a href="https://developers.google.com/structured-data/testing-tool/" target="_blank">Google's Structured Data Testing Tool</a>. </p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" type="button"
+                ng-click="dismiss()"> Dismiss </button>
       </div>
     </script>
     <!----- End Modal ----->
