@@ -260,15 +260,15 @@
     <!----- Start Modal ----->
     <script type="text/ng-template" id="modal.html">
       <div class="modal-header">
-        <h3 class="modal-title" ng-show="success">
-          Stored!
-        </h3>
-        <h3 class="modal-title" ng-show="!success">
-          Failed!
+        <h3 class="modal-title">
+          {{title}}
         </h3>
       </div>
       <div class="modal-body">
-        <div ng-show="success">
+        <div ng-show="err">
+          <p> <b>Error:</b> <i>{{err}}</i> </p>
+        </div>
+        <div ng-show="url">
           <p> The story is publicly accessible at
               <a ng-href="{{url}}" target="_blank"> {{url}} </a>
               until it self-destructs.
@@ -281,10 +281,6 @@
             <a ng-href="{{associate.url}}" class="btn btn-success"
                target="_blank"> Associate a wireless device </a>
           </p>
-        </div>
-        <div ng-show="!success">
-          <p> Here's what the API returned: </p>
-          <pre> {{data}} </pre>
         </div>
       </div>
       <div class="modal-footer">

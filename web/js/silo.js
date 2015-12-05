@@ -25,6 +25,8 @@ angular.module('jsonSilo', [ 'ui.bootstrap' ])
     $scope.authentication = DEFAULT_AUTHENTICATION;
     $scope.json = DEFAULT_JSON;
     $scope.showLanding = true;
+    $scope.showPlaces = false;
+    $scope.showStations = false;
     $scope.showOnboarding = false;
     $scope.showStory = false;
     $scope.type = null;
@@ -32,26 +34,22 @@ angular.module('jsonSilo', [ 'ui.bootstrap' ])
     $http.get('/stations')
       .success(function(data, status, headers, config) {
         $scope.stations = data;
-        $scope.station = $scope.stations[0].id;
-        $scope.showStations = true;
+        if(Array.isArray(data) && data.length) {
+          $scope.station = $scope.stations[0].id;
+          $scope.showStations = true;
+        }
       })
-      .error(function(data, status, headers, config) {
-        $scope.stations = [];
-        $scope.station = '';
-        $scope.showStations = false;
-      });
+      .error(function(data, status, headers, config) { });
 
     $http.get('/places')
       .success(function(data, status, headers, config) {
         $scope.places = data;
-        $scope.place = $scope.places[0].value;
-        $scope.showPlaces = true;
+        if(Array.isArray(data) && data.length) {
+          $scope.place = $scope.places[0].value;
+          $scope.showPlaces = true;
+        }
       })
-      .error(function(data, status, headers, config) {
-        $scope.places = [];
-        $scope.place = '';
-        $scope.showPlaces = false;
-      });
+      .error(function(data, status, headers, config) { });
 
 
     $http.get('/durations')
@@ -142,47 +140,47 @@ angular.module('jsonSilo', [ 'ui.bootstrap' ])
         story.story.place = place;
       }
       story.story.duration = $scope.duration;
+      postStory(story, function(url, associated, err) {
+        var items = { url: url,
+                      place: place,
+                      associated: associated,
+                      err: err,
+                      hlcUrl: $scope.hlcUrl,
+                      ssUrl: $scope.ssUrl };
+        openModal(items);
+        delete story.story.place;
+        delete story.story.duration;
+      });
+    };
+
+    function postStory(story, callback) {
       $http.post('/stories', story)
         .success(function(data, status, headers, config) {
-          var items = { success: true,
-                        data: data,
-                        place: place,
-                        associated: associated,
-                        hlcUrl: $scope.hlcUrl,
-                        ssUrl: $scope.ssUrl };
+          var url = data.devices[Object.keys(data.devices)[0]].url;
+
           if($scope.type === 'onboarding') {
-            var url = data.devices[Object.keys(data.devices)[0]].url;
             associate(url, function(err) {
-              if(err) {
-                items.success = false;
-              }
-              else {
-                associated = true;
-              }
-              openModal(items);
+              var associated = !err;
+              callback(url, associated, err);
             });
           }
           else {
-            openModal(items);
+            callback(url, false);
           }
         })
         .error(function(data, status, headers, config) {
-          var items = { success: false, data: data };
-          openModal(items);
-          delete story.story.place;
-          delete story.story.duration;
+          callback(null, false, 'Could not POST story (' + status + ')');
         }); 
-    };
+    }
 
     function associate(url, callback) {
-      // TODO: figure out PUT with CORS
       $http.put($scope.hlcUrl + ASSOCIATION_PATH + $scope.onboardingId,
                 { url: url })
         .success(function(data, status, headers, config) {
           callback();
         })
         .error(function(data, status, headers, config) {
-          callback('Error associating device with story');
+          callback('Could not PUT association (' + status + ')');
         }); 
     }
 
@@ -236,6 +234,8 @@ angular.module('jsonSilo', [ 'ui.bootstrap' ])
                                  resolve: { items: function() {
                                                      return items; } } } );
       modal.result.then(function() {}, function() {
+        $scope.person = {};
+        $scope.json = { person: { } };
         $scope.proceed('landing');
       });
     }
@@ -245,14 +245,19 @@ angular.module('jsonSilo', [ 'ui.bootstrap' ])
 
   // Modal controller
   .controller('ModalCtrl', function($scope, $modalInstance, items) {
-    $scope.success = items.success;
-    $scope.data = items.data;
-    var url = '';
-    if($scope.success) {
-      var devices = $scope.data.devices;
-      url = devices[Object.keys(devices)[0]].url;
+    $scope.err = items.err;
+    $scope.url = items.url;
+    if($scope.url) {
+      if(items.associated) {
+        $scope.title = 'Stored and associated!';
+      }
+      else {
+        $scope.title = 'Stored!';
+      }
     }
-    $scope.url = url;
+    else {
+      $scope.title = 'Failed!';
+    }
     $scope.associate = {};
     $scope.associate.show = (!items.associated) && (items.hlcUrl !== null);
     $scope.associate.url = items.hlcUrl +
