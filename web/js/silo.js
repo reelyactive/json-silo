@@ -10,7 +10,7 @@ var DEFAULT_AUTHENTICATION = { useAuthentication: false };
 var RECEIVER_PATH = '/whatat/receiver/';
 var ASSOCIATION_PATH = '/associations/';
 var DEFAULT_POLLING_MILLISECONDS = 1000;
-var RSSI_THRESHOLD = 185;
+var DEFAULT_RSSI_THRESHOLD = 185;
 
 
 angular.module('jsonSilo', [ 'ui.bootstrap' ])
@@ -124,6 +124,7 @@ angular.module('jsonSilo', [ 'ui.bootstrap' ])
     $scope.startScanning = function() {
       $scope.pollingPromise = $interval(queryStation,
                                         DEFAULT_POLLING_MILLISECONDS);
+      updateRssiThreshold();
     };
 
     $scope.stopScanning = function() {
@@ -152,6 +153,16 @@ angular.module('jsonSilo', [ 'ui.bootstrap' ])
         delete story.story.duration;
       });
     };
+
+    function updateRssiThreshold() {
+      $scope.rssiThreshold = DEFAULT_RSSI_THRESHOLD;
+      for(var cStation = 0; cStation < $scope.stations.length; cStation++) {
+        if(($scope.stations[cStation].id === $scope.station) &&
+           (typeof $scope.stations[cStation].rssiThreshold === 'number')) {
+          $scope.rssiThreshold = $scope.stations[cStation].rssiThreshold;
+        }
+      }
+    }
 
     function postStory(story, callback) {
       $http.post('/stories', story)
@@ -204,7 +215,7 @@ angular.module('jsonSilo', [ 'ui.bootstrap' ])
             cDecoding++) {
           var decoding = device.radioDecodings[cDecoding];
           if((decoding.identifier.value === $scope.station) &&
-             (decoding.rssi > RSSI_THRESHOLD) &&
+             (decoding.rssi > $scope.rssiThreshold) &&
              (decoding.rssi > strongestRssi)) {
             strongestDevice = device;
             strongestRssi = decoding.rssi;
