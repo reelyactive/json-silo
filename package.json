@@ -7,9 +7,10 @@
     "reelyActive",
     "Smart Spaces",
     "IoT",
-    "Personal Data Locker"
+    "Personal Data Locker",
+    "JSON-LD"
   ],
-  "version": "0.3.1",
+  "version": "0.4.0",
   "engines": {
     "node": "^0.10.0"
   },
