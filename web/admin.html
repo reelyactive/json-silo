@@ -62,12 +62,16 @@
               <th> Action </th>
             </tr>
             <tr ng-repeat="story in stories">
-              <td> <img ng-src="{{story.json.person.portraitImageUrl}}"
+              <td> <img ng-src="{{story.json.person.portraitImageUrl +
+                                  story.json['@graph'][0]['schema:image']}}"
                         class="img-circle" width="100"> </td>
               <td> {{story._id}} </td>
-              <td> {{story.json.person.firstName}} </td>
-              <td> {{story.json.person.lastName}} </td>
-              <td> {{story.json.person.companyName}} </td>
+              <td> {{story.json.person.firstName +
+                     story.json['@graph'][0]['schema:givenName']}} </td>
+              <td> {{story.json.person.lastName +
+                     story.json['@graph'][0]['schema:familyName']}} </td>
+              <td> {{story.json.person.companyName +
+                     story.json['@graph'][0]['schema:worksFor']}} </td>
               <td> {{story.expireAfter}} </td>
               <td> <button class="btn btn-danger"
                            ng-click="delete(story._id)"> Delete </button> </td>
