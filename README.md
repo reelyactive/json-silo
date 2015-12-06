@@ -131,12 +131,14 @@ The following options are supported when instantiating json-silo (those shown ar
                    { title: "12 hours", value: "12h" },
                    { title: "24 hours", value: "24h" } ],
       password: null,
-      secret: "YoureProbablyGonnaWantToChangeIt"
+      secret: "YoureProbablyGonnaWantToChangeIt",
+      persistentDataFolder: "data"
     }
 
 Notes:
 - durations require the value to be a number followed by m, h or d (minutes, hours and days, respectively)
 - setting a (non-null) password will prompt a login when users attempt to add data to the JSON silo
+- persistentDataFolder specifies the path to the folder which contains the persistent database file (before v0.4.0 the default was "")
 
 
 What's next?
