@@ -43,7 +43,7 @@ var app = new server( { password: null } );
 
 Then browse to [http://localhost:3002](http://localhost:3002) to see the landing page.
 
-![json-silo landing page](http://reelyactive.com/images/json-silo-landing.png)
+![json-silo landing page](http://reelyactive.com/images/json-silo-flow.gif)
 
 
 Browse to [http://localhost:3002/stories/test](http://localhost:3002/stories/test)) to see the following test output:
