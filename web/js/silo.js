@@ -95,7 +95,14 @@ angular.module('jsonSilo', [ 'ui.bootstrap' ])
 
     $scope.proceed = function(action) {
       switch(action) {
+        case 'duration':
+          $scope.showLanding = true;
+          $scope.showDuration = true;
+          $scope.showStory = false;
+          $scope.showOnboarding = false;
+          break;
         case 'story':
+        case 'check-in':
           $scope.showStory = true;
           $scope.showLanding = false;
           $scope.showOnboarding = false;
@@ -108,6 +115,7 @@ angular.module('jsonSilo', [ 'ui.bootstrap' ])
         case 'landing':
         default:
           $scope.showLanding = true;
+          $scope.showDuration = false;
           $scope.showStory = false;
           $scope.showOnboarding = false;
           break;
