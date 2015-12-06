@@ -49,18 +49,36 @@ Then browse to [http://localhost:3002](http://localhost:3002) to see the landing
 Browse to [http://localhost:3002/stories/test](http://localhost:3002/stories/test)) to see the following test output:
 
     {
-      person: {
-        firstName: "Barn",
-        lastName: "Owl",
-        companyName: "reelyActive",
-        portraitImageUrl: "http://reelyactive.com/images/barnowl.jpg",
-        twitterPersonalScreenName: "reelyActive"
+      "@context": {
+        "schema": "http://schema.org/"
       },
-      device: {
-        manufacturer: "reelyActive",
-        model: "RA-T411",
-        portraitImageUrl: "http://reelyactive.com/images/tag400x400.jpg"
-      }
+      "@graph": [
+        {
+          "@id": "person",
+          "@type": "schema:Person",
+          "schema:givenName": "Barn",
+          "schema:familyName": "Owl",
+          "schema:worksFor": "reelyActive",
+          "schema:image": "http://reelyactive.com/images/barnowl.jpg",
+          "schema:jobTitle": "Mascot",
+          "schema:url": "https://www.npmjs.com/package/barnowl",
+          "schema:sameAs": [
+            "https://www.instagram.com/reelyactive/"
+          ]
+        },
+        {
+          "@id": "product",
+          "@type": "schema:Product",
+          "schema:name": "915MHz Active RFID Tag",
+          "schema:manufacturer": {
+            "@type": "schema:Organization",
+            "schema:name": "reelyActive"
+          },
+          "schema:model": "RA-T411",
+          "schema:url": "http://shop.reelyactive.com/products/ra-t411",
+          "schema:image": "http://reelyactive.com/images/tag400x400.jpg"
+        }
+      ]
     }
 
 
