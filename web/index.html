@@ -136,6 +136,10 @@
               <h1 class="text-center">
                 Place your device near the reelceiver
               </h1>
+              <progressbar class="progress-striped active" max="100"
+                           value="rssiPercentage" type="warning">
+                <b>{{rssiPercentage}}% proximity threshold reached</b>
+              </progressbar>
             </div>
             <div class="col-xs-0 col-sm-2"></div>
             <div class="col-xs-12" ng-hide="onboardingCandidate">

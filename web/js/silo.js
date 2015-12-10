@@ -11,6 +11,7 @@ var RECEIVER_PATH = '/whatat/receiver/';
 var ASSOCIATION_PATH = '/associations/';
 var DEFAULT_POLLING_MILLISECONDS = 1000;
 var DEFAULT_RSSI_THRESHOLD = 185;
+var DEFAULT_RSSI_FLOOR = 140;
 
 
 angular.module('jsonSilo', [ 'ui.bootstrap' ])
@@ -137,6 +138,7 @@ angular.module('jsonSilo', [ 'ui.bootstrap' ])
     };
 
     $scope.startScanning = function() {
+      $scope.rssiPercentage = 0;
       $scope.pollingPromise = $interval(queryStation,
                                         DEFAULT_POLLING_MILLISECONDS);
       updateRssiThreshold();
@@ -179,10 +181,15 @@ angular.module('jsonSilo', [ 'ui.bootstrap' ])
 
     function updateRssiThreshold() {
       $scope.rssiThreshold = DEFAULT_RSSI_THRESHOLD;
+      $scope.rssiFloor = DEFAULT_RSSI_FLOOR;
       for(var cStation = 0; cStation < $scope.stations.length; cStation++) {
-        if(($scope.stations[cStation].id === $scope.station) &&
-           (typeof $scope.stations[cStation].rssiThreshold === 'number')) {
-          $scope.rssiThreshold = $scope.stations[cStation].rssiThreshold;
+        if($scope.stations[cStation].id === $scope.station) {
+          if(typeof $scope.stations[cStation].rssiThreshold === 'number') {
+            $scope.rssiThreshold = $scope.stations[cStation].rssiThreshold;
+          }
+          if(typeof $scope.stations[cStation].rssiFloor === 'number') {
+            $scope.rssiFloor = $scope.stations[cStation].rssiFloor;
+          }
         }
       }
     }
@@ -238,12 +245,18 @@ angular.module('jsonSilo', [ 'ui.bootstrap' ])
             cDecoding++) {
           var decoding = device.radioDecodings[cDecoding];
           if((decoding.identifier.value === $scope.station) &&
-             (decoding.rssi > $scope.rssiThreshold) &&
              (decoding.rssi > strongestRssi)) {
             strongestDevice = device;
             strongestRssi = decoding.rssi;
           }
         } 
+      }
+      var numerator = strongestRssi - $scope.rssiFloor;
+      var denominator = $scope.rssiThreshold - $scope.rssiFloor;
+      $scope.rssiPercentage = Math.min(100, Math.round((100 * numerator) /
+                                                       denominator));
+      if(strongestRssi < $scope.rssiThreshold) {
+        strongestDevice = null;
       }
       return strongestDevice;
     }
