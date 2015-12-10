@@ -136,8 +136,17 @@
               <h1 class="text-center">
                 Place your device near the reelceiver
               </h1>
+              <p class="text-center text-warning"
+                 ng-show="rssiPercentage === 0">
+                Unfortunately we are <b>not receiving live data</b> from this onboarding station.  Kindly advise the responsible party. <br>
+                <button class="btn btn-warning" ng-click="proceed('landing');
+                                                          stopScanning()">
+                  Go back
+                </button>
+              </p>
               <progressbar class="progress-striped active" max="100"
-                           value="rssiPercentage" type="warning">
+                           value="rssiPercentage" type="warning"
+                           ng-hide="rssiPercentage === 0">
                 <b>{{rssiPercentage}}% proximity threshold reached</b>
               </progressbar>
             </div>
@@ -151,7 +160,8 @@
             <div class="col-xs-0 col-sm-1 col-md-2"></div>
             <div class="col-xs-12 col-sm-4 col-md-4">
               <h1> Device detected </h1>
-              <p> See that geeky code?  That's what the device nearest to this onboarding station is emitting.  Fascinating, isn't it?  Feel confident that it is in fact <i>your</i> device? </p>
+              <p> See that geeky code?  That's what the device nearest to this onboarding station is emitting.  Fascinating, isn't it? </p>
+              <p> <b> Feel confident that this is in fact <i>your</i> device? </b> </p>
               <p class="text-center">
                 <button class="btn btn-success" ng-click="proceed('story');
                                                           stopScanning()">

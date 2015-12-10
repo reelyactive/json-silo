@@ -251,7 +251,7 @@ angular.module('jsonSilo', [ 'ui.bootstrap' ])
           }
         } 
       }
-      var numerator = strongestRssi - $scope.rssiFloor;
+      var numerator = Math.max(0, strongestRssi - $scope.rssiFloor);
       var denominator = $scope.rssiThreshold - $scope.rssiFloor;
       $scope.rssiPercentage = Math.min(100, Math.round((100 * numerator) /
                                                        denominator));
