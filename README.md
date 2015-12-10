@@ -103,9 +103,10 @@ To add onboarding stations, include the following in the options upon instantiat
 
     stations: [ { title: "Onboarding station name",
                   id: "001bc50940810000",
-                  rssiThreshold: 185 } ]
+                  rssiThreshold: 185,
+                  rssiFloor: 140 } ]
 
-The default rssiThreshold is 185 and the onboarding process will consider the device with the strongest RSSI, which normally should be the device closest to the reelceiver with then given id.
+The default rssiThreshold is 185 and the onboarding process will consider the device with the strongest RSSI, which normally should be the device closest to the reelceiver with then given id.  The rssiFloor serves only for the visualisation of the percentage of the rssiThreshold reached during onboarding.
 
 To add directories, include the following in the options upon instantiation:
 
