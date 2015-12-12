@@ -166,7 +166,7 @@ angular.module('jsonSilo', [ 'ui.bootstrap' ])
                       hlcUrl: $scope.hlcUrl,
                       ssUrl: $scope.ssUrl };
         openModal(items);
-        delete story.story.place;
+        delete story.story.directory;
         delete story.story.duration;
       });
     };
