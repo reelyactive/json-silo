@@ -2,10 +2,11 @@
 <html>
   <head>
     <title> reelyActive JSON Silo </title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style/main.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.1/ui-bootstrap-tpls.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap-tpls.min.js"></script>
     <script type="text/javascript" src="js/admin.js"></script>
   </head>
   <body ng-app="jsonSilo">
@@ -48,37 +49,42 @@
           </ul>
         </div>
       </nav>
-      <div class="row">
-        <div class="col-sm-1 col-md-2"> &nbsp; </div>
-        <div class="col-sm-10 col-md-8" ng-controller="StoriesCtrl">
-          <table class="table table-striped">
-            <tr>
-              <th> Image </th>
-              <th> ID </th>
-              <th> First name </th>
-              <th> Last name </th>
-              <th> Company </th>
-              <th> Expiration </th>
-              <th> Action </th>
-            </tr>
-            <tr ng-repeat="story in stories">
-              <td> <img ng-src="{{story.json.person.portraitImageUrl +
-                                  story.json['@graph'][0]['schema:image']}}"
-                        class="img-circle" width="100"> </td>
-              <td> {{story._id}} </td>
-              <td> {{story.json.person.firstName +
-                     story.json['@graph'][0]['schema:givenName']}} </td>
-              <td> {{story.json.person.lastName +
-                     story.json['@graph'][0]['schema:familyName']}} </td>
-              <td> {{story.json.person.companyName +
-                     story.json['@graph'][0]['schema:worksFor']}} </td>
-              <td> {{story.expireAfter}} </td>
-              <td> <button class="btn btn-danger"
-                           ng-click="delete(story._id)"> Delete </button> </td>
-            </tr>
-          </table>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-1 col-md-2"> &nbsp; </div>
+          <div class="col-sm-10 col-md-8" ng-controller="StoriesCtrl">
+            <table class="table table-striped">
+              <tr>
+                <th> Image </th>
+                <th> ID </th>
+                <th> First name </th>
+                <th> Last name </th>
+                <th> Company </th>
+                <th> Expiration </th>
+                <th> Action </th>
+              </tr>
+              <tr ng-repeat="story in stories">
+                <td> <img ng-src="{{story.json.person.portraitImageUrl +
+                                    story.json['@graph'][0]['schema:image']}}"
+                          class="img-circle" width="100"> </td>
+                <td> {{story._id}} </td>
+                <td> {{story.json.person.firstName +
+                       story.json['@graph'][0]['schema:givenName']}} </td>
+                <td> {{story.json.person.lastName +
+                       story.json['@graph'][0]['schema:familyName']}} </td>
+                <td> {{story.json.person.companyName +
+                       story.json['@graph'][0]['schema:worksFor']}} </td>
+                <td> {{story.expireAfter}} </td>
+                <td>
+                  <button class="btn btn-danger" ng-click="delete(story._id)">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="col-sm-1 col-md-2"> &nbsp; </div>
         </div>
-        <div class="col-sm-1 col-md-2"> &nbsp; </div>
       </div>
       <footer class="footer">
         <a href="https://github.com/reelyactive/json-silo"> json-silo </a>
