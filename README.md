@@ -133,6 +133,7 @@ The following options are supported when instantiating json-silo (those shown ar
                    { title: "24 hours", value: "24h" } ],
       password: null,
       secret: "YoureProbablyGonnaWantToChangeIt",
+      identifierLength: 16,
       persistentDataFolder: "data"
     }
 
