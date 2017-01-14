@@ -5,11 +5,11 @@ json-silo
 A contextual data silo for the IoT and the Physical Web
 -------------------------------------------------------
 
-json-silo is a datastore for JSON stories.  You can think of it as a personal data locker.  A json-silo allows a user to enter contextual information about themselves, which it then converts and stores as machine-readable JSON.  This information is available to anyone with the URL (hyperlink).  Why would anyone want to share this info via an API?  So that they may be recognised for what matters to them!  Learn more about storytelling through reelyApp and the json-silo via [our website](http://context.reelyactive.com/start.html).
+json-silo is a datastore for JSON stories.  You can think of it as a personal data locker.  A json-silo allows a user to enter contextual information about themselves, which it then converts and stores as machine-readable JSON-LD and Schema.org.  This information is available to anyone with the URL (hyperlink).  Why would anyone want to share this info via an API?  So that they may be recognised for what matters to them!  Learn more about storytelling through reelyApp and the json-silo via [our website](http://context.reelyactive.com/start.html).
 
 ### In the scheme of Things (pun intended)
 
-Visit [myjson.info](https://myjson.info) for a live demo.
+Visit [myjson.info](https://myjson.info) for a live demo, including [myjson.info/stories/test](https://myjson.info/stories/test), a story which you can query both as human-friendly HTML or as machine-friendly JSON.
 
 ![json-silo logo](http://reelyactive.github.io/json-silo/images/json-silo-bubble.png)
 
