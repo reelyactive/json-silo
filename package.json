@@ -2,15 +2,16 @@
   "name": "json-silo",
   "homepage": "https://github.com/reelyactive/json-silo/",
   "author": "reelyActive <webdev@reelyactive.com>",
-  "description": "A contextual data silo for the IoT and Smart Spaces.  We believe in an open Internet of Things.",
+  "description": "A contextual data silo for the IoT and the Physical Web.  We believe in an open Internet of Things.",
   "keywords": [
     "reelyActive",
-    "Smart Spaces",
     "IoT",
     "Personal Data Locker",
+    "Physical Web",
+    "Schema.org",
     "JSON-LD"
   ],
-  "version": "0.4.7",
+  "version": "0.5.0",
   "engines": {
     "node": ">=0.10.0"
   },
