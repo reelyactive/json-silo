@@ -3,7 +3,7 @@
  * We believe in an open Internet of Things
  */
 
-angular.module('story', [ 'reelyactive.cuttlefish', 'ngSanitize' ])
+angular.module('story', [ 'reelyactive.cuttlefish' ])
 
   // Story controller
   .controller('StoryCtrl', function($scope, $http, $window) {
