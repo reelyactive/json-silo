@@ -5,23 +5,23 @@ json-silo
 A contextual data silo for the IoT and the Physical Web
 -------------------------------------------------------
 
-json-silo is a datastore for JSON stories.  You can think of it as a personal data locker.  A json-silo allows a user to enter contextual information about themselves, which it then converts and stores as machine-readable JSON-LD and Schema.org.  This information is available to anyone with the URL (hyperlink).  Why would anyone want to share this info via an API?  So that they may be recognised for what matters to them!  Learn more about storytelling through reelyApp and the json-silo via [our website](http://context.reelyactive.com/start.html).
+json-silo is a datastore for JSON stories.  You can think of it as a personal data locker.  A json-silo allows a user to enter contextual information about themselves, which it then converts and stores as machine-readable JSON-LD and Schema.org.  This information is available to anyone with the URL (hyperlink).  Why would anyone want to share this info via an API?  So that they may be recognised for what matters to them!  Learn more about storytelling through reelyApp and the json-silo via [our website](https://www.reelyactive.com/reelyapp/).
 
 ### In the scheme of Things (pun intended)
 
 Visit [myjson.info](https://myjson.info) for a live demo, including [myjson.info/stories/test](https://myjson.info/stories/test), a story which you can query both as human-friendly HTML or as machine-friendly JSON.
 
-![json-silo logo](http://reelyactive.github.io/json-silo/images/json-silo-bubble.png)
+![json-silo logo](https://reelyactive.github.io/json-silo/images/json-silo-bubble.png)
 
 
 What's in a name?
 -----------------
 
-The json-silo is exactly that: a data silo for [JSON](http://en.wikipedia.org/wiki/JSON)!  Simple enough, right?  So why does it have a grain silo with a hockey mask for a mascot?
+The json-silo is exactly that: a data silo for [JSON](https://en.wikipedia.org/wiki/JSON)!  Simple enough, right?  So why does it have a grain silo with a hockey mask for a mascot?
 
-At reelyActive we've always been outspoken about the need for an open Internet of Things as opposed to a bunch of siloed applications.  In 2013, on social media we recycled the ["More cowbell" meme](http://en.wikipedia.org/wiki/More_cowbell) with an image of Will Ferrell banging on a grain silo with the caption ["The Internet of Things does not need More Silo"](http://reelyactive.github.io/images/moreSilo.jpg).  When it came time to create a mascot for the json-silo, we decided to start with that grain silo.
+At reelyActive we've always been outspoken about the need for an open Internet of Things as opposed to a bunch of siloed applications.  In 2013, on social media we recycled the ["More cowbell" meme](https://en.wikipedia.org/wiki/More_cowbell) with an image of Will Ferrell banging on a grain silo with the caption ["The Internet of Things does not need More Silo"](https://reelyactive.github.io/images/moreSilo.jpg).  When it came time to create a mascot for the json-silo, we decided to start with that grain silo.
 
-Now, how do you visually represent JSON in association with a grain silo?  Sure, we could have slapped the official JSON logo on that silo, but where's the fun in that?  Instead, for those of us who grew up in the eighties, hearing "JSON" out of context (pun intended) evokes the image of [Jason Voorhees](http://en.wikipedia.org/wiki/Jason_Voorhees) from the Friday the 13th series of films, specifically the iconic hockey goaltender mask he wore.  Not only does that "Jason" mask make for a silly visual pun, it also gives a nod to our hometown heritage, where [Jacques Plante](http://en.wikipedia.org/wiki/Jacques_Plante) of the Montreal Canadiens was the first goaltender to wear such a mask full-time, which would later become standard practice.  We'd be pleased to see the use of personal data lockers become standard practice too.
+Now, how do you visually represent JSON in association with a grain silo?  Sure, we could have slapped the official JSON logo on that silo, but where's the fun in that?  Instead, for those of us who grew up in the eighties, hearing "JSON" out of context (pun intended) evokes the image of [Jason Voorhees](https://en.wikipedia.org/wiki/Jason_Voorhees) from the Friday the 13th series of films, specifically the iconic hockey goaltender mask he wore.  Not only does that "Jason" mask make for a silly visual pun, it also gives a nod to our hometown heritage, where [Jacques Plante](https://en.wikipedia.org/wiki/Jacques_Plante) of the Montreal Canadiens was the first goaltender to wear such a mask full-time, which would later become standard practice.  We'd be pleased to see the use of personal data lockers become standard practice too.
 
 
 Installation
@@ -40,7 +40,7 @@ var app = new server( { password: null } );
 
 Then browse to [http://localhost:3002](http://localhost:3002) to see the landing page.
 
-![json-silo landing page](http://reelyactive.com/images/json-silo-flow.gif)
+![json-silo landing page](https://www.reelyactive.com/images/json-silo-flow.gif)
 
 
 Browse to [http://localhost:3002/stories/test](http://localhost:3002/stories/test)) to see the following test output:
@@ -56,7 +56,7 @@ Browse to [http://localhost:3002/stories/test](http://localhost:3002/stories/tes
           "schema:givenName": "Barn",
           "schema:familyName": "Owl",
           "schema:worksFor": "reelyActive",
-          "schema:image": "http://reelyactive.com/images/barnowl.jpg",
+          "schema:image": "https://reelyactive.com/images/barnowl.jpg",
           "schema:jobTitle": "Mascot",
           "schema:url": "https://www.npmjs.com/package/barnowl",
           "schema:sameAs": [
@@ -72,8 +72,8 @@ Browse to [http://localhost:3002/stories/test](http://localhost:3002/stories/tes
             "schema:name": "reelyActive"
           },
           "schema:model": "RA-T411",
-          "schema:url": "http://shop.reelyactive.com/products/ra-t411",
-          "schema:image": "http://reelyactive.com/images/tag400x400.jpg"
+          "schema:url": "https://shop.reelyactive.com/products/ra-t411",
+          "schema:image": "https://reelyactive.com/images/tag400x400.jpg"
         }
       ]
     }
@@ -144,9 +144,9 @@ What's next?
 ------------
 
 This is an active work in progress.  Expect regular changes and updates, as well as improved documentation!  If you're developing with json-silo check out:
-* [diyActive](http://reelyactive.github.io/) our developer page
+* [diyActive](https://reelyactive.github.io/) our developer page
 * our [node-style-guide](https://github.com/reelyactive/node-style-guide) for development
-* our [contact information](http://context.reelyactive.com/contact.html) to get in touch if you'd like to contribute
+* our [contact information](https://www.reelyactive.com/contact/) to get in touch if you'd like to contribute
 
 
 License
@@ -154,7 +154,7 @@ License
 
 MIT License
 
-Copyright (c) 2014-2017 reelyActive
+Copyright (c) 2014-2017 [reelyActive](https://www.reelyactive.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
