@@ -544,11 +544,13 @@ angular.module('jsonSilo', [ 'ui.bootstrap' ])
     initialise();
 
     $scope.slides = [
-      { text: 'barnowl', image: 'http://reelyactive.com/images/barnowl.jpg' },
-      { text: 'barnacles', image: 'http://reelyactive.com/images/barnacles.jpg' },
-      { text: 'barterer', image: 'http://reelyactive.com/images/barterer.jpg' },
-      { text: 'chickadee', image: 'http://reelyactive.com/images/chickadee.jpg' },
-      { text: 'starling', image: 'http://reelyactive.com/images/starling.jpg' }
+      { text: 'barnowl', image: 'https://reelyactive.github.io/barnowl/images/barnowl-bubble.png' },
+      { text: 'barnacles', image: 'https://reelyactive.github.io/barnacles/images/barnacles-bubble.png' },
+      { text: 'barterer', image: 'https://reelyactive.github.io/barterer/images/barterer-bubble.png' },
+      { text: 'chickadee', image: 'https://reelyactive.github.io/chickadee/images/chickadee-bubble.png' },
+      { text: 'beaver', image: 'https://reelyactive.github.io/beaver/images/beaver-bubble.png' },
+      { text: 'cormorant', image: 'https://reelyactive.github.io/cormorant/images/cormorant-bubble.png' },
+      { text: 'cuttlefish', image: 'https://reelyactive.github.io/cuttlefish/images/cuttlefish-bubble.png' }
     ];
 
     function initialise() {
@@ -618,33 +620,33 @@ angular.module('jsonSilo', [ 'ui.bootstrap' ])
     initialise();
 
     $scope.devices = {
-      "Nexus 5": {
-        name: "Nexus 5",
-        manufacturer: { name: "LG Electronics" }, 
-        model: "D82x",
-        url: "http://www.google.com/nexus/5/",
-        image : "http://reelyactive.com/images/Nexus5.jpg"
+      "Minew E8": {
+        name: "E8 Beacon",
+        manufacturer: { name: "Minew" }, 
+        model: "E8",
+        url: "https://sniffypedia.org/Product/Minew_E8/",
+        image : "https://sniffypedia.org/Product/Minew_E8/180x180.jpg"
       },
       "Bluetooth Smart Reelceiver" : {
         name: "Bluetooth Smart Reelceiver",
         manufacturer: { name: "reelyActive" },
         model: "RA-R436",
-        url: "http://shop.reelyactive.com/products/ra-r436",
-        image: "http://reelyactive.com/images/reelceiver400x400.jpg"
+        url: "https://shop.reelyactive.com/products/ra-r436",
+        image: "https://sniffypedia.org/Product/reelyActive_RA-R436/240x240.jpg"
       },
       "Active RFID Tag": {
         name: "915MHz Active RFID Tag",
         manufacturer: { name: "reelyActive" },
         model: "RA-T411",
-        url: "http://shop.reelyactive.com/products/ra-t411",
-        image: "http://reelyactive.com/images/tag400x400.jpg"
+        url: "https://shop.reelyactive.com/products/ra-t411",
+        image: "https://sniffypedia.org/Product/reelyActive_RA-T411/360x360.jpg"
       }
     };
 
     $scope.slides = [
-      { text: "Nexus 5", image: "http://reelyactive.com/images/Nexus5.jpg" },
-      { text: "RA-R436", image: "http://reelyactive.com/images/reelceiver400x400.jpg" },
-      { text: "RA-T411", image: "http://reelyactive.com/images/tag400x400.jpg" }
+      { text: "Minew E8", image: "https://sniffypedia.org/Product/Minew_E8/180x180.jpg" },
+      { text: "RA-R436", image: "https://sniffypedia.org/Product/reelyActive_RA-R436/240x240.jpg" },
+      { text: "RA-T411", image: "https://sniffypedia.org/Product/reelyActive_RA-T411/360x360.jpg" }
     ];
 
     function initialise() {
@@ -747,7 +749,7 @@ angular.module('jsonSilo', [ 'ui.bootstrap' ])
     initialise();
 
     $scope.slides = [
-      { text: "Silo", image: "http://reelyactive.com/images/json-silo.jpg" }
+      { text: 'json-silo', image: 'https://reelyactive.github.io/json-silo/images/json-silo-bubble.png' }
     ];
 
     function initialise() {
