@@ -1,0 +1,46 @@
+{
+  "name": "json-silo",
+  "homepage": "https://www.reelyactive.com",
+  "author": {
+    "name": "reelyActive",
+    "email": "info@reelyactive.com"
+  },
+  "description": "A contextual data silo for the IoT and the Physical Web.  We believe in an open Internet of Things.",
+  "keywords": [
+    "reelyActive",
+    "IoT",
+    "Personal Data Locker",
+    "Physical Web",
+    "Schema.org",
+    "JSON-LD"
+  ],
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "main": "./lib/jsonsilo.js",
+  "scripts": {
+    "start": "node bin/json-silo"
+  },
+  "bin": {
+    "json-silo": "./bin/json-silo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reelyactive/json-silo.git"
+  },
+  "dependencies": {
+    "nedb": ">=1.8.0",
+    "express": ">=4.0.0",
+    "body-parser": ">=1.19.0"
+  },
+  "devDependencies": {},
+  "bugs": {
+    "url": "https://github.com/reelyactive/json-silo/issues"
+  },
+  "contributors": [
+    { "name": "Jeffrey Dungen" },
+    { "name": "George Koulouris" }
+  ],
+  "license": "MIT"
+}

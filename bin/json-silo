@@ -1,0 +1,7 @@
+#!/usr/bin/env node
+
+const JSONSilo = require('../lib/jsonsilo.js');
+
+const options = {};
+
+let app = new JSONSilo(options);
