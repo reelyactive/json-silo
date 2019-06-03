@@ -20,27 +20,31 @@
   },
   "main": "./lib/jsonsilo.js",
   "scripts": {
-    "start": "node bin/json-silo"
-  },
-  "bin": {
-    "json-silo": "./bin/json-silo"
+    "start": "nodemon bin/json-silo"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/reelyactive/json-silo.git"
   },
   "dependencies": {
-    "nedb": ">=1.8.0",
+    "body-parser": ">=1.19.0",
+    "cors": "^2.8.5",
     "express": ">=4.0.0",
-    "body-parser": ">=1.19.0"
+    "nedb": ">=1.8.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  },
   "bugs": {
     "url": "https://github.com/reelyactive/json-silo/issues"
   },
   "contributors": [
-    { "name": "Jeffrey Dungen" },
-    { "name": "George Koulouris" }
+    {
+      "name": "Jeffrey Dungen"
+    },
+    {
+      "name": "George Koulouris"
+    }
   ],
   "license": "MIT"
 }
