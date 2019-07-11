@@ -1,4 +1,9 @@
 #!/usr/bin/env node
+/**
+ * Copyright reelyActive 2015-2019
+ * We believe in an open Internet of Things
+ */
+
 
 const JSONSilo = require('../lib/jsonsilo.js');
 

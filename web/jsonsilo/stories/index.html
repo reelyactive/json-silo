@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description"
-          content="Human-friendly representation of wireless device identifier associations.">
+          content="Human-friendly representation of wireless device identifier stories.">
     <link rel="stylesheet" href="/jsonsilo/common/style/bootstrap.min.css">
     <link rel="stylesheet" href="/jsonsilo/common/style/reelyactive.css">
     <title> json-silo by reelyActive </title>
@@ -94,16 +94,9 @@
       </div>
     </nav>
     <!-- Content -->
-    <div class="row">
-      <div class="col-sm-9 col-md-6" style="padding-left: 100px; padding-top: 50px">
-          <div class="form-group">
-            <textarea type="text" class="form-control monospace" id="queryBox" rows="8">
-
-            </textarea>
-            </div>
-            <button type="submit" class="btn btn-primary text-center" id="queryButton"> Query </button>
-        </div>
-      <div class="col-sm-3 col-md-6" style="padding-right: 100px">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+          <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
         <div class="float-md-right">
 
           <ul class="nav nav-tabs" role="tablist">
@@ -127,23 +120,19 @@
             <div class="tab-pane fade show active" id="humancontent"
                  role="tabpanel" aria-labelledby="humantab">
               <h3 class="text-center" id="identifier"></h3>
-              <table class="table table-hover" id="associations">
+              <table class="table table-hover" id="stories">
                 <tbody>
                   <tr>
-                    <th> <i class="fas fa-link"></i> url </th>
+                    <th> <i class="fas fa-link"></i> url: </th>
                     <td id="url"></td>
                   </tr>
                   <tr>
-                    <th> <i class="fas fa-tags"></i> tags </th>
-                    <td id="tags"></td>
+                    <th> <i class="fas fa-tags"></i> full name: </th>
+                    <td id="name"></td>
                   </tr>
                   <tr>
-                    <th> <i class="fas fa-sitemap"></i> directory </th>
-                    <td id="directory"></td>
-                  </tr>
-                  <tr>
-                    <th> <i class="fas fa-map-marked-alt"></i> position </th>
-                    <td id="position"></td>
+                    <th> <i class="fas fa-file-image"></i> Picture: </th>
+                    <td ><img id="picture" style="width:50px;height:50px;"></td>
                   </tr>
                 </tbody>
               </table>
@@ -152,14 +141,17 @@
             <div class="tab-pane fade" id="machinecontent"
                  role="tabpanel" aria-labelledby="machinetab">
               <pre id="jsonResponse"></pre>
+            
             </div>
+            
           </div>
+        
 
         </div>
       </div>
     </div>
     <footer class="footer">
-      <a href="https://github.com/reelyactive/chickadee"> jsonsilo </a>
+      <a href="https://github.com/reelyactive/jsonsilo"> jsonsilo </a>
       &nbsp; | &nbsp;
       <a href="https://www.reelyactive.com"> &copy; reelyActive 2014-2019 </a>
     </footer>
@@ -168,6 +160,6 @@
     <script defer src="/jsonsilo/common/js/fontawesome.min.js"></script>
     <script src="/jsonsilo/common/js/jquery-3.4.0.min.js"></script>
     <script src="/jsonsilo/common/js/bootstrap.bundle.min.js"></script>
-    <script src="/jsonsilo/stories/js/stories.js"></script>
+    <script src="/jsonsilo/stories/stories.js"></script> 
   </body>
 </html>
