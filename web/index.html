@@ -94,76 +94,75 @@
       </div>
     </nav>
     <!-- Content -->
-    <div class="row">
+    <div class="container-fluid">
+      <div class="row justify-content-center">
         <div class="col-sm-9 col-md-6" style="padding-left: 100px; padding-top: 50px">
-            <div class="form-group">
-                <form role="form" class="form-horizontal">
-                  
-                   <form >
-                      First Name: <input id="personName" type="text" style="padding-left: 10px;border-radius: 7px" placeholder="full name"><br />
-                   </form>
-                   <form id="myForm" name="myForm" enctype="multipart/form-data" style="padding-top: 3%">
-                      Upload picture:  <input type="file" id="myFile" name="myFile" >
-                      <p id="error" style="color: red;"></p>
-                  </form>
-                    
-                  </form>
+          <div class="form-group">
+            <form role="form" class="form-horizontal">
+              <form>
+                First Name: <input id="personName" type="text" style="padding-left: 10px;border-radius: 7px" placeholder="full name"><br />
+              </form>
+              <form id="myForm" name="myForm" enctype="multipart/form-data" style="padding-top: 3%">
+                Upload picture:  <input type="file" id="myFile" name="myFile">
+                <p id="error" style="color: red;"></p>
+              </form>       
+            </form>
+          </div>
+          <button type="submit" class="btn btn-primary text-center"
+                  id="queryButton" style="text-align: center"> Submit </button>       
+        </div>
+        <div class="col-sm-3 col-md-6" style="padding-right: 100px;float: right!; ">
+          <div class="float-md-right">
+            <ul class="nav nav-tabs" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="humantab" data-toggle="tab"
+                   href="#humancontent" role="tab" aria-controls="humancontent"
+                   aria-selected="true">
+                  <i class="fas fa-user-alt"></i> &nbsp; Human-readable
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="machinetab" data-toggle="tab"
+                   href="#machinecontent" role="tab" aria-controls="machinecontent"
+                   aria-selected="false">
+                  <i class="fas fa-code"></i> &nbsp; Machine-readable
+                </a>
+              </li>
+            </ul>
+            <div class="tab-content tab-content-reelyactive">
+              <!-- Human-readable content -->
+              <div class="tab-pane fade show active" id="humancontent"
+                   role="tabpanel" aria-labelledby="humantab">
+                <h3 class="text-center" id="identifier"></h3>
+                <table class="table table-hover" id="stories">
+                  <tbody style="word-break: break-all">
+                    <tr>
+                      <th> <i class="fas fa-link"></i> url: </th>
+                      <td id="url"></td>
+                    </tr>
+                    <tr>
+                      <th> <i class="fas fa-tags"></i> full name: </th>
+                      <td id="name"></td>
+                    </tr>
+                    <tr>
+                      <th> <i class="fas fa-file-image"></i> Picture: </th>
+                      <td> <img id="picture" style="width:50px;height:50px;"> </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              <button type="submit" class="btn btn-primary text-center" id="queryButton" style="text-align: center"> submit </button>
-            
-            </div>
-      <div class="col-sm-3 col-md-6" style="padding-right: 100px;float: right!; ">
-        <div class="float-md-right">
-
-          <ul class="nav nav-tabs" role="tablist">
-            <li class="nav-item">
-              <a class="nav-link active" id="humantab" data-toggle="tab"
-                 href="#humancontent" role="tab" aria-controls="humancontent"
-                 aria-selected="true">
-                <i class="fas fa-user-alt"></i> &nbsp; Human-readable
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="machinetab" data-toggle="tab"
-                 href="#machinecontent" role="tab" aria-controls="machinecontent"
-                 aria-selected="false">
-                <i class="fas fa-code"></i> &nbsp; Machine-readable
-              </a>
-            </li>
-          </ul>
-          <div class="tab-content tab-content-reelyactive">
-            <!-- Human-readable content -->
-            <div class="tab-pane fade show active" id="humancontent"
-                 role="tabpanel" aria-labelledby="humantab">
-              <h3 class="text-center" id="identifier"></h3>
-              <table class="table table-hover" id="stories">
-                <tbody style="word-break: break-all">
-                  <tr>
-                    <th> <i class="fas fa-link"></i> url: </th>
-                    <td id="url"></td>
-                  </tr>
-                  <tr>
-                    <th> <i class="fas fa-tags"></i> full name: </th>
-                    <td id="name"></td>
-                  </tr>
-                  <tr>
-                    <th> <i class="fas fa-file-image"></i> Picture: </th>
-                    <td ><img id="picture" style="width:50px;height:50px;"></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <!-- Machine-readable content -->
-            <div class="tab-pane fade" id="machinecontent"
-                 role="tabpanel" aria-labelledby="machinetab">
-              <pre id="jsonResponse" ></pre>
+              <!-- Machine-readable content -->
+              <div class="tab-pane fade" id="machinecontent"
+                   role="tabpanel" aria-labelledby="machinetab">
+                <pre id="jsonResponse" ></pre>
+              </div>
             </div>
           </div>
-          </div>
+        </div>
       </div>
     </div>
     <footer class="footer">
-      <a href="https://github.com/reelyactive/chickadee"> jsonsilo </a>
+      <a href="https://github.com/reelyactive/json-silo"> json-silo </a>
       &nbsp; | &nbsp;
       <a href="https://www.reelyactive.com"> &copy; reelyActive 2014-2019 </a>
     </footer>
@@ -175,4 +174,3 @@
     <script src="main.js"></script> 
   </body>
 </html>
-
