@@ -20,7 +20,7 @@
   },
   "main": "./lib/jsonsilo.js",
   "scripts": {
-    "start": "nodemon bin/json-silo"
+    "start": "node bin/json-silo"
   },
   "repository": {
     "type": "git",
