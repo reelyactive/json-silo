@@ -3,7 +3,7 @@
  * We believe in an open Internet of Things
  */
 
- //DOM elements
+// DOM elements
 let form = document.querySelector('#myForm');
 let queryBox = document.querySelector('#personName');
 let queryButton = document.querySelector('#queryButton');
@@ -16,22 +16,22 @@ let text = document.querySelector('#text');
 let textImage = document.querySelector('#textImage');
 let error = document.querySelector('#error');
 
-// data sent to the sever
-let story = {"FullName" : '',
-    "imageUrl" : ""}; 
+// data sent to the server
+let story = { FullName: "", imageUrl: "" }; 
+
 
 /**
  * Uploads an image to the file system
  * @param {callback} callback Function to call upon completion
  */
-function addImage(callback){
+function addImage(callback) {
   let myFile = document.getElementById('myFile').files[0];
   let Data = new FormData(form);
   let httpRequest = new XMLHttpRequest();
   httpRequest.onload = function(oevent){
-    if(httpRequest.status == 200){
+    if(httpRequest.status === 200) {
       let response = JSON.parse(httpRequest.responseText);
-      let imageLocation = 'images/'+ response.imageName;
+      let imageLocation = 'images/' + response.imageName;
       picture.src = imageLocation;
       //update the DOM
       story.imageUrl = window.location.href + imageLocation;
@@ -39,34 +39,37 @@ function addImage(callback){
       story = JSON.stringify(story);
       error.textContent = '';
       callback();
-    }else if(httpRequest.status == 204){
+    }
+    else if(httpRequest.status === 204) {
       error.textContent = 'wrong file format';
-    }else if(httpRequest.status == 422){
+    }
+    else if(httpRequest.status === 422) {
       error.textContent = 'We could not detect any file';
     }
-    else{
+    else {
       textImage.textContent = 'something went wrong while uploading image';
     } 
   };
-  httpRequest.open("POST","/images", true);
-  httpRequest.send(Data);   
+  httpRequest.open('POST', '/images', true);
+  httpRequest.send(Data);  
 } 
+
 
 /**
  * Obtains story and sends it to the database
  */
-function addStory(){ 
+function addStory() { 
   let httpRequest = new XMLHttpRequest();
   httpRequest.onreadystatechange = function(){
     if(httpRequest.readyState === XMLHttpRequest.DONE) {
-      if(httpRequest.status == 200){
+      if(httpRequest.status === 200) {
         story = JSON.stringify(story);
         let response = JSON.parse(httpRequest.responseText);
         let storyLocation = response._links.self.href + '/' + response.stories._id;
-        jsonResponse.textContent = (JSON.stringify(response, null,2));
+        jsonResponse.textContent = (JSON.stringify(response, null, 2));
         url.textContent = storyLocation;
         story.storyLocation = url.textContent;
-        storyUrl.textContent = url.textContent ;
+        //storyUrl.textContent = url.textContent;
       }
     }
   };
@@ -81,7 +84,10 @@ function log(){
 }
 
 function publishStory(){
-  addImage(addStory);
+  addImage(function() { // TODO: handle errors when adding image
+    addStory();
+  });
 }
-window.addEventListener("keyup", log);
-queryButton.addEventListener('click',publishStory);
+
+window.addEventListener('keyup', log);
+queryButton.addEventListener('click', publishStory);
