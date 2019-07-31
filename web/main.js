@@ -3,6 +3,11 @@
  * We believe in an open Internet of Things
  */
 
+
+// Constants
+const DEFAULT_IMAGE_PROPERTY_NAME = 'image';
+
+
 // DOM elements
 let form = document.querySelector('#myForm');
 let queryBox = document.querySelector('#personName');
@@ -25,8 +30,10 @@ let story = { FullName: "", imageUrl: "" };
  * @param {callback} callback Function to call upon completion
  */
 function addImage(callback) {
+  let formData = new FormData();
   let myFile = document.getElementById('myFile').files[0];
-  let Data = new FormData(form);
+  formData.append(DEFAULT_IMAGE_PROPERTY_NAME, myFile);
+
   let httpRequest = new XMLHttpRequest();
   httpRequest.onload = function(oevent){
     if(httpRequest.status === 200) {
@@ -51,7 +58,7 @@ function addImage(callback) {
     } 
   };
   httpRequest.open('POST', '/images', true);
-  httpRequest.send(Data);  
+  httpRequest.send(formData);  
 } 
 
 
