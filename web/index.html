@@ -95,67 +95,119 @@
     </nav>
     <!-- Content -->
     <div class="container-fluid">
-      <div class="row justify-content-center">
-        <div class="col-sm-9 col-md-6" style="padding-left: 100px; padding-top: 50px">
-          <div class="form-group">
-            <form role="form" class="form-horizontal">
+      <div class="row justify-content-center my-4">
+        <!-- Story entry -->
+        <div class="col-sm-12 col-md-10 col-lg-5 col-xl-4">
+          <h2> Create a story </h2>
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="persontab" data-toggle="tab"
+                 href="#personcontent" role="tab" aria-controls="personcontent"
+                 aria-selected="true">
+                <i class="fas fa-user-alt"></i> &nbsp; Person
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" id="producttab" data-toggle="tab"
+                 href="#productcontent" role="tab" aria-controls="productcontent"
+                 aria-selected="false">
+                <i class="fas fa-box"></i> &nbsp; Product
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" id="placetab" data-toggle="tab"
+                 href="#placecontent" role="tab" aria-controls="placecontent"
+                 aria-selected="false">
+                <i class="fas fa-map-pin"></i> &nbsp; Place
+              </a>
+            </li>
+          </ul>
+          <div class="tab-content tab-content-reelyactive">
+            <!-- Person -->
+            <div class="tab-pane fade show active" id="personcontent"
+                 role="tabpanel" aria-labelledby="persontab">
               <form>
-                First Name: <input id="personName" type="text" style="padding-left: 10px;border-radius: 7px" placeholder="full name"><br />
+                <div class="form-group">
+                  <label for="personGivenName"> Given Name </label>
+                  <input type="text" class="form-control" id="personGivenName"
+                         placeholder="Given Name">
+                </div>
+                <div class="form-group">
+                  <label for="personFamilyName"> Family Name </label>
+                  <input type="text" class="form-control" id="personFamilyName"
+                         placeholder="Family Name">
+                </div>
               </form>
-              <form id="myForm" name="myForm" enctype="multipart/form-data" style="padding-top: 3%">
+              <!-- TODO: use bootstrap -->
+              <form id="myForm" name="myForm" enctype="multipart/form-data">
                 Upload picture:  <input type="file" id="myFile" name="myFile">
                 <p id="error" style="color: red;"></p>
-              </form>       
-            </form>
+              </form> 
+            </div>
+            <!-- Product -->
+            <div class="tab-pane fade" id="productcontent"
+                 role="tabpanel" aria-labelledby="producttab">
+            </div>
+            <!-- Place -->
+            <div class="tab-pane fade" id="placecontent"
+                 role="tabpanel" aria-labelledby="placetab">
+            </div>
           </div>
-          <button type="submit" class="btn btn-primary text-center"
-                  id="queryButton" style="text-align: center"> Submit </button>       
+          <div class="text-center my-4">
+            <button type="submit" class="btn btn-primary"
+                    id="submitButton"> Store in the silo </button>
+          </div>
         </div>
-        <div class="col-sm-3 col-md-6" style="padding-right: 100px;float: right!; ">
-          <div class="float-md-right">
-            <ul class="nav nav-tabs" role="tablist">
-              <li class="nav-item">
-                <a class="nav-link active" id="humantab" data-toggle="tab"
-                   href="#humancontent" role="tab" aria-controls="humancontent"
-                   aria-selected="true">
-                  <i class="fas fa-user-alt"></i> &nbsp; Human-readable
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="machinetab" data-toggle="tab"
-                   href="#machinecontent" role="tab" aria-controls="machinecontent"
-                   aria-selected="false">
-                  <i class="fas fa-code"></i> &nbsp; Machine-readable
-                </a>
-              </li>
-            </ul>
-            <div class="tab-content tab-content-reelyactive">
-              <!-- Human-readable content -->
-              <div class="tab-pane fade show active" id="humancontent"
-                   role="tabpanel" aria-labelledby="humantab">
-                <h3 class="text-center" id="identifier"></h3>
-                <table class="table table-hover" id="stories">
-                  <tbody style="word-break: break-all">
-                    <tr>
-                      <th> <i class="fas fa-link"></i> url: </th>
-                      <td id="url"></td>
-                    </tr>
-                    <tr>
-                      <th> <i class="fas fa-tags"></i> full name: </th>
-                      <td id="name"></td>
-                    </tr>
-                    <tr>
-                      <th> <i class="fas fa-file-image"></i> Picture: </th>
-                      <td> <img id="picture" style="width:50px;height:50px;"> </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <!-- Machine-readable content -->
-              <div class="tab-pane fade" id="machinecontent"
-                   role="tabpanel" aria-labelledby="machinetab">
-                <pre id="jsonResponse" ></pre>
-              </div>
+        <!-- json-silo image -->
+        <div class="d-none d-lg-block col-lg-2 col-xl-1">
+          <img src="/jsonsilo/common/images/json-silo.png" alt="json-silo" 
+               class="img-fluid">
+        </div>
+        <!-- Story visualisation -->
+        <div class="col-sm-12 col-md-10 col-lg-5 col-xl-3">
+          <h2> Story preview </h2>
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="humantab" data-toggle="tab"
+                 href="#humancontent" role="tab" aria-controls="humancontent"
+                 aria-selected="true">
+                <i class="fas fa-user-alt"></i> &nbsp; Human-readable
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="machinetab" data-toggle="tab"
+                 href="#machinecontent" role="tab" aria-controls="machinecontent"
+                 aria-selected="false">
+                <i class="fas fa-code"></i> &nbsp; Machine-readable
+              </a>
+            </li>
+          </ul>
+          <div class="tab-content tab-content-reelyactive">
+            <!-- Human-readable content -->
+            <div class="tab-pane fade show active" id="humancontent"
+                 role="tabpanel" aria-labelledby="humantab">
+              <h3 class="text-center" id="identifier"></h3>
+              <table class="table table-hover" id="stories">
+                <tbody style="word-break: break-all">
+                  <tr>
+                    <th> <i class="fas fa-link"></i> url: </th>
+                    <td id="url"></td>
+                  </tr>
+                  <tr>
+                    <th> <i class="fas fa-tags"></i> full name: </th>
+                    <td id="name"></td>
+                  </tr>
+                  <tr>
+                    <th> <i class="fas fa-file-image"></i> Picture: </th>
+                    <td> <img id="picture" style="width:50px;height:50px;"> </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- Machine-readable content -->
+            <div class="tab-pane fade" id="machinecontent"
+                 role="tabpanel" aria-labelledby="machinetab">
+              <pre id="jsonResponse"></pre>
             </div>
           </div>
         </div>

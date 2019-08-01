@@ -11,7 +11,9 @@ const DEFAULT_IMAGE_PROPERTY_NAME = 'image';
 // DOM elements
 let form = document.querySelector('#myForm');
 let queryBox = document.querySelector('#personName');
-let queryButton = document.querySelector('#queryButton');
+let personGivenName = document.querySelector('#personGivenName');
+let personFamilyName = document.querySelector('#personFamilyName');
+let submitButton = document.querySelector('#submitButton');
 let jsonResponse = document.querySelector('#jsonResponse');
 let url = document.querySelector('#url');
 let name = document.querySelector('#name');
@@ -42,7 +44,7 @@ function addImage(callback) {
       picture.src = imageLocation;
       //update the DOM
       story.imageUrl = window.location.href + imageLocation;
-      story.FullName = queryBox.value;
+      story.FullName = personGivenName.value + ' ' + personFamilyName.value;
       story = JSON.stringify(story);
       error.textContent = '';
       callback();
@@ -86,15 +88,15 @@ function addStory() {
   httpRequest.send(story);
 }
 
-function log(){
-  name.textContent = queryBox.value;
+function updateStory() {
+  name.textContent = personGivenName.value + ' ' + personFamilyName.value;
 }
 
-function publishStory(){
+function publishStory() {
   addImage(function() { // TODO: handle errors when adding image
     addStory();
   });
 }
 
-window.addEventListener('keyup', log);
-queryButton.addEventListener('click', publishStory);
+window.addEventListener('keyup', updateStory);
+submitButton.addEventListener('click', publishStory);
