@@ -6,11 +6,17 @@
 
 // Constants
 const DEFAULT_IMAGE_PROPERTY_NAME = 'image';
+const DEFAULT_STORY = {
+    "@context": { "schema": "https://schema.org/" },
+    "@graph": []
+};
+const DEFAULT_PERSON_ELEMENT = { "@id": "person", "@type": "schema:Person" };
 
 
 // DOM elements
 let form = document.querySelector('#myForm');
 let queryBox = document.querySelector('#personName');
+let personForm = document.querySelector('#personForm');
 let personGivenName = document.querySelector('#personGivenName');
 let personFamilyName = document.querySelector('#personFamilyName');
 let submitButton = document.querySelector('#submitButton');
@@ -23,8 +29,11 @@ let text = document.querySelector('#text');
 let textImage = document.querySelector('#textImage');
 let error = document.querySelector('#error');
 
-// data sent to the server
-let story = { FullName: "", imageUrl: "" }; 
+// Other variables
+let story = { FullName: "", imageUrl: "" }; // TODO: remove
+let personStory = Object.assign({}, DEFAULT_STORY);
+let personElement = Object.assign({}, DEFAULT_PERSON_ELEMENT);
+personStory['@graph'].push(personElement);
 
 
 /**
@@ -42,6 +51,7 @@ function addImage(callback) {
       let response = JSON.parse(httpRequest.responseText);
       let imageLocation = 'images/' + response.imageName;
       picture.src = imageLocation;
+      personElement['schema:image'] = window.location.href + imageLocation;
       //update the DOM
       story.imageUrl = window.location.href + imageLocation;
       story.FullName = personGivenName.value + ' ' + personFamilyName.value;
@@ -69,6 +79,7 @@ function addImage(callback) {
  */
 function addStory() { 
   let httpRequest = new XMLHttpRequest();
+  let personStoryString = JSON.stringify(personStory);
   httpRequest.onreadystatechange = function(){
     if(httpRequest.readyState === XMLHttpRequest.DONE) {
       if(httpRequest.status === 200) {
@@ -85,10 +96,26 @@ function addStory() {
   httpRequest.open('POST', '/stories');
   httpRequest.setRequestHeader('Content-Type', 'application/json');
   httpRequest.setRequestHeader('Accept', 'application/json');
-  httpRequest.send(story);
+  httpRequest.send(personStoryString);
 }
 
-function updateStory() {
+
+// Update the person element
+function updatePersonElement() {
+  if(personGivenName.value === '') {
+    delete personElement['schema:givenName'];
+  }
+  else {
+    personElement['schema:givenName'] = personGivenName.value;
+  }
+
+  if(personFamilyName.value === '') {
+    delete personElement['schema:familyName'];
+  }
+  else {
+    personElement['schema:familyName'] = personFamilyName.value;
+  }
+
   name.textContent = personGivenName.value + ' ' + personFamilyName.value;
 }
 
@@ -98,5 +125,5 @@ function publishStory() {
   });
 }
 
-window.addEventListener('keyup', updateStory);
+personForm.addEventListener('keyup', updatePersonElement);
 submitButton.addEventListener('click', publishStory);
