@@ -14,11 +14,11 @@ const DEFAULT_PERSON_ELEMENT = { "@id": "person", "@type": "schema:Person" };
 
 
 // DOM elements
-let form = document.querySelector('#myForm');
 let queryBox = document.querySelector('#personName');
 let personForm = document.querySelector('#personForm');
 let personGivenName = document.querySelector('#personGivenName');
 let personFamilyName = document.querySelector('#personFamilyName');
+let personImageInput = document.querySelector('#personImageInput');
 let submitButton = document.querySelector('#submitButton');
 let jsonResponse = document.querySelector('#jsonResponse');
 let url = document.querySelector('#url');
@@ -34,6 +34,7 @@ let story = { FullName: "", imageUrl: "" }; // TODO: remove
 let personStory = Object.assign({}, DEFAULT_STORY);
 let personElement = Object.assign({}, DEFAULT_PERSON_ELEMENT);
 personStory['@graph'].push(personElement);
+let personImgSrc;
 
 
 /**
@@ -42,8 +43,7 @@ personStory['@graph'].push(personElement);
  */
 function addImage(callback) {
   let formData = new FormData();
-  let myFile = document.getElementById('myFile').files[0];
-  formData.append(DEFAULT_IMAGE_PROPERTY_NAME, myFile);
+  formData.append(DEFAULT_IMAGE_PROPERTY_NAME, personImageInput.files[0]);
 
   let httpRequest = new XMLHttpRequest();
   httpRequest.onload = function(oevent){
@@ -119,6 +119,21 @@ function updatePersonElement() {
   name.textContent = personGivenName.value + ' ' + personFamilyName.value;
 }
 
+
+// Update the person's image source based on the uploaded image
+function updatePersonImageSrc() {
+  let input = this;
+  if(input.files && input.files[0]) {
+    let reader = new FileReader();
+    
+    reader.onload = function(e) {
+      personImgSrc = e.target.result;
+      picture.src = personImgSrc;
+    }
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
 function publishStory() {
   addImage(function() { // TODO: handle errors when adding image
     addStory();
@@ -126,4 +141,5 @@ function publishStory() {
 }
 
 personForm.addEventListener('keyup', updatePersonElement);
+personImageInput.addEventListener('change', updatePersonImageSrc);
 submitButton.addEventListener('click', publishStory);
