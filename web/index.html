@@ -141,7 +141,7 @@
                   <label for="personImageInput"> Image </label>
                   <input type="file" class="form-control-file" id="personImageInput">
                 </div>
-                <p id="error"></p>
+                <p id="error"></p> <!-- TODO: remove/improve -->
               </form>
             </div>
             <!-- Product -->
@@ -156,6 +156,10 @@
           <div class="text-center my-4">
             <button type="submit" class="btn btn-primary"
                     id="submitButton"> Store in the silo </button>
+          </div>
+          <div class="alert alert-secondary my-4" role="alert">
+            <i class="fas fa-link"></i> &nbsp;
+            <a id="storyUrl" target="_blank"></a>
           </div>
         </div>
         <!-- json-silo image -->
@@ -186,28 +190,12 @@
             <!-- Human-readable content -->
             <div class="tab-pane fade show active" id="humancontent"
                  role="tabpanel" aria-labelledby="humantab">
-              <h3 class="text-center" id="identifier"></h3>
-              <table class="table table-hover" id="stories">
-                <tbody style="word-break: break-all">
-                  <tr>
-                    <th> <i class="fas fa-link"></i> url: </th>
-                    <td id="url"></td>
-                  </tr>
-                  <tr>
-                    <th> <i class="fas fa-tags"></i> full name: </th>
-                    <td id="name"></td>
-                  </tr>
-                  <tr>
-                    <th> <i class="fas fa-file-image"></i> Picture: </th>
-                    <td> <img id="picture" style="width:50px;height:50px;"> </td>
-                  </tr>
-                </tbody>
-              </table>
+              <div class="card" id="visualPreview"></div>
             </div>
             <!-- Machine-readable content -->
             <div class="tab-pane fade" id="machinecontent"
                  role="tabpanel" aria-labelledby="machinetab">
-              <pre id="jsonResponse"></pre>
+              <pre id="storyPreview"></pre>
             </div>
           </div>
         </div>
@@ -223,6 +211,7 @@
     <script defer src="/jsonsilo/common/js/fontawesome.min.js"></script>
     <script src="/jsonsilo/common/js/jquery-3.4.0.min.js"></script>
     <script src="/jsonsilo/common/js/bootstrap.bundle.min.js"></script>
+    <script src="/jsonsilo/common/js/cuttlefish.js"></script>
     <script src="main.js"></script> 
   </body>
 </html>

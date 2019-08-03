@@ -20,13 +20,9 @@ let personGivenName = document.querySelector('#personGivenName');
 let personFamilyName = document.querySelector('#personFamilyName');
 let personImageInput = document.querySelector('#personImageInput');
 let submitButton = document.querySelector('#submitButton');
-let jsonResponse = document.querySelector('#jsonResponse');
-let url = document.querySelector('#url');
-let name = document.querySelector('#name');
-let picture = document.querySelector('#picture');
+let visualPreview = document.querySelector('#visualPreview');
+let storyPreview = document.querySelector('#storyPreview');
 let storyUrl = document.querySelector('#storyUrl');
-let text = document.querySelector('#text');
-let textImage = document.querySelector('#textImage');
 let error = document.querySelector('#error');
 
 // Other variables
@@ -50,7 +46,6 @@ function addImage(callback) {
     if(httpRequest.status === 200) {
       let response = JSON.parse(httpRequest.responseText);
       let imageLocation = 'images/' + response.imageName;
-      picture.src = imageLocation;
       personElement['schema:image'] = window.location.href + imageLocation;
       //update the DOM
       story.imageUrl = window.location.href + imageLocation;
@@ -66,7 +61,7 @@ function addImage(callback) {
       error.textContent = 'We could not detect any file';
     }
     else {
-      textImage.textContent = 'something went wrong while uploading image';
+      //textImage.textContent = 'something went wrong while uploading image';
     } 
   };
   httpRequest.open('POST', '/images', true);
@@ -86,10 +81,8 @@ function addStory() {
         story = JSON.stringify(story);
         let response = JSON.parse(httpRequest.responseText);
         let storyLocation = response._links.self.href + '/' + response.stories._id;
-        jsonResponse.textContent = (JSON.stringify(response, null, 2));
-        url.textContent = storyLocation;
-        story.storyLocation = url.textContent;
-        //storyUrl.textContent = url.textContent;
+        storyUrl.textContent = storyLocation;
+        storyUrl.href = storyLocation;
       }
     }
   };
@@ -116,6 +109,11 @@ function updatePersonElement() {
     personElement['schema:familyName'] = personFamilyName.value;
   }
 
+  storyPreview.textContent = JSON.stringify(personStory, null, 2);
+  while(visualPreview.firstChild) {
+    visualPreview.removeChild(visualPreview.firstChild);
+  }
+  cuttlefish.render(personStory, visualPreview);
   name.textContent = personGivenName.value + ' ' + personFamilyName.value;
 }
 
@@ -128,7 +126,11 @@ function updatePersonImageSrc() {
     
     reader.onload = function(e) {
       personImgSrc = e.target.result;
-      picture.src = personImgSrc;
+      personElement['schema:image'] = personImgSrc;
+      while(visualPreview.firstChild) {
+        visualPreview.removeChild(visualPreview.firstChild);
+      }
+      cuttlefish.render(personStory, visualPreview);
     }
     reader.readAsDataURL(input.files[0]);
   }
