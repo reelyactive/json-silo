@@ -51,10 +51,11 @@ function addImage(callback) {
   httpRequest.onload = function(oevent){
     if(httpRequest.status === 200) {
       let response = JSON.parse(httpRequest.responseText);
-console.log(response);
-      let imageLocation = 'images/' + response.imageName;
+      let imageId = Object.keys(response.images)[0];
+      let image = response.images[imageId];
+      let url = response._links.self.href + '/' + imageId;
       error.textContent = '';
-      return callback(window.location.href + imageLocation);
+      return callback(url);
     }
     else if(httpRequest.status === 204) {
       error.textContent = 'wrong file format';
