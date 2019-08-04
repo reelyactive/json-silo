@@ -19,7 +19,12 @@ let personForm = document.querySelector('#personForm');
 let personGivenName = document.querySelector('#personGivenName');
 let personFamilyName = document.querySelector('#personFamilyName');
 let personImageInput = document.querySelector('#personImageInput');
-let submitButton = document.querySelector('#submitButton');
+let storeStory = document.querySelector('#storeStory');
+let storeButton = document.querySelector('#storeButton');
+let accessStory = document.querySelector('#accessStory');
+let copyButton = document.querySelector('#copyButton');
+let visitButton = document.querySelector('#visitButton');
+let anotherButton = document.querySelector('#anotherButton');
 let visualPreview = document.querySelector('#visualPreview');
 let storyPreview = document.querySelector('#storyPreview');
 let storyUrl = document.querySelector('#storyUrl');
@@ -81,8 +86,8 @@ function addStory() {
         story = JSON.stringify(story);
         let response = JSON.parse(httpRequest.responseText);
         let storyLocation = response._links.self.href + '/' + response.stories._id;
-        storyUrl.textContent = storyLocation;
-        storyUrl.href = storyLocation;
+        storyUrl.value = storyLocation;
+        visitButton.href = storyLocation;
       }
     }
   };
@@ -137,11 +142,26 @@ function updatePersonImageSrc() {
 }
 
 function publishStory() {
+  storeStory.hidden = true;
   addImage(function() { // TODO: handle errors when adding image
     addStory();
+    accessStory.hidden = false;
   });
+}
+
+function copyStoryLink() {
+  let storyUrl = document.querySelector("#storyUrl");
+  storyUrl.select();
+  document.execCommand('copy');
+}
+
+function anotherStory() {
+  accessStory.hidden = true;
+  storeStory.hidden = false;
 }
 
 personForm.addEventListener('keyup', updatePersonElement);
 personImageInput.addEventListener('change', updatePersonImageSrc);
-submitButton.addEventListener('click', publishStory);
+storeButton.addEventListener('click', publishStory);
+copyButton.addEventListener('click', copyStoryLink);
+anotherButton.addEventListener('click', anotherStory);
