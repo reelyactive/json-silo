@@ -5,6 +5,8 @@
 
 
 // Constants
+const STORIES_ROUTE = '/stories';
+const IMAGES_ROUTE = '/images';
 const DEFAULT_IMAGE_PROPERTY_NAME = 'image';
 const DEFAULT_STORY = {
     "@context": { "schema": "https://schema.org/" },
@@ -29,6 +31,7 @@ let storyPreview = document.querySelector('#storyPreview');
 let storyUrl = document.querySelector('#storyUrl');
 let error = document.querySelector('#error');
 
+
 // Other variables
 let personStory = Object.assign({}, DEFAULT_STORY);
 let personElement = Object.assign({}, DEFAULT_PERSON_ELEMENT);
@@ -49,10 +52,8 @@ function addImage(callback) {
     if(httpRequest.status === 200) {
       let response = JSON.parse(httpRequest.responseText);
       let imageLocation = 'images/' + response.imageName;
-      personElement['schema:image'] = window.location.href + imageLocation;
-      //update the DOM
       error.textContent = '';
-      callback();
+      return callback(window.location.href + imageLocation);
     }
     else if(httpRequest.status === 204) {
       error.textContent = 'wrong file format';
@@ -63,16 +64,18 @@ function addImage(callback) {
     else {
       //textImage.textContent = 'something went wrong while uploading image';
     } 
+    return callback();
   };
-  httpRequest.open('POST', '/images', true);
+  httpRequest.open('POST', IMAGES_ROUTE, true);
   httpRequest.send(formData);  
 } 
 
 
 /**
  * Obtains story and sends it to the database
+ * @param {callback} callback Function to call upon completion
  */
-function addStory() { 
+function addStory(callback) { 
   let httpRequest = new XMLHttpRequest();
   let personStoryString = JSON.stringify(personStory);
   httpRequest.onreadystatechange = function(){
@@ -83,9 +86,10 @@ function addStory() {
         storyUrl.value = storyLocation;
         visitButton.href = storyLocation;
       }
+      return callback();
     }
   };
-  httpRequest.open('POST', '/stories');
+  httpRequest.open('POST', STORIES_ROUTE);
   httpRequest.setRequestHeader('Content-Type', 'application/json');
   httpRequest.setRequestHeader('Accept', 'application/json');
   httpRequest.send(personStoryString);
@@ -132,10 +136,23 @@ function updatePersonImageSrc() {
 // Handle user request to publish story
 function publishStory() {
   storeStory.hidden = true;
-  addImage(function() { // TODO: handle errors when adding image
-    addStory();
-    accessStory.hidden = false;
-  });
+
+  if(personImgSrc) {
+    addImage(function(imageUrl) {
+      if(imageUrl) {
+        personElement['schema:image'] = imageUrl;
+      }
+      else { /* TODO: handle image errors */ }
+      addStory(function() {
+        accessStory.hidden = false;
+      });
+    });
+  }
+  else {
+    addStory(function() {
+      accessStory.hidden = false;
+    });
+  }
 }
 
 
