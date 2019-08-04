@@ -44,6 +44,11 @@ let cuttlefish = (function() {
     if(element.hasOwnProperty("schema:name")) {
       title.textContent = element["schema:name"];
     }
+    else if(element.hasOwnProperty("schema:givenName") ||
+            element.hasOwnProperty("schema:familyName")) {
+      title.textContent = (element["schema:givenName"] || '') + ' ' +
+                          (element["schema:familyName"] || '');
+    }
     else {
       title.textContent = 'Unknown';
     }
