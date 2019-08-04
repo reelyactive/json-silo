@@ -110,9 +110,6 @@ function updatePersonElement() {
   }
 
   storyPreview.textContent = JSON.stringify(personStory, null, 2);
-  while(visualPreview.firstChild) {
-    visualPreview.removeChild(visualPreview.firstChild);
-  }
   cuttlefish.render(personStory, visualPreview);
   name.textContent = personGivenName.value + ' ' + personFamilyName.value;
 }
@@ -127,9 +124,6 @@ function updatePersonImageSrc() {
     reader.onload = function(e) {
       personImgSrc = e.target.result;
       personElement['schema:image'] = personImgSrc;
-      while(visualPreview.firstChild) {
-        visualPreview.removeChild(visualPreview.firstChild);
-      }
       cuttlefish.render(personStory, visualPreview);
     }
     reader.readAsDataURL(input.files[0]);

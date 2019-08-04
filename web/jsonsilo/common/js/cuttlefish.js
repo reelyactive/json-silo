@@ -17,8 +17,16 @@ let cuttlefish = (function() {
     let graph = story["@graph"];
     let element = graph[0];
 
+    removeAllChildren(node);
     renderImage(element, node);
     renderTitle(element, node);
+  }
+
+  // Remove all children of the given node
+  function removeAllChildren(node) {
+    while(node.firstChild) {
+      node.removeChild(node.firstChild);
+    }
   }
 
   // Render the image
