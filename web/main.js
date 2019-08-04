@@ -31,7 +31,6 @@ let storyUrl = document.querySelector('#storyUrl');
 let error = document.querySelector('#error');
 
 // Other variables
-let story = { FullName: "", imageUrl: "" }; // TODO: remove
 let personStory = Object.assign({}, DEFAULT_STORY);
 let personElement = Object.assign({}, DEFAULT_PERSON_ELEMENT);
 personStory['@graph'].push(personElement);
@@ -53,9 +52,6 @@ function addImage(callback) {
       let imageLocation = 'images/' + response.imageName;
       personElement['schema:image'] = window.location.href + imageLocation;
       //update the DOM
-      story.imageUrl = window.location.href + imageLocation;
-      story.FullName = personGivenName.value + ' ' + personFamilyName.value;
-      story = JSON.stringify(story);
       error.textContent = '';
       callback();
     }
@@ -83,7 +79,6 @@ function addStory() {
   httpRequest.onreadystatechange = function(){
     if(httpRequest.readyState === XMLHttpRequest.DONE) {
       if(httpRequest.status === 200) {
-        story = JSON.stringify(story);
         let response = JSON.parse(httpRequest.responseText);
         let storyLocation = response._links.self.href + '/' + response.stories._id;
         storyUrl.value = storyLocation;
