@@ -51,6 +51,7 @@ function addImage(callback) {
   httpRequest.onload = function(oevent){
     if(httpRequest.status === 200) {
       let response = JSON.parse(httpRequest.responseText);
+console.log(response);
       let imageLocation = 'images/' + response.imageName;
       error.textContent = '';
       return callback(window.location.href + imageLocation);
@@ -82,9 +83,11 @@ function addStory(callback) {
     if(httpRequest.readyState === XMLHttpRequest.DONE) {
       if(httpRequest.status === 200) {
         let response = JSON.parse(httpRequest.responseText);
-        let storyLocation = response._links.self.href + '/' + response.stories._id;
-        storyUrl.value = storyLocation;
-        visitButton.href = storyLocation;
+        let storyId = Object.keys(response.stories)[0];
+        let story = response.stories[storyId];
+        let url = response._links.self.href + '/' + storyId;
+        storyUrl.value = url;
+        visitButton.href = url;
       }
       return callback();
     }
