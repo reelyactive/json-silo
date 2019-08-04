@@ -14,7 +14,6 @@ const DEFAULT_PERSON_ELEMENT = { "@id": "person", "@type": "schema:Person" };
 
 
 // DOM elements
-let queryBox = document.querySelector('#personName');
 let personForm = document.querySelector('#personForm');
 let personGivenName = document.querySelector('#personGivenName');
 let personFamilyName = document.querySelector('#personFamilyName');
@@ -111,7 +110,6 @@ function updatePersonElement() {
 
   storyPreview.textContent = JSON.stringify(personStory, null, 2);
   cuttlefish.render(personStory, visualPreview);
-  name.textContent = personGivenName.value + ' ' + personFamilyName.value;
 }
 
 
@@ -130,6 +128,8 @@ function updatePersonImageSrc() {
   }
 }
 
+
+// Handle user request to publish story
 function publishStory() {
   storeStory.hidden = true;
   addImage(function() { // TODO: handle errors when adding image
@@ -138,19 +138,23 @@ function publishStory() {
   });
 }
 
-function copyStoryLink() {
-  let storyUrl = document.querySelector("#storyUrl");
+
+// Handle user request to copy the story URL
+function copyStoryUrl() {
   storyUrl.select();
   document.execCommand('copy');
 }
 
+
+// Handle the user request to create another story
 function anotherStory() {
   accessStory.hidden = true;
   storeStory.hidden = false;
 }
 
+
 personForm.addEventListener('keyup', updatePersonElement);
 personImageInput.addEventListener('change', updatePersonImageSrc);
 storeButton.addEventListener('click', publishStory);
-copyButton.addEventListener('click', copyStoryLink);
+copyButton.addEventListener('click', copyStoryUrl);
 anotherButton.addEventListener('click', anotherStory);
