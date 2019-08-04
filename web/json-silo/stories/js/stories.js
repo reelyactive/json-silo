@@ -4,33 +4,37 @@
  */
 
 
-// DOM elements
-let jsonResponse = document.querySelector('#jsonResponse');
-let identifier = document.querySelector('#identifier');
-let url = document.querySelector('#url');
-let name = document.querySelector('#name');
-let picture = document.querySelector('#picture');
-let queryBox = document.querySelector('#queryBox');
-let queryButton = document.querySelector('#queryButton');
-let test = document.querySelector('#test');
-let pictureName = "";
+// Constants
+const STATUS_OK = 200;
 
-// Initialisation: GET the stories and display in DOM
-getStories(window.location.href, function(status, response) {
-  responseParsed = JSON.parse(JSON.stringify(response, null, 2));
-  jsonResponse.textContent = JSON.stringify(response, undefined, 2);
-  url.textContent = responseParsed._links.self.href;
-  let first = Object.keys(responseParsed.stories)[0];
-  name.textContent = responseParsed.stories[first].FullName;
-  let imageUrl = responseParsed.stories[first].imageUrl;
-  picture.src = imageUrl;
+
+// DOM elements
+let visualStory = document.querySelector('#visualStory');
+let machineStory = document.querySelector('#machineStory');
+
+
+// Initialisation: GET the story and display in DOM
+getStory(window.location.href, function(status, response) {
+  machineStory.textContent = JSON.stringify(response, null, 2);
+
+  if(status === STATUS_OK) {
+    let storyId = Object.keys(response.stories)[0];
+    let story = response.stories[storyId];
+
+    cuttlefish.render(story, visualStory);
+  }
+  else { /* TODO: handle bad requests */ }
 });
 
-function getStories(url, callback) {
+
+// GET the story
+function getStory(url, callback) {
   let httpRequest = new XMLHttpRequest();
+
   httpRequest.onreadystatechange = function() {
     if(httpRequest.readyState === XMLHttpRequest.DONE) {
-      return callback(httpRequest.status, JSON.parse(httpRequest.responseText));
+      return callback(httpRequest.status,
+                      JSON.parse(httpRequest.responseText));
     }
   };
   httpRequest.open('GET', url);

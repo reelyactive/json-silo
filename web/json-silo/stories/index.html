@@ -95,7 +95,7 @@
     </nav>
     <!-- Content -->
     <div class="container-fluid">
-      <div class="row justify-content-center">
+      <div class="row justify-content-center my-4">
         <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
           <ul class="nav nav-tabs" role="tablist">
             <li class="nav-item">
@@ -117,28 +117,12 @@
             <!-- Human-readable content -->
             <div class="tab-pane fade show active" id="humancontent"
                  role="tabpanel" aria-labelledby="humantab">
-              <h3 class="text-center" id="identifier"></h3>
-              <table class="table table-hover" id="stories">
-                <tbody>
-                  <tr>
-                    <th> <i class="fas fa-link"></i> url: </th>
-                    <td id="url"></td>
-                  </tr>
-                  <tr>
-                    <th> <i class="fas fa-tags"></i> full name: </th>
-                    <td id="name"></td>
-                  </tr>
-                  <tr>
-                    <th> <i class="fas fa-file-image"></i> Picture: </th>
-                    <td ><img id="picture" style="width:50px;height:50px;"></td>
-                  </tr>
-                </tbody>
-              </table>
+              <div class="card" id="visualStory"></div>
             </div>
             <!-- Machine-readable content -->
             <div class="tab-pane fade" id="machinecontent"
                  role="tabpanel" aria-labelledby="machinetab">
-              <pre id="jsonResponse"></pre>
+              <pre id="machineStory"></pre>
             </div>
           </div>
         </div>
@@ -154,6 +138,7 @@
     <script defer src="/json-silo/common/js/fontawesome.min.js"></script>
     <script src="/json-silo/common/js/jquery-3.4.0.min.js"></script>
     <script src="/json-silo/common/js/bootstrap.bundle.min.js"></script>
+    <script src="/json-silo/common/js/cuttlefish.js"></script>
     <script src="/json-silo/stories/js/stories.js"></script> 
   </body>
 </html>
