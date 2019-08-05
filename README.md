@@ -8,6 +8,109 @@ Installation
     npm install json-silo
 
 
+Hello json-silo!
+----------------
+
+    npm start
+
+Browse to [localhost:3000/json-silo/](http://localhost:3000/json-silo/) for the story creation page.
+
+
+REST API
+--------
+
+
+### GET /stories/{id}
+
+Retrieve the story with the given _id_.
+
+#### Example request
+
+| Method | Route            | Content-Type     |
+|:-------|:-----------------|:-----------------|
+| GET    | /stories/barnowl | application/json |
+
+#### Example response
+
+    {
+      "_meta": {
+        "message": "ok",
+        "statusCode": 200
+      },
+      "_links": {
+        "self": {
+          "href": "http://localhost:3000/stories/barnowl"
+        }
+      },
+      "stories": {
+        "barnowl": {
+          "@context": {
+            "schema": "https://schema.org/"
+          },
+          "@graph": [
+            {
+              "@id": "person",
+              "@type": "schema:Person",
+              "schema:givenName": "barnowl"
+            }
+          ]
+        }
+      }
+    }
+
+
+### POST /stories
+
+Create a story.
+
+#### Example request
+
+| Method | Route    | Content-Type     |
+|:-------|:---------|:-----------------|
+| POST   | /stories | application/json |
+
+    {
+      "@context": {
+        "schema": "https://schema.org/"
+      },
+      "@graph": [
+        {
+          "@id": "person",
+          "@type": "schema:Person",
+          "schema:givenName": "barnowl"
+        }
+      ]
+    }
+
+#### Example response
+
+    {
+      "_meta": {
+        "message": "ok",
+        "statusCode": 200
+      },
+      "_links": {
+        "self": {
+          "href": "http://localhost:3000/stories"
+        }
+      },
+      "stories": {
+        "barnowl": {
+          "@context": {
+            "schema": "https://schema.org/"
+          },
+          "@graph": [
+            {
+              "@id": "person",
+              "@type": "schema:Person",
+              "schema:givenName": "barnowl"
+            }
+          ]
+        }
+      }
+    }
+
+
 What's in a name?
 -----------------
 
