@@ -1,7 +1,10 @@
 {
   "name": "json-silo",
-  "homepage": "https://github.com/reelyactive/json-silo/",
-  "author": "reelyActive <webdev@reelyactive.com>",
+  "homepage": "https://www.reelyactive.com",
+  "author": {
+    "name": "reelyActive",
+    "email": "info@reelyactive.com"
+  },
   "description": "A contextual data silo for the IoT and the Physical Web.  We believe in an open Internet of Things.",
   "keywords": [
     "reelyActive",
@@ -11,34 +14,39 @@
     "Schema.org",
     "JSON-LD"
   ],
-  "version": "0.5.2",
+  "version": "1.0.0",
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=6.0.0"
   },
-  "main": "./lib/server.js",
-  "bin": {
-    "json-silo": "./bin/json-silo"
+  "main": "./lib/jsonsilo.js",
+  "scripts": {
+    "start": "node bin/json-silo"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/reelyactive/json-silo.git"
   },
   "dependencies": {
-    "nedb": ">=1.5.0",
+    "body-parser": ">=1.19.0",
+    "cors": "^2.8.5",
     "express": ">=4.0.0",
-    "body-parser": ">=1.14.1",
-    "cors": ">=2.7.1",
-    "express-session": ">=1.9.1",
-    "passport":"~0.2.1",
-    "passport-local":"~1.0.0"
+    "multer": "^1.4.1",
+    "nedb": "^1.8.0",
+    "sharp": "^0.22.1"
   },
-  "devDependencies": {},
   "bugs": {
     "url": "https://github.com/reelyactive/json-silo/issues"
   },
   "contributors": [
-    { "name": "Jeffrey Dungen" },
-    { "name": "George Koulouris" }
+    {
+      "name": "Jeffrey Dungen"
+    },
+    {
+      "name": "George Koulouris"
+    },
+    {
+      "name": "Furaha Damien"
+    }
   ],
   "license": "MIT"
 }
