@@ -1,7 +1,12 @@
 #!/usr/bin/env node
+/**
+ * Copyright reelyActive 2015-2019
+ * We believe in an open Internet of Things
+ */
 
-var path = require('path');
-var fs = require('fs');
-var lib = path.join(path.dirname(fs.realpathSync(__filename)), '../lib');
 
-require(lib + '/server.js');
+const JSONSilo = require('../lib/jsonsilo.js');
+
+const options = {};
+
+let app = new JSONSilo(options);
