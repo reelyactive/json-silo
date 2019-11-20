@@ -27,17 +27,6 @@ node_modules
 # Users Environment Variables
 .lock-wscript
 
-<<<<<<< HEAD
-# Temporary files
-*~
-=======
-# static folders
-images
+# Data directories 
 data
-
-
-
-
-
-
->>>>>>> release-1.0
+images
