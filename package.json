@@ -14,7 +14,7 @@
     "Schema.org",
     "JSON-LD"
   ],
-  "version": "1.0.1",
+  "version": "1.0.2",
   "engines": {
     "node": ">=6.0.0"
   },
@@ -32,7 +32,7 @@
     "express": ">=4.0.0",
     "multer": "^1.4.1",
     "nedb": "^1.8.0",
-    "sharp": "^0.22.1"
+    "sharp": "^0.23.3"
   },
   "bugs": {
     "url": "https://github.com/reelyactive/json-silo/issues"
