@@ -128,10 +128,21 @@ What's next?
 
 __json-silo__ v1.0.0 was released in August 2019, superseding all earlier versions, the latest of which remains available in the [release-0.5 branch](https://github.com/reelyactive/json-silo/tree/release-0.5) and as [json-silo@0.5.2 on npm](https://www.npmjs.com/package/json-silo/v/0.5.2).
 
-This is an active work in progress.  Expect regular changes and updates, as well as improved documentation!  If you're developing with __json-silo__ check out:
-* [diyActive](https://reelyactive.github.io/) our developer page
-* our [node-style-guide](https://github.com/reelyactive/node-style-guide) for development
-* our [contact information](https://www.reelyactive.com/contact/) to get in touch if you'd like to contribute
+__json-silo__ v1.1.0 migrates to [ESMapDB](https://github.com/reelyactive/esmapdb) from [NeDB](https://github.com/louischatriot/nedb).  If upgrading from a previous version, any stored stories will need to be recreated.
+
+
+Contributing
+------------
+
+Discover [how to contribute](CONTRIBUTING.md) to this open source project which upholds a standard [code of conduct](CODE_OF_CONDUCT.md).
+
+
+Security
+--------
+
+Consult our [security policy](SECURITY.md) for best practices using this open source software and to report vulnerabilities.
+
+[![Known Vulnerabilities](https://snyk.io/test/github/reelyactive/json-silo/badge.svg)](https://snyk.io/test/github/reelyactive/json-silo)
 
 
 License
