@@ -2,6 +2,14 @@ json-silo
 =========
 
 
+A lightweight digital twins store and API for context-aware physical spaces
+---------------------------------------------------------------------------
+
+The __json-silo__ is a digital twins store and an accessory module of [Pareto Anywhere](https://www.reelyactive.com/pareto/anywhere/) open source middleware for context-aware physical spaces.
+
+Specifically, the __json-silo__ stores "stories" which are machine-readable representations of people, products, places, etc. in the form of JSON-LD and Schema.org.  Additionally, it provides a simple mechanism for file storage and retrieval, for any accompanying metadata such as images.  The __json-silo__ can run standalone, even on resource-constrained devices.
+
+
 Installation
 ------------
 
@@ -13,55 +21,20 @@ Hello json-silo!
 
     npm start
 
-Browse to [localhost:3000/json-silo/](http://localhost:3000/json-silo/) for the story creation page.
+Browse to [localhost:3001/json-silo/](http://localhost:3001/json-silo/) and observe the json-silo logo.  Interact with the json-silo via its REST API.
 
 
 REST API
 --------
 
-
-### GET /stories/{id}
-
-Retrieve the story with the given _id_.
-
-#### Example request
-
-| Method | Route            | Content-Type     |
-|:-------|:-----------------|:-----------------|
-| GET    | /stories/barnowl | application/json |
-
-#### Example response
-
-    {
-      "_meta": {
-        "message": "ok",
-        "statusCode": 200
-      },
-      "_links": {
-        "self": {
-          "href": "http://localhost:3000/stories/barnowl"
-        }
-      },
-      "stories": {
-        "barnowl": {
-          "@context": {
-            "schema": "https://schema.org/"
-          },
-          "@graph": [
-            {
-              "@id": "person",
-              "@type": "schema:Person",
-              "schema:givenName": "barnowl"
-            }
-          ]
-        }
-      }
-    }
+The __json-silo__'s REST API includes the following two base routes:
+- /stories _for retrieving/specifying digital twins_
+- /store _for storing and retrieving metadata such as /images_
 
 
 ### POST /stories
 
-Create a story.
+Create a story.  The _id_ of the created story is provided in the response.
 
 #### Example request
 
@@ -109,6 +82,67 @@ Create a story.
         }
       }
     }
+
+
+### GET /stories/{id}
+
+Retrieve the story with the given _id_.
+
+#### Example request
+
+| Method | Route            | Content-Type     |
+|:-------|:-----------------|:-----------------|
+| GET    | /stories/barnowl | application/json |
+
+#### Example response
+
+    {
+      "_meta": {
+        "message": "ok",
+        "statusCode": 200
+      },
+      "_links": {
+        "self": {
+          "href": "http://localhost:3000/stories/barnowl"
+        }
+      },
+      "stories": {
+        "barnowl": {
+          "@context": {
+            "schema": "https://schema.org/"
+          },
+          "@graph": [
+            {
+              "@id": "person",
+              "@type": "schema:Person",
+              "schema:givenName": "barnowl"
+            }
+          ]
+        }
+      }
+    }
+
+
+### POST /store/images
+
+Upload an image to the store.  The _id_ (modified filename) of the uploaded image is provided in the response.  The image is modified using [sharp](https://github.com/lovell/sharp) to conform to standard dimensions before it is stored on the filesystem.
+
+#### Example request
+
+| Method | Route         | Content-Type        |
+|:-------|:--------------|:--------------------|
+| POST   | /store/images | multipart/form-data |
+
+
+### GET /store/images/{id}
+
+Retrieve the image with the given _id_ (filename).
+
+#### Example request
+
+| Method | Route                      | Content-Type        |
+|:-------|:---------------------------|:--------------------|
+| POST   | /store/images/12345678.jpg | multipart/form-data |
 
 
 What's in a name?
