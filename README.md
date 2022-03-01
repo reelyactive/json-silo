@@ -2,10 +2,10 @@ json-silo
 =========
 
 
-A lightweight digital twins store and API for context-aware physical spaces
----------------------------------------------------------------------------
+A lightweight digital twins store and API for the IoT
+-----------------------------------------------------
 
-The __json-silo__ is a digital twins store and an accessory module of [Pareto Anywhere](https://www.reelyactive.com/pareto/anywhere/) open source middleware for context-aware physical spaces.
+The __json-silo__ is a digital twins store and an accessory module of [Pareto Anywhere](https://www.reelyactive.com/pareto/anywhere/) open source middleware for [context-aware physical spaces](https://www.reelyactive.com/context-aware-physical-spaces/).
 
 Specifically, the __json-silo__ stores "stories" which are machine-readable representations of people, products, places, etc. in the form of JSON-LD and Schema.org.  Additionally, it provides a simple mechanism for file storage and retrieval, for any accompanying metadata such as images.  The __json-silo__ can run standalone, even on resource-constrained devices.
 
