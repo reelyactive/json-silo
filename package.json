@@ -28,9 +28,9 @@
   },
   "dependencies": {
     "esmapdb": "^0.3.0",
-    "express": "^4.16.0",
+    "express": "^4.19.2",
     "multer": "^1.4.5-lts.1",
-    "sharp": "^0.31.2"
+    "sharp": "^0.33.4"
   },
   "devDependencies": {},
   "bugs": {
