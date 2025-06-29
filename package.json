@@ -14,9 +14,9 @@
     "Schema.org",
     "JSON-LD"
   ],
-  "version": "1.1.5",
+  "version": "1.1.6",
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=18.0.0"
   },
   "main": "./lib/jsonsilo.js",
   "scripts": {
@@ -28,9 +28,9 @@
   },
   "dependencies": {
     "esmapdb": "^0.3.0",
-    "express": "^4.19.2",
-    "multer": "^1.4.5-lts.1",
-    "sharp": "^0.33.4"
+    "express": "^4.21.2",
+    "multer": "^2.0.1",
+    "sharp": "^0.34.2"
   },
   "devDependencies": {},
   "bugs": {
