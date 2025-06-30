@@ -1,5 +1,5 @@
 /**
- * Copyright reelyActive 2014-2022
+ * Copyright reelyActive 2014-2025
  * We believe in an open Internet of Things
  */
 
@@ -34,7 +34,7 @@ if((window.location.pathname.endsWith(STORIES_ROUTE )) ||
 
 // Retrieve and render the story
 if(!isRootQuery) {
-  cormorant.retrieveStory(window.location.href, function(story) {
+  cormorant.retrieveStory(window.location.href, {}, (story) => {
     jsonResponse.textContent = JSON.stringify(story, null, 2);
     loading.hidden = true;
 
