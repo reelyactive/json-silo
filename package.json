@@ -14,7 +14,7 @@
     "Schema.org",
     "JSON-LD"
   ],
-  "version": "1.2.0",
+  "version": "1.2.1",
   "engines": {
     "node": ">=18.0.0"
   },
